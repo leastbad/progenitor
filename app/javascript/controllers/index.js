@@ -11,16 +11,19 @@ import Dropzone from 'dropzone'
 
 Dropzone.autoDiscover = false
 
-const context = require.context('controllers', true, /_controller\.js$/)
+const app = require.context('controllers', true, /_controller\.js$/)
 const surge = require.context('controllers/surge', true, /_controller\.js$/)
 
 const application = Application.start()
-application.load(definitionsFromContext(context))
+application.load(definitionsFromContext(app))
 application.load(definitionsFromContext(surge))
 application.register('flatpickr', Flatpickr)
 application.consumer = consumer
 
-StimulusReflex.initialize(application, { consumer, controller, isolate: true })
+StimulusReflex.initialize(application, {
+  controller,
+  isolate: true
+})
 
 if (process.env.RAILS_ENV === 'development') {
   StimulusReflex.debug = true
