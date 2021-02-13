@@ -1,0 +1,24 @@
+{
+  "name": "progenitor",
+  "private": true,
+  "dependencies": {
+    "@popperjs/core": "^2.6.0",
+    "@rails/actioncable": "^6.1.2-1",
+    "@rails/ujs": "^6.1.2-1",
+    "@rails/webpacker": "5.2.1",
+    "bootstrap": "^5.0.0-beta2",
+    "local-time": "^2.1.0",
+    "notyf": "^3.9.0",
+    "radiolabel": "^1.1.0",
+    "sass": "^1.32.7",
+    "simplebar": "6.0.0-beta.9",
+    "stimulus": "^2.0.0",
+    "stimulus-use": "^0.23.0",
+    "stimulus_reflex": "3.4.1",
+    "turbolinks": "^5.2.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
+  }
+}

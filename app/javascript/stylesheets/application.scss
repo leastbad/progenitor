@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700&display=swap');
+
+// Bootstrap mixins and functions
+@import 'bootstrap/scss/_functions';
+@import "variables";
+
+// Change variables here
+@import 'bootstrap/scss/_variables';
+@import 'bootstrap/scss/_mixins';
+@import 'bootstrap/scss/_utilities';
+
+// Bootstrap
+@import "bootstrap/scss/_root";
+@import "bootstrap/scss/_reboot";
+@import "bootstrap/scss/_type";
+@import "bootstrap/scss/_images";
+@import "bootstrap/scss/_containers";
+@import "bootstrap/scss/_grid";
+@import "bootstrap/scss/_tables";
+@import "bootstrap/scss/_forms";
+@import "bootstrap/scss/_buttons";
+@import "bootstrap/scss/_transitions";
+@import "bootstrap/scss/_dropdown";
+@import "bootstrap/scss/_button-group";
+@import "bootstrap/scss/_nav";
+@import "bootstrap/scss/_navbar";
+@import "bootstrap/scss/_card";
+@import "bootstrap/scss/_accordion";
+@import "bootstrap/scss/_breadcrumb";
+@import "bootstrap/scss/_pagination";
+@import "bootstrap/scss/_badge";
+@import "bootstrap/scss/_alert";
+@import "bootstrap/scss/_progress";
+@import "bootstrap/scss/_list-group";
+@import "bootstrap/scss/_close";
+@import "bootstrap/scss/_toasts";
+@import "bootstrap/scss/_modal";
+@import "bootstrap/scss/_tooltip";
+@import "bootstrap/scss/_popover";
+@import "bootstrap/scss/_carousel";
+@import "bootstrap/scss/_spinners";
+
+@import "bootstrap/scss/_helpers";
+@import "bootstrap/scss/utilities/_api";
+
+// Vendor
+// @import "vendor";
+
+// mixins & functions
+@import "mixins";
+@import "functions";
+
+// Utilities
+@import "utilities";
+
+// Layout
+@import "layout";
+
+// Components
+@import "components";
+@import "notyf";
+@import "optimism";
+
+// write your custom styles here!
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.shift-left-when-hidden:not(.show) {
+  right: 100% !important;
+}
