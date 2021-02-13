@@ -39,7 +39,8 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
   gem "pry-rails"
-  # gem "letter_opener", "~> 1.7"
+  gem "ngrok-tunnel", "~> 2.1"
+  gem "letter_opener", "~> 1.7"
 end
 
 group :test do
@@ -56,11 +57,11 @@ end
 gem "devise", "~> 4.7"
 gem "cable_ready", "~> 4.5.0"
 gem "stimulus_reflex", "~> 3.4.1"
-
 gem "optimism", "~> 0.4.1"
 
 gem "sidekiq", "~> 6.1"
-
-
+gem "sidekiq-scheduler", "~> 3.0"
 
 gem "pagy", "~> 3.10.0"
+
+gem "rqrcode", "~> 1.2"

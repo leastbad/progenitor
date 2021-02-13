@@ -7,6 +7,8 @@
     "@rails/ujs": "^6.1.2-1",
     "@rails/webpacker": "5.2.1",
     "bootstrap": "^5.0.0-beta2",
+    "chartist": "^0.11.4",
+    "chartist-plugin-tooltips": "^0.0.17",
     "local-time": "^2.1.0",
     "notyf": "^3.9.0",
     "radiolabel": "^1.1.0",
