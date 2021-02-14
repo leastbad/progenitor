@@ -148,6 +148,8 @@ GEM
     raabro (1.4.0)
     racc (1.5.2)
     rack (2.2.3)
+    rack-mini-profiler (2.3.1)
+      rack (>= 1.2.0)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -263,20 +265,21 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootsnap (>= 1.4.2)
+  bootsnap (>= 1.4.4)
   byebug
   cable_ready (~> 4.5.0)
-  capybara (>= 2.15)
+  capybara (>= 3.26)
   devise (~> 4.7)
   hiredis
   jbuilder (~> 2.7)
   letter_opener (~> 1.7)
-  listen (~> 3.2)
+  listen (~> 3.3)
   ngrok-tunnel (~> 2.1)
   optimism (~> 0.4.1)
   pagy (~> 3.10.0)
   pry-rails
   puma (~> 5.2.1)
+  rack-mini-profiler (~> 2.0)
   rails (~> 6.1.2.1)
   redis (>= 4.0)
   redis-session-store (~> 0.11.3)
@@ -287,7 +290,7 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   stimulus_reflex (~> 3.4.1)
   turbolinks (~> 5.2)
-  web-console (>= 3.3.0)
+  web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.2.1)
 

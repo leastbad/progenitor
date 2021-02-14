@@ -1,27 +1,41 @@
 import { Controller } from 'stimulus'
 import Chartist from 'chartist'
+import 'chartist-plugin-tooltips'
+
+const sum = function (a, b) {
+  return a + b
+}
 
 export default class extends Controller {
+  static values = {
+    data: Object,
+    donut: Boolean,
+    donutWidth: Number,
+    donutSolid: Boolean,
+    fullWidth: Boolean,
+    showLabel: Boolean,
+    tooltip: Boolean,
+    high: Number,
+    low: Number,
+    startAngle: Number
+  }
+
   initialize () {
-    var data = {
-      series: [70, 20, 10]
-    }
-
-    var sum = function (a, b) {
-      return a + b
-    }
-
-    new Chartist.Pie(this.element, data, {
-      labelInterpolationFnc: function (value) {
-        return Math.round((value / data.series.reduce(sum)) * 100) + '%'
+    new Chartist.Pie(this.element, this.dataValue, {
+      labelInterpolationFnc: value => {
+        return (
+          Math.round((value / this.dataValue.series.reduce(sum)) * 100) + '%'
+        )
       },
-      low: 0,
-      high: 8,
-      donut: true,
-      donutWidth: 20,
-      donutSolid: true,
-      fullWidth: false,
-      showLabel: false
+      low: this.lowValue,
+      high: this.highValue,
+      donut: this.donutValue,
+      donutWidth: this.donutWidthValue,
+      donutSolid: this.donutSolidValue,
+      fullWidth: this.fullWidthValue,
+      showLabel: this.showLabelValue,
+      plugins: this.tooltipValue ? [Chartist.plugins.tooltip()] : [],
+      startAngle: this.startAngleValue
     })
   }
 }

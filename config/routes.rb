@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   get "dashboard/overview", to: "dashboard#overview"
+  get "dashboard/traffic", to: "dashboard#traffic"
   root to: "home#index"
 end

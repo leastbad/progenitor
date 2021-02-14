@@ -1,0 +1,29 @@
+<div class="col-12 mb-4">
+  <div class="card bg-secondary-alt shadow-sm">
+    <div class="card-header d-sm-flex flex-row align-items-center flex-0">
+      <div class="d-block mb-3 mb-sm-0">
+        <div class="h5 fw-normal mb-2">Sales Value</div>
+        <h2 class="h3">$10,567</h2>
+        <div class="small mt-2">
+          <span class="fw-bold me-2">Yesterday</span>
+          <span class="fas fa-angle-up text-success"></span>
+          <span class="text-success fw-bold">10.57%</span>
+        </div>
+      </div>
+      <div class="d-flex ms-auto">
+        <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
+        <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
+      </div>
+    </div>
+    <div class="card-body p-2">
+      <div class="ct-chart-sales-value ct-double-octave ct-series-g"
+        data-controller="line-chart" 
+        data-line-chart-data-value='{"labels":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"series":[[0,10,30,40,80,60,100]]}' 
+        data-line-chart-show-area-value="true" 
+        data-line-chart-full-width-value="true" 
+        data-line-chart-tooltip-value="true"
+        data-line-chart-show-grid-x-value="true"
+        data-line-chart-interpolation-value="k"></div>
+    </div>
+  </div>
+</div>

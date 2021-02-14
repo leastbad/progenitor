@@ -118,7 +118,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link pt-1 px-0" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="media d-flex align-items-center">
-            <img class="user-avatar md-avatar rounded-circle" alt="<%= current_user.name %>" src="<%= gravatar(current_user.email) %>">
+            <img class="user-avatar md-avatar rounded-circle" alt="<%= current_user.name %>" src="<%= user_image(current_user) %>">
             <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
               <span class="mb-0 font-small fw-bold"><%= current_user.name %></span>
             </div>

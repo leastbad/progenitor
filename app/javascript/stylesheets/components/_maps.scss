@@ -3,7 +3,7 @@
  */
 
 
- .map {
+.map {
 	height: 400px;
 	width: 100%;
 	@include filter(grayscale(100%))
@@ -93,7 +93,6 @@
 	z-index: 1;
 	display: flex;
 	overflow: hidden;
-	border-radius: $border-radius;
 	box-shadow: $box-shadow-sm;
   }
   
@@ -115,6 +114,7 @@
 	width: 30px;
 	height: 30px;
 	position: relative;
+  background-color: #444;
   }
   
   .svgMap-map-wrapper .svgMap-control-button.svgMap-zoom-button:before, .svgMap-map-wrapper .svgMap-control-button.svgMap-zoom-button:after {
