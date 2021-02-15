@@ -17,6 +17,7 @@
     "stimulus": "^2.0.0",
     "stimulus-use": "^0.23.0",
     "stimulus_reflex": "3.4.1",
+    "svgmap-next": "^2.0.1",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

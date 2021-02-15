@@ -1,17 +1,23 @@
 import { Controller } from 'stimulus'
+import svgmap from 'svgmap-next'
 
 export default class extends Controller {
   connect () {
-    document.addEventListener('turbolinks:load', this.addMap)
+    this.addMap()
+    document.addEventListener('turbolinks:before-cache', this.destroyMap)
   }
 
   disconnect () {
-    document.removeEventListener('turbolinks:load', this.addMap)
+    document.removeEventListener('turbolinks:before-cache', this.destroyMap)
+  }
+
+  destroyMap = () => {
+    this.map.unload()
   }
 
   addMap = () => {
-    new svgMap({
-      targetElementID: 'map',
+    this.map = new svgmap({
+      element: this.element,
       colorMin: '#FCE1C3',
       colorMax: '#F8BD7A',
       flagType: 'emoji',
