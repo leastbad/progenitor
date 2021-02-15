@@ -7,21 +7,33 @@ export default class extends Controller {
 
   connect () {
     this.cleave = new Cleave(this.element, this.optionsValue)
-    if (this.hasDigitsValue)
+    if (this.hasDigitsValue) {
       this.element.addEventListener('beforeinput', this.inputHandler)
+      this.element.addEventListener('paste', this.pasteHandler)
+    }
   }
 
   disconnect () {
     this.cleave.destroy()
-    if (this.hasDigitsValue)
+    if (this.hasDigitsValue) {
       this.element.removeEventListener('beforeinput', this.inputHandler)
+      this.element.removeEventListener('paste', this.pasteHandler)
+    }
   }
 
   inputHandler = event => {
     if (
-      String(this.element.value).length === this.digitsValue &&
+      String(this.element.value).length >= this.digitsValue &&
       event.inputType === 'insertText'
     )
       event.preventDefault()
+  }
+
+  pasteHandler = event => {
+    if (
+      String(event.clipboardData.getData('text')).length >= this.digitsValue
+    ) {
+      event.preventDefault()
+    }
   }
 }
