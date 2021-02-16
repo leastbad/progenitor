@@ -30,14 +30,12 @@ export default class extends ApplicationController {
       ajax: this.hasReflexValue ? this.search : () => {},
       onChange: this.onChange
     })
-
-    if (this.hasReflexValue) document.addEventListener('data', this.results)
   }
 
   search = (search, callback) =>
-    this.stimulate(this.reflexValue, search).then(() => callback(false))
-
-  results = event => this.select.setData(event.detail.options)
+    this.stimulate(this.reflexValue, search).then(({ payload }) =>
+      callback(payload)
+    )
 
   onChange = () => {
     if (!this.select.data.searchValue) return
