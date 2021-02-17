@@ -1,0 +1,17 @@
+<%= render "messages/control" %>
+<div class="message-wrapper border border-gray-400 bg-white shadow-sm rounded">
+  <% 4.times do |index| %>
+    <%= render partial: "message", locals: {index: index} %>
+  <% end %>
+  <div class="row p-4">
+    <div class="col-7 mt-1">
+      Showing 1 - 20 of 289
+    </div>
+    <div class="col-5">
+      <div class="btn-group float-end">
+        <a href="#" class="btn btn-light"><span class="fas fa-chevron-left"></span></a>
+        <a href="#" class="btn btn-dark"><span class="fas fa-chevron-right"></span></a>
+      </div>
+    </div>
+  </div>
+</div>

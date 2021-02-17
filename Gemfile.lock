@@ -95,6 +95,8 @@ GEM
     erubi (1.10.0)
     et-orbi (1.2.4)
       tzinfo
+    faker (2.16.0)
+      i18n (>= 1.6, < 2)
     ffi (1.14.2)
     fugit (1.4.2)
       et-orbi (~> 1.1, >= 1.1.8)
@@ -270,6 +272,7 @@ DEPENDENCIES
   cable_ready (~> 4.5.0)
   capybara (>= 3.26)
   devise (~> 4.7)
+  faker (~> 2.16)
   hiredis
   jbuilder (~> 2.7)
   letter_opener (~> 1.7)
