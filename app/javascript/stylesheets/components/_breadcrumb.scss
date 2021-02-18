@@ -8,6 +8,8 @@
     color: $breadcrumb-item-color;
     font-weight: $breadcrumb-font-weight;
     font-size: $font-size-xs;
+    padding-right: 0.4em;
+    padding-left: 0.1em !important;
     @include media-breakpoint-up(sm){
       font-size: $font-size-sm;
     }
@@ -19,10 +21,7 @@
 
   + .breadcrumb-item {
     &:before{
-      content: "\f101";
-      font-family: $font-awesome-5;
-      font-weight: 900;
-      color: $breadcrumb-divider-color;
+      content: '';
     }
   }
   

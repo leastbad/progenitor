@@ -1,0 +1,45 @@
+<%
+  name = Faker::Name.name
+  initials = name.split(" ")[0, 2].map(&:first).join
+  avatar_color = ["success", "warning", "primary", "secondary", "danger", "info"].sample
+  status = ["Active", "Inactive", "Pending", "Suspended"].sample
+  color = {"Active" => "success", "Inactive" => "info", "Pending" => "warning", "Suspended" => "danger"}
+  icon = {"Active" => "check-circle", "Inactive" => "clock", "Pending" => "info-circle", "Suspended" => "info-circle"}
+%>
+<tr>
+  <td>
+    <div class="form-check dashboard-check">
+      <input class="form-check-input" type="checkbox" value="" id="userCheck2">
+      <label class="form-check-label" for="userCheck2">
+      </label>
+    </div>
+  </td>
+  <td>
+    <a href="#" class="d-flex align-items-center">
+      <div class="user-avatar bg-<%= avatar_color %> me-3"><span><%= initials %></span></div>
+      <div class="d-block">
+        <span class="fw-bold"><%= name %></span>
+        <div class="small text-gray"><%= Faker::Internet.email %></div>
+      </div>
+    </a>
+  </td>
+  <td><span class="fw-normal"><%= Faker::Date.backward(days: 14) %></span></td>
+  <td><span class="fw-normal"><span class="fas fa-<%= icon[status] %> text-<%= color[status] %> me-2"></span>Email</span></td>
+  <td><span class="fw-normal text-<%= color[status] %>"><%= status %></span></td>
+  <td>
+    <div class="btn-group">
+      <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="icon icon-sm pt-1">
+          <span class="fas fa-ellipsis-h icon-dark"></span>
+        </span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu py-0">
+        <a class="dropdown-item rounded-top" href="#"><span class="fas fa-user-shield me-2"></span> Reset Pass</a>
+        <a class="dropdown-item" href="#"><span class="fas fa-eye me-2"></span>View Details</a>
+        <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-user-times me-2"></span>Suspend</a>
+      </div>
+    </div>
+    <span class="fas fa-times-circle text-danger ms-2" title="Delete" data-bs-toggle="tooltip"></span>
+  </td>
+</tr>

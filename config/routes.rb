@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get "kanban", to: "kanban#index"
   get "messages", to: "messages#index"
   get "messages/new", to: "messages#new"
+  get "customers", to: "customers#index"
+  get "transactions", to: "transactions#index"
+  get "tasks", to: "tasks#index"
 
   root to: "home#index"
 end
