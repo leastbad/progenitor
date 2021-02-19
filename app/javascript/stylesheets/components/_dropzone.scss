@@ -1,14 +1,24 @@
 .dropzone {
-    min-height: 150px;
-    border: 2px dashed $gray-600;
-    background: $white;
-    &:hover{
-        background-color: $soft;
+  min-height: 150px;
+  border: 2px dashed $gray-600;
+  background: $white;
+  padding: 20px 20px;
+  &:hover {
+    background-color: $soft;
+  }
+  .dz-message {
+    text-align: center;
+    margin: 2em 0;
+    .dz-button {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-bold;
+
+      background: none;
+      color: inherit;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      outline: inherit;
     }
-    .dz-message{
-        .dz-button{
-            font-size:$font-size-lg;
-            font-weight:$font-weight-bold;
-        }
-    }
+  }
 }

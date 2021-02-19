@@ -1,0 +1,13 @@
+<div class="col-12 mb-4">
+  <div class="card shadow-sm text-center p-0">
+    <div class="profile-cover rounded-top"  data-controller="background" data-background-image-value="https://source.unsplash.com/1200x800/?architecture"></div>
+    <div class="card-body pb-5">
+      <img src="<%= user_image(current_user) %>" class="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4" alt="<%= current_user.name %>">
+      <h4 class="h3"><%= current_user.name %></h4>
+      <h5 class="fw-normal"><%= Faker::Job.title %></h5>
+      <p class="text-gray mb-4"><%= Faker::Nation.capital_city %></p>
+      <a class="btn btn-sm btn-dark me-2" href="#"><span class="fas fa-user-plus me-1"></span> Connect</a>
+      <a class="btn btn-sm btn-secondary" href="#">Send Message</a>
+    </div>
+  </div>
+</div>

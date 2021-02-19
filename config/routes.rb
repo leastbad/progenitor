@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "customers", to: "customers#index"
   get "transactions", to: "transactions#index"
   get "tasks", to: "tasks#index"
+  get "settings", to: "settings#index"
 
   root to: "home#index"
 end
