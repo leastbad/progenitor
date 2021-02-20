@@ -40,8 +40,7 @@ export default class extends Controller {
         this.dateStartAdd.value = info.dateStr
         this.dateEndAdd.value = info.dateStr
         this.newEventTitleInput.value = ''
-        if (info.date.setHours(0, 0, 0, 0) < this.today.setHours(0, 0, 0, 0))
-          return
+        if (info.date.setHours(0, 0, 0, 0) < this.today) return
         addNewEventModal.show()
         this.addNewEventModalEl.addEventListener('shown.bs.modal', () =>
           this.newEventTitleInput.focus()
@@ -98,6 +97,6 @@ export default class extends Controller {
     const now = new Date()
     return new Date(
       Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())
-    )
+    ).setHours(0, 0, 0, 0)
   }
 }
