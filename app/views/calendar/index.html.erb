@@ -7,7 +7,7 @@
       title: "Meeting with " + Faker::Name.name,
       start: date.strftime("%Y-%m-%d"),
       end: (date + (rand(0..3).days)).strftime("%Y-%m-%d"),
-      className: "bg-" + ["red", "orange", "green", "blue", "purple"].sample
+      className: "bg-" + ["pink", "secondary", "dark", "blue", "purple", "danger", "success"].sample
     }
   end
 %>
