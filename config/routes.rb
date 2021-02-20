@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "transactions", to: "transactions#index"
   get "tasks", to: "tasks#index"
   get "settings", to: "settings#index"
+  get "calendar", to: "calendar#index"
 
   root to: "home#index"
 end
