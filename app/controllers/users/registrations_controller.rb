@@ -11,7 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.persisted?
       set_flash_message! :notice, :signed_up
       sign_up(resource_name, resource)
-      ActionCable.server.remote_connections.where(current_user: resource).disconnect
+      # not needed when doing real page loads
+      # cable_ready[SessionChannel].dispatch_event(name: "reconnect").broadcast_to(request.session.id)
       respond_with resource, location: root_path
     else
       clean_up_passwords resource

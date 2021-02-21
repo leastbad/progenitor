@@ -15,6 +15,7 @@
     "cleave.js": "^1.6.0",
     "dropzone": "^5.7.6",
     "flatpickr": "^4.6.9",
+    "leaflet": "^1.7.1",
     "local-time": "^2.1.0",
     "notyf": "^3.9.0",
     "radiolabel": "^1.1.0",

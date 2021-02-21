@@ -1,9 +1,15 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  def create
-    super do
-      ActionCable.server.remote_connections.where(session_id: session.id).disconnect
-    end
-  end
+  # not needed when doing real page loads
+  # def create
+  #   super do
+  #     cable_ready[SessionChannel].dispatch_event(name: "reconnect").broadcast_to(request.session.id)
+  #   end
+  # end
+  # def destroy
+  #   super do
+  #     cable_ready[SessionChannel].dispatch_event(name: "reconnect").broadcast_to(request.session.id)
+  #   end
+  # end
 end
