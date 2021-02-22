@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   get "settings", to: "settings#index"
   get "calendar", to: "calendar#index"
   get "map", to: "map#index"
+  get "components/buttons", to: "components#buttons"
+  get "components/forms", to: "components#forms"
+  get "components/modals", to: "components#modals"
+  get "components/typography", to: "components#typography"
 
   root to: "home#index"
 end

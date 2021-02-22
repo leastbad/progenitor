@@ -8,11 +8,16 @@
     color: $breadcrumb-item-color;
     font-weight: $breadcrumb-font-weight;
     font-size: $font-size-xs;
-    padding-right: 0.4em;
     padding-left: 0.1em !important;
+    padding-right: 0.4em;
     @include media-breakpoint-up(sm){
       font-size: $font-size-sm;
     }
+  }
+
+  .chevron {
+    color: #6b7280;
+    margin-left: 5px;
   }
 
   &.active {
