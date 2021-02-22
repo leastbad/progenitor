@@ -6,8 +6,10 @@ import { definitionsFromContext } from 'stimulus/webpack-helpers'
 import StimulusReflex from 'stimulus_reflex'
 import consumer from '../channels/consumer'
 import controller from '../controllers/application_controller'
-import Dropzone from 'dropzone'
 import Flatpickr from 'stimulus-flatpickr'
+import Dropzone from 'dropzone'
+
+Dropzone.autoDiscover = false
 
 const application = Application.start()
 const context = require.context('controllers', true, /_controller\.js$/)
