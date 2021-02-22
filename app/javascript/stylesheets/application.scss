@@ -36,7 +36,8 @@
 @import "bootstrap/scss/_helpers";
 @import "bootstrap/scss/utilities/_api";
 @import "flatpickr/dist/flatpickr.css";
-@import "vendor";
+@import "vendor/nouislider";
+@import "vendor/chartist/chartist";
 @import "mixins";
 @import "functions";
 @import "utilities";
@@ -44,8 +45,6 @@
 @import "components";
 @import "notyf";
 @import "optimism";
-
-// write your custom styles here!
 
 html {
   scroll-behavior: smooth;
@@ -59,4 +58,8 @@ html {
 
 .shift-left-when-hidden:not(.show) {
   right: 100% !important;
+}
+
+.mw-content {
+  min-width: fit-content;
 }

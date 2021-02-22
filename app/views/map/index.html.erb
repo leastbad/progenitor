@@ -1,4 +1,8 @@
 <%= render "controls" %>
 <div class="card">
-  <div id="mapbox" class="p-4"></div>
+  <div id="mapbox" class="p-4" data-controller="mapbox"
+  data-mapbox-base-lat-lng-value="[37.57,-122.26]" data-mapbox-zoom-value="10" data-mapbox-max-zoom-value="18"
+  data-mapbox-id-value="mapbox/light-v10" data-mapbox-token-value="<%= ENV.fetch("MAPBOX_TOKEN") {} %>"
+  data-mapbox-listings-value='[{"url":"/","latLng":[37.7,-122.41],"name":"Call with Jane","date":"Tomorrow at 12:30 PM"},{"url":"/","latLng":[37.59,-122.39],"name":"HackTM conference","date":"In about 5 minutes"},{"url":"/","latLng":[37.52,-122.29],"name":"Marketing event","date":"Today at 1:00 PM"},{"url":"/","latLng":[37.37,-122.12],"name":"Dinner with partners","date":"In 2 hours"},{"url":"/","latLng":[37.36,-121.94],"name":"Interview with Google","date":"In two days at 15:00 PM"}]'
+  ></div>
 </div>
