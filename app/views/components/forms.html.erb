@@ -27,7 +27,7 @@
             <div class="mb-3">
               <label for="exampleInputIconPassword">Password</label>
               <div class="input-group">
-                <input type="password" class="form-control" id="exampleInputIconPassword" placeholder="Password" aria-label="Password">
+                <input type="password" autocomplete="new-password" class="form-control" id="exampleInputIconPassword" placeholder="Password" aria-label="Password">
                 <span class="input-group-text" id="basic-addon3"><span class="fas fa-unlock-alt"></span></span>
               </div>
             </div>
@@ -42,7 +42,8 @@
           <div class="col-lg-4 col-sm-6">
             <div class="mb-2">
               <label class="my-1 me-2" for="state">Select state:</label>
-              <select id="state" class="w-100" name="state">
+              <select id="state" class="w-100" name="state" data-controller="select">
+                <option data-placeholder="true"></option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -97,7 +98,7 @@
               </select>
             </div>
             <label class="my-1 me-2" for="states">Select states:</label>
-            <select id="states" class="w-100" name="states[]" multiple="multiple">
+            <select id="states" class="w-100" name="states[]" multiple="multiple" data-controller="select">
               <option value="AK">Alaska</option>
               <option value="AZ">Arizona</option>
               <option value="AR">Arkansas</option>

@@ -27,7 +27,6 @@
 @import "bootstrap/scss/_progress";
 @import "bootstrap/scss/_list-group";
 @import "bootstrap/scss/_close";
-@import "bootstrap/scss/_toasts";
 @import "bootstrap/scss/_modal";
 @import "bootstrap/scss/_tooltip";
 @import "bootstrap/scss/_popover";
@@ -36,7 +35,9 @@
 @import "bootstrap/scss/_helpers";
 @import "bootstrap/scss/utilities/_api";
 @import "flatpickr/dist/flatpickr.css";
+@import "slim-select/dist/slimselect.min.css";
 @import "vendor/nouislider";
+@import "vendor/slimselect";
 @import "vendor/chartist/chartist";
 @import "mixins";
 @import "functions";
