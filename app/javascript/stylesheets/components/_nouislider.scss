@@ -14,6 +14,7 @@
 }
 .noUi-target {
   position: relative;
+  direction: ltr;
 }
 .noUi-base,
 .noUi-connects {
@@ -183,7 +184,8 @@
 }
 .noUi-pips {
   position: absolute;
-  color: #999;
+  color: $gray-800;
+  font-size: $font-size-xs;
 }
 /* Values;
  *
@@ -278,6 +280,8 @@
   padding: 5px;
   text-align: center;
   white-space: nowrap;
+  font-size: 0.75rem;
+  font-weight: 400;
 }
 .noUi-horizontal .noUi-tooltip {
   -webkit-transform: translate(-50%, 0);
@@ -321,6 +325,7 @@
 
 html:not([dir='rtl']) .noUi-horizontal .noUi-handle {
   right: -10px;
+  left: auto;
 }
 
 .noUi-vertical {
@@ -341,6 +346,7 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle {
   @include box-shadow($noui-box-shadow);
   background: $white;
   transition: all 150ms cubic-bezier(0.17, 0.01, 0.28, 1.06);
+  outline: none;
 }
 
 .noUi-vertical .noUi-handle {
