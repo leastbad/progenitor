@@ -293,9 +293,9 @@
   integrity sha512-c/+u9cqV6F0+4Hpq01jnJO+GLp2DdT63ppz9Xa+6cHaajM9VFzK/iDXiKK65YtpeVwu+ctfS6iqlMqRgQRzeCw==
 
 "@babel/parser@^7.13.0", "@babel/parser@^7.3.1":
-  version "7.13.0"
-  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.13.0.tgz#49b9b6ee213e5634fa80361dae139effef893f78"
-  integrity sha512-w80kxEMFhE3wjMOQkfdTvv0CSdRSJZptIlLhU4eU/coNJeWjduspUFz+IRnBbAq6m5XYBFMoT1TNkk9K9yf10g==
+  version "7.13.4"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.13.4.tgz#340211b0da94a351a6f10e63671fa727333d13ab"
+  integrity sha512-uvoOulWHhI+0+1f9L4BoozY7U5cIkZ9PgJqvb041d6vypgUmtVPG4vmGm4pSggjl8BELzvHyUeJSUyEMY6b+qA==
 
 "@babel/plugin-proposal-async-generator-functions@^7.12.13":
   version "7.12.13"
@@ -968,9 +968,9 @@
   integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
 
 "@rails/actioncable@>= 6.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.1.0.tgz#f336f25450b1bc43b99bc60557a70b6e6bb1d3d2"
-  integrity sha512-eDgy+vcKN9RIzxmMBfSAe77rTj2cp6kJALiVQyKrW2O9EK2MdostOmP+99At/Dit3ur5+77NVnruxD7y14ZYFA==
+  version "6.1.3"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.1.3.tgz#c8a67ec4d22ecd6931f7ebd98143fddbc815419a"
+  integrity sha512-m02524MR9cTnUNfGz39Lkx9jVvuL0tle4O7YgvouJ7H83FILxzG1nQ5jw8pAjLAr9XQGu+P1sY4SKE3zyhCNjw==
 
 "@rails/actioncable@^6.1.2-1":
   version "6.1.2-1"
@@ -7454,10 +7454,9 @@ simplebar@6.0.0-beta.9:
     can-use-dom "^0.1.0"
     simplebar-core "^1.0.6"
 
-slim-select@^1.27.0:
+"slim-select@https://github.com/leastbad/slim-select":
   version "1.27.0"
-  resolved "https://registry.yarnpkg.com/slim-select/-/slim-select-1.27.0.tgz#0d669c2d2464e69421e158782dc3d310479d976b"
-  integrity sha512-l2uCHFxoY2iPacwcViTiW5jsQqv4MDrW8/dWlX3+K46eCqYhm1SKJMxUmxRzBz1KKaKC7JcwPabwyYVevFuItA==
+  resolved "https://github.com/leastbad/slim-select#cb58b650b656b6cedd91ecbf08129ad3254cb5a6"
   dependencies:
     npm-check "^5.9.2"
 
@@ -7713,7 +7712,7 @@ stimulus@^2.0.0:
     "@stimulus/core" "^2.0.0"
     "@stimulus/webpack-helpers" "^2.0.0"
 
-stimulus_reflex@3.4.1:
+stimulus_reflex@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/stimulus_reflex/-/stimulus_reflex-3.4.1.tgz#2606aee3b2911b5939d68f65a75262fe3c626204"
   integrity sha512-YbFcuE4HndNe9RBQvF/Vu+7GDt0zLGdhQTXuGfLDVti1qggPG3kPgV1YBZ9volzBTGUmLp2PQbxG9j5AIyYp5A==
