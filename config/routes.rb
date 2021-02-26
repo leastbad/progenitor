@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "settings", to: "settings#index"
   get "calendar", to: "calendar#index"
   get "map", to: "map#index"
+  get "pages/invoice", to: "pages#invoice"
   get "components/buttons", to: "components#buttons"
   get "components/forms", to: "components#forms"
   get "components/modals", to: "components#modals"
