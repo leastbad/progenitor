@@ -1,0 +1,38 @@
+<div class="card shadow-sm p-3 mb-4">
+  <div class="card-header border-gray-300 p-3 mb-4 mb-md-0">
+    <h3 class="h5 mb-0">Card details</h3>
+  </div>
+  <div class="card-body p-0 p-md-4">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="form-group">
+          <label class="form-label" for="cardNameLabel"><span class="small text-dark">(Full name as displayed on card)</span></label>
+          <div class="input-group mb-4">
+            <input class="form-control" id="cardNameLabel" placeholder="Name on Card *" type="text" required=""> </div>
+        </div>
+      </div>
+      <div class="col-12 mb-4">
+        <label for="cardNumberLabel">Card Number <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
+          <input class="form-control" id="cardNumberLabel" placeholder="0000 0000 0000 0000" type="text" data-controller="cleave" data-cleave-options-value='{"creditCard":"true"}'>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="cardCVCLabel">CVC <span class="text-danger">*</span></label>
+          <input class="form-control" id="cardCVCLabel" placeholder="CVC" type="text" data-controller="cleave" data-cleave-options-value='{"numeral":"true"}' data-cleave-digits-value="3"> </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <label for="cardExpiryLabel">Card Expiry <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
+          <input class="form-control" id="cardExpiryLabel" placeholder="MM / YY" type="text" data-controller="cleave" data-cleave-options-value='{"date":"true","datePattern":["m","y"]}'>
+        </div>
+      </div>
+      <div class="col-12 mt-4">
+        <button class="btn btn-dark btn-dark mt-2 animate-up-2" type="submit">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get "components/forms", to: "components#forms"
   get "components/modals", to: "components#modals"
   get "components/typography", to: "components#typography"
+  get "widgets", to: "widgets#index"
 
   root to: "home#index"
 end
