@@ -42,7 +42,7 @@
       <div class="col-md-6 mb-3">
         <div class="form-group">
           <label for="phone">Phone</label>
-          <input class="form-control" id="phone" type="tel" placeholder="+1 212-555-1234" required data-controller="phone">
+          <input class="form-control" id="phone" type="tel" placeholder="+1 212-555-1234" required data-controller="cleave" data-cleave-options-value='{"phone":true,"phoneRegionCode":"US"}'>
         </div>
       </div>
     </div>
@@ -70,8 +70,7 @@
       </div>
       <div class="col-sm-4 mb-3">
         <label for="state">State</label>
-        <select class="form-select w-100 mb-0" id="state" name="state" aria-label="State select example">
-          <option selected>State</option>
+        <select class="w-100 mb-0" id="state" name="state" aria-label="State select example" data-controller="select">
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
           <option value="AZ">Arizona</option>
@@ -128,7 +127,7 @@
       <div class="col-sm-4">
         <div class="form-group">
           <label for="zip">ZIP</label>
-          <input class="form-control" id="zip" type="tel" placeholder="ZIP" required>
+          <input class="form-control" id="zip" type="text" placeholder="90210" data-controller="cleave" data-cleave-options-value='{"numeral":true,"numericOnly":true,"numeralPositiveOnly":true,"numeralThousandsGroupStyle":"none"}' data-cleave-digits-value="5">
         </div>
       </div>
     </div>
