@@ -1,6 +1,6 @@
 <div class="card border-light shadow-sm mt-4">
   <div class="card-body">
-    <div class="row text-gray">
+    <div class="row text-gray" data-controller="vertical-align">
       <div class="col-12 pb-4">
         <div class="d-flex align-items-center justify-content-center">
           <span class="h5 fw-normal me-4 mt-2">
@@ -17,7 +17,7 @@
       </div>
       <div class="col-12 col-lg-6 col-xl-4">
         <div class="card mb-4 mb-xl-0">
-          <div class="card-header border-light py-5 px-4">
+          <div class="card-header border-light py-5 px-4" data-vertical-align-target="element" data-group="header">
             <div class="d-flex mb-3">
               <span class="h5 mb-0">$</span>
               <span class="price display-2 mb-0" data-annual="0" data-monthly="0">0</span>
@@ -26,7 +26,7 @@
             <h4 class="mb-3 text-black">Free trial</h4>
             <p class="fw-normal mb-0">If you're new to SEO or just need the basics.</p>
           </div>
-          <div class="card-body pt-5 px-4">
+          <div class="card-body pt-5 px-4" data-vertical-align-target="element" data-group="body">
             <div class="d-flex mb-1">
               <div class="icon-md icon-gray lh-180 me-3"><i class="fas fa-check"></i></div>
               <p>Users<span class="fw-bolder"> 1</span></p>
@@ -37,7 +37,7 @@
             </div>
             <div class="d-flex mb-1">
               <div class="icon-md icon-gray lh-180 me-3"><i class="fas fa-check"></i></div>
-              <p>Publish with  <span class="fw-bolder">Volt</span> &reg; label</p>
+              <p>Publish with  <span class="fw-bolder">Progenitor</span> &reg; label</p>
             </div>
             <div class="d-flex mb-1">
               <div class="icon-md icon-gray lh-180 me-3"><i class="fas fa-check"></i></div>
@@ -65,7 +65,7 @@
       </div>
       <div class="col-12 col-lg-6 col-xl-4">
         <div class="card mb-4 mb-xl-0">
-          <div class="card-header border-light py-5 px-4">
+          <div class="card-header border-light py-5 px-4" data-vertical-align-target="element" data-group="header">
             <div class="d-flex mb-3 text-primary">
               <span class="h5 mb-0">$</span>
               <span class="price display-2 text-primary mb-0" data-controller="countup" data-countup-start-value="199" data-countup-end-value="99" data-countup-switch-value="billingSwitch">199</span>
@@ -74,18 +74,18 @@
             <h4 class="mb-3 text-black">Standard</h4>
             <p class="fw-normal mb-0">Full access to keyword research tools.</p>
           </div>
-          <div class="card-body pt-5 p-4">
+          <div class="card-body pt-5 p-4" data-vertical-align-target="element" data-group="body">
             <div class="d-flex mb-1">
               <div class="icon-md icon-primary lh-180 me-3"><i class="fas fa-check"></i></div>
               <p>Users<span class="fw-bolder"> 5+</span></p>
             </div>
             <div class="d-flex mb-1">
               <div class="icon-md icon-primary lh-180 me-3"><i class="fas fa-check"></i></div>
-              <p>All features on <span class="fw-bolder">FREE</span> plan</p>
+              <p>All free trial features</p>
             </div>
             <div class="d-flex mb-1">
               <div class="icon-md icon-primary lh-180 me-3"><i class="fas fa-check"></i></div>
-              <p>Hide <span class="fw-bolder">Volt</span> &reg; label</p>
+              <p>Hide <span class="fw-bolder">Progenitor</span> &reg; label</p>
             </div>
             <div class="d-flex mb-1">
               <div class="icon-md icon-primary lh-180 me-3"><i class="fas fa-check"></i></div>
@@ -93,7 +93,7 @@
             </div>
             <div class="d-flex mb-1">
               <div class="icon-md icon-primary lh-180 me-3"><i class="fas fa-check"></i></div>
-              <p>Connect to custom domain</p>
+              <p>Use of custom domain</p>
             </div>
             <div class="d-flex mb-1">
               <div class="icon-md icon-primary lh-180 me-3"><i class="fas fa-check"></i></div>
@@ -113,7 +113,7 @@
       </div>
       <div class="col-12 col-lg-6 col-xl-4">
         <div class="card mb-4 mb-xl-0">
-          <div class="card-header border-light py-5 px-4">
+          <div class="card-header border-light py-5 px-4" data-vertical-align-target="element" data-group="header">
             <div class="d-flex mb-3">
               <span class="h5 mb-0">$</span>
               <span class="price display-2 text-secondary mb-0" data-controller="countup" data-countup-start-value="299" data-countup-end-value="199" data-countup-switch-value="billingSwitch">299</span>
@@ -122,14 +122,14 @@
             <h4 class="mb-3 text-black">Premium</h4>
             <p class="fw-normal mb-0">The ideal plan for businesses and agencies.</p>
           </div>
-          <div class="card-body pt-5 px-4">
+          <div class="card-body pt-5 px-4" data-vertical-align-target="element" data-group="body">
             <div class="d-flex mb-1">
               <div class="icon-md icon-secondary lh-180 me-3"><i class="fas fa-check"></i></div>
-              <p>Users<span class="fw-bolder"> 20+</span></p>
+              <p><span class="fw-bolder">Unlimited</span> users</p>
             </div>
             <div class="d-flex mb-1">
               <div class="icon-md icon-secondary lh-180 me-3"><i class="fas fa-check"></i></div>
-              <p>All features on <span class="fw-bolder">BASIC</span> plan</p>
+              <p>All Standard plan features</p>
             </div>
             <div class="d-flex mb-1">
               <div class="icon-md icon-secondary lh-180 me-3"><i class="fas fa-check"></i></div>
@@ -141,7 +141,7 @@
             </div>
             <div class="d-flex mb-1">
               <div class="icon-md icon-secondary lh-180 me-3"><i class="fas fa-check"></i></div>
-              <p>Connect to custom domain</p>
+              <p>Use of subdomains</p>
             </div>
             <div class="d-flex mb-1">
               <div class="icon-md icon-secondary lh-180 me-3"><i class="fas fa-check"></i></div>
@@ -149,12 +149,12 @@
             </div>
             <div class="d-flex mb-1">
               <div class="icon-md icon-secondary lh-180 me-3"><i class="fas fa-check"></i></div>
-              <p>Co-conception program</p>
+              <p>24/7 voice support</p>
             </div>
           </div>
           <div class="card-footer d-grid px-4">
             <a href="#" class="btn btn-secondary text-dark">
-              Start with Pro<span class="icon icon-xs ms-3"><i class="fas fa-arrow-right"></i></span>
+              Start with Premium<span class="icon icon-xs ms-3"><i class="fas fa-arrow-right"></i></span>
             </a>
           </div>
         </div>

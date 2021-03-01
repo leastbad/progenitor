@@ -512,10 +512,6 @@ $embed-responsive-aspect-ratios: (
 //
 // Font, line-height, and color for body text, headings, and more.
 
-// font awesome
-$fontawesome-webfonts-path: '../vendor/font-awesome/webfonts' !default;
-$font-awesome-5: 'Font Awesome 5 Free' !default;
-
 // stylelint-disable value-keyword-case
 $font-family-sans-serif: 'Nunito Sans', sans-serif !default;
 // stylelint-enable value-keyword-case
@@ -894,7 +890,6 @@ $custom-checkbox-checked-bg: $primary !default;
 $custom-checkbox-disabled-checked-bg: rgba($primary, 0.7) !default;
 $custom-checkbox-indicator-border-radius: $border-radius-xl !default;
 $custom-checkbox-indicator-border-width: $border-width-md !default;
-$custom-checkbox-indicator-icon-checked: $font-awesome-5 !default;
 $square-checkbox-indicator-border-radius: 3px !default;
 
 $custom-toggle-slider-bg: $gray-400 !default;
