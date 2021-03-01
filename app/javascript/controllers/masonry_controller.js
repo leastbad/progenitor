@@ -11,7 +11,7 @@ export default class extends Controller {
     this.masonry.addItems(this.itemTargets)
   }
 
-  resize ({ width }) {
-    setTimeout(() => this.masonry.layout(), 50)
+  resize () {
+    this.masonry.reloadItems()
   }
 }
