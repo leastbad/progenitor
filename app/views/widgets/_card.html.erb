@@ -1,57 +1,55 @@
-<div class="col-12 col-lg-6">
-  <div class="card shadow p-2 p-md-4">
-    <div class="card-header px-0">
-      <div class="post-meta">
-        <div class="media d-flex align-items-center justify-content-between">
-          <div class="post-group">
-            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="23k followers" data-controller="tooltip">
-              <img class="avatar-sm me-2 img-fluid rounded-circle" src="<%= user_image(current_user) %>" alt="<%= current_user.name %>"> techhub
-            </a>
+<div class="card shadow p-2 p-md-4 mt-4">
+  <div class="card-header px-0">
+    <div class="post-meta">
+      <div class="media d-flex align-items-center justify-content-between">
+        <div class="post-group">
+          <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="23k followers" data-controller="tooltip">
+            <img class="avatar-sm me-2 img-fluid rounded-circle" src="<%= user_image(current_user) %>" alt="<%= current_user.name %>"> techhub
+          </a>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="author-name text-dark fw-bold font-small me-4 d-none d-lg-block">
+            Posted by <a href="/settings" class="me-2"><%= current_user.name %></a>5 hours ago
           </div>
-          <div class="d-flex align-items-center">
-            <div class="author-name text-dark fw-bold font-small me-4 d-none d-lg-block">
-              Posted by <a href="/settings" class="me-2"><%= current_user.name %></a>5 hours ago
-            </div>
-            <div class="btn-group">
-              <button class="btn btn-link dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="icon icon-sm">
-                  <i class="fas fa-ellipsis-h icon-dark"></i>
-                </span>
-                <span class="sr-only">Toggle Dropdown</span>
-              </button>
-              <div class="dropdown-menu py-0">
-                <a class="dropdown-item rounded-top" href="#"><span class="fas fa-edit me-2"></span>Edit post</a>
-                <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fa fa-trash me-2"aria-hidden="true"></span>Delete post</a>
-              </div>
+          <div class="btn-group">
+            <button class="btn btn-link dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="icon icon-sm">
+                <i class="fas fa-ellipsis-h icon-dark"></i>
+              </span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu py-0">
+              <a class="dropdown-item rounded-top" href="#"><span class="fas fa-edit me-2"></span>Edit post</a>
+              <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fa fa-trash me-2"aria-hidden="true"></span>Delete post</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="card-body py-4 px-0">
-      <a href="#">
-        <img src="https://source.unsplash.com/1200x800/?architecture" class="card-img-top rounded" alt="blog image">
-        <h4 class="my-4">List of public corporations by market capitalization</h4>
-      </a>
-      <p class="card-text mb-4">All of the world's 10 largest companies as measured by market capitalization are American. Market capitalization is the total value of a company's entire purchased shares of stock. While these companies... </p>
-    </div>
-    <div class="card-footer bg-white border-0 pt-0 px-0">
-      <div class="d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between">
-        <div class="post-details mb-3 mb-lg-0">
-          <button class="btn btn-sm btn-dark animate-hover me-2">
-            <span class="fas fa-arrow-up me-2 animate-up-2"></span>
-            4
-          </button>
-          <button class="btn btn-sm btn-danger animate-hover">
-            <span class="fas fa-arrow-down me-2 animate-down-2"></span>
-            1
-          </button>
-        </div>
-        <div class="post-meta">
-          <a class="text-dark me-3" href="#"><i class="far fa-comments me-2"></i>33.7k</a>
-          <button class="btn me-3 btn-link text-primary"><i class="fas fa-share me-2"></i>Share</button>
-          <button class="btn btn-secondary"><i class="far fa-save me-2"></i>Save</button>
-        </div>
+  </div>
+  <div class="card-body py-4 px-0">
+    <a href="#">
+      <img src="https://source.unsplash.com/1200x800/?architecture" class="card-img-top rounded" alt="blog image">
+      <h4 class="my-4">List of public corporations by market capitalization</h4>
+    </a>
+    <p class="card-text mb-4">All of the world's 10 largest companies as measured by market capitalization are American. Market capitalization is the total value of a company's entire purchased shares of stock. While these companies... </p>
+  </div>
+  <div class="card-footer bg-white border-0 pt-0 px-0">
+    <div class="d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between">
+      <div class="post-details mb-3 mb-lg-0">
+        <button class="btn btn-sm btn-dark animate-hover me-2">
+          <span class="fas fa-arrow-up me-2 animate-up-2"></span>
+          4
+        </button>
+        <button class="btn btn-sm btn-danger animate-hover">
+          <span class="fas fa-arrow-down me-2 animate-down-2"></span>
+          1
+        </button>
+      </div>
+      <div class="post-meta">
+        <a class="text-dark me-3" href="#"><i class="far fa-comments me-2"></i>33.7k</a>
+        <button class="btn me-3 btn-link text-primary"><i class="fas fa-share me-2"></i>Share</button>
+        <button class="btn btn-secondary"><i class="far fa-save me-2"></i>Save</button>
       </div>
     </div>
   </div>

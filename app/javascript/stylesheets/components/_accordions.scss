@@ -2,51 +2,46 @@
  * = Accordions
 */
 
-
 .accordion-button {
-    text-align: left;
-    &:not(.collapsed) {
-        &::after {
-          background-image: none;
-          @include transform(rotateZ(45deg));
-        }
+  text-align: left;
+  &::after {
+    background-image: none !important;
+    width: auto;
+  }
+  & svg {
+    margin-left: 10px;
+  }
+  &:not(.collapsed) {
+    & svg {
+      @include transform(rotateZ(45deg));
+      transition: $transition-base;
     }
+  }
 
-    // Accordion icon
-    &::after {
-        background-image: none;
-        content: '\f067';
-        font-family: $font-awesome-5;
-        font-size: $font-size-base;
-        font-weight: 900;
-    }
-
-    &:hover{
-        background-color: $gray-200;
-    }
+  &:hover {
+    background-color: $gray-200;
+  }
+  .accordion-text {
+    min-width: 95%;
+  }
 }
-  
-  
+
 // Flush accordion items
 //
 // Remove borders and border-radius to keep accordion items edge-to-edge.
 
 .accordion-flush {
-    .accordion-button {
-        background-color: transparent;
-        &:not(.collapsed) {
-            color: $tertiary;
-        }
-        &:focus {
-            border-color: $gray-300;
-            box-shadow: none;
-        }
+  .accordion-button {
+    background-color: transparent;
+    &:not(.collapsed) {
+      color: $tertiary;
     }
-    .accordion-collapse {
-        border: 0;
+    &:focus {
+      border-color: $gray-300;
+      box-shadow: none;
     }
+  }
+  .accordion-collapse {
+    border: 0;
+  }
 }
-
-
-
-
