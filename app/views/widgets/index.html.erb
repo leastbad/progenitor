@@ -1,21 +1,21 @@
 <%= render "controls" %>
-<div class="row">
-  <div class="col-12 col-lg-6">
+<div class="row" data-controller="masonry">
+  <div class="col-12 col-lg-6" data-masonry-target="item">
     <%= render "subscription" %>
   </div>
-  <div class="col-12 col-lg-6">
+  <div class="col-12 col-lg-6" data-masonry-target="item">
     <%= render "history" %>
   </div>
-  <div class="col-12 col-lg-6">
+  <div class="col-12 col-lg-6" data-masonry-target="item">
     <%= render "timeline" %>
   </div>
-  <div class="col-12 col-lg-6">
+  <div class="col-12 col-lg-6" data-masonry-target="item">
     <%= render "card" %>
   </div>
-  <div class="col-12 col-lg-6">
+  <div class="col-12 col-lg-6" data-masonry-target="item">
     <%= render "faq" %>
   </div>
-  <div class="col-12">
+  <div class="col-12" data-masonry-target="item">
     <%= render "pricing" %>
   </div>
 </div>
