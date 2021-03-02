@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <div class="list-group kanban-list" data-controller="sortable">
+  <div class="list-group kanban-list" data-dragula-target="container">
     <% rand(1..3).times do %>
       <%= render "kanban/task" %>
     <% end %>
