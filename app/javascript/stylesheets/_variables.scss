@@ -1160,28 +1160,6 @@ $nav-pills-link-active-color: $primary !default;
 $nav-pills-active-border-color: $gray-300 !default;
 $nav-pills-link-active-bg: #f8f8f8 !default;
 
-// Owl navs
-
-$owl-nav-color: $gray-600 !default;
-$owl-nav-color-hover: $gray-900 !default;
-$owl-nav-font-size: $font-size-xxl !default;
-$owl-nav-rounded: 3px !default;
-$owl-nav-margin: 5px !default;
-$owl-nav-padding: 4px 7px !default;
-$owl-nav-background: $gray-400 !default;
-$owl-nav-background-hover: $gray-800 !default;
-$owl-nav-disabled-opacity: 0.5 !default;
-
-// Owl dots
-
-$owl-dot-width: 10px !default;
-$owl-dot-height: 10px !default;
-$owl-dot-rounded: $circle-radius !default;
-$owl-dot-margin: 5px 5px !default;
-$owl-dot-border-width: 2px !default;
-$owl-dot-background: $gray-400 !default;
-$owl-dot-background-active: $gray-800 !default;
-
 // Navbar
 
 $navbar-padding-y: 1rem !default;
@@ -1405,23 +1383,6 @@ $popover-arrow-color: $popover-bg !default;
 
 $popover-arrow-outer-color: fade-in($popover-border-color, 0.05) !default;
 
-// Toasts
-
-$toast-max-width: 350px !default;
-$toast-padding-x: 0.75rem !default;
-$toast-padding-y: 0.25rem !default;
-$toast-font-size: 0.875rem !default;
-$toast-color: null !default;
-$toast-background-color: rgba($white, 0.85) !default;
-$toast-border-width: 1px !default;
-$toast-border-color: rgba(0, 0, 0, 0.1) !default;
-$toast-border-radius: $border-radius !default;
-$toast-box-shadow: $box-shadow !default;
-
-$toast-header-color: $gray-600 !default;
-$toast-header-background-color: rgba($white, 0.85) !default;
-$toast-header-border-color: rgba(0, 0, 0, 0.05) !default;
-
 // Badges
 
 $badge-font-size: 0.75em !default;
@@ -1620,38 +1581,6 @@ $spinner-animation-speed: 0.75s !default;
 $spinner-width-sm: 1.2rem !default;
 $spinner-height-sm: $spinner-width-sm !default;
 $spinner-border-width-sm: 0.2em !default;
-
-// Datepicker
-
-$datepicker-border-radius: $border-radius-sm !default;
-$datepicker-dropdown-padding: 20px 22px !default;
-
-$datepicker-cell-transition: $transition-base !default;
-$datepicker-cell-hover-background: lighten($gray-400, 55%) !default;
-$datepicker-cell-border-radius: 50% !default;
-$datepicker-cell-width: 36px !default;
-$datepicker-cell-height: 36px !default;
-
-$datepicker-disabled-cell-color: $gray-300 !default;
-$datepicker-disabled-old-new-color: $gray-500 !default;
-
-$datepicker-header-cell-border-radius: $border-radius-sm !default;
-
-$datepicker-active-color: $white !default;
-$datepicker-active-background: $secondary !default;
-$datepicker-active-box-shadow: none !default;
-
-$datepicker-range-background: $secondary !default;
-$datepicker-range-cell-focused-background: darken(
-  $datepicker-range-background,
-  5%
-) !default;
-$datepicker-range-color: $white !default;
-$datepicker-range-highlighted-bg: $gray-200 !default;
-
-$datepicker-dropdown-border: lighten($gray-400, 40%) !default;
-$datepicker-dropdown-bg: $white !default;
-$datepicker-highlighted-bg: $datepicker-active-background !default;
 
 // Close
 
