@@ -139,6 +139,7 @@ GEM
       rails (>= 6, >= 5.2)
     orm_adapter (0.5.0)
     pagy (3.10.0)
+    pg (1.2.3)
     pry (0.14.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -223,7 +224,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     stimulus_reflex (3.4.1)
       cable_ready (>= 4.5)
       nokogiri
@@ -280,6 +280,7 @@ DEPENDENCIES
   ngrok-tunnel (~> 2.1)
   optimism (~> 0.4.1)
   pagy (~> 3.10.0)
+  pg (~> 1.1)
   pry-rails
   puma (~> 5.2.1)
   rack-mini-profiler (~> 2.0)
@@ -290,7 +291,6 @@ DEPENDENCIES
   selenium-webdriver
   sidekiq (~> 6.1)
   sidekiq-scheduler (~> 3.0)
-  sqlite3 (~> 1.4)
   stimulus_reflex (~> 3.4.1)
   turbolinks (~> 5.2)
   web-console (>= 4.1.0)
