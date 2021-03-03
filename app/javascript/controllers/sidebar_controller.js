@@ -1,8 +1,10 @@
 import { Controller } from 'stimulus'
 import { useResize } from 'stimulus-use'
+import debounce from 'lodash/debounce'
 
 export default class extends Controller {
   initialize () {
+    this.resize = debounce(this.resize, 10)
     this.sidebarToggle = document.getElementById('sidebar-toggle')
   }
 
@@ -42,6 +44,7 @@ export default class extends Controller {
   }
 
   resize ({ width }) {
+    if (this.width === width) return
     this.width = width
     if (width < 768) this.element.classList.remove('contracted')
     else
