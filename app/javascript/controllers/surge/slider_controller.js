@@ -22,5 +22,9 @@ export default class extends Controller {
 
   disconnect () {
     this.slider.destroy()
+    const hidden = document.createElement('input')
+    hidden.type = 'hidden'
+    hidden.setAttribute('data-slider-target', 'input')
+    this.element.appendChild(hidden)
   }
 }

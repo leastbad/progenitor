@@ -24,5 +24,13 @@ export default class extends Controller {
 
   disconnect () {
     this.slider.destroy()
+    const hiddenLow = document.createElement('input')
+    hiddenLow.type = 'hidden'
+    hiddenLow.setAttribute('data-range-slider-target', 'low')
+    this.element.appendChild(hiddenLow)
+    const hiddenHigh = document.createElement('input')
+    hiddenHigh.type = 'hidden'
+    hiddenHigh.setAttribute('data-range-slider-target', 'high')
+    this.element.appendChild(hiddenHigh)
   }
 }
