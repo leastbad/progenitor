@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "dashboard/overview", to: "dashboard#overview"
   get "dashboard/traffic", to: "dashboard#traffic"
   get "dashboard/analysis", to: "dashboard#analysis"
-  get "dashboard/map", to: "dashboard#map"
+  get "dashboard/explore", to: "dashboard#explore"
   get "kanban", to: "kanban#index"
   get "messages", to: "messages#index"
   get "messages/new", to: "messages#new"
