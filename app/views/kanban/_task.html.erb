@@ -22,12 +22,18 @@
     <% end %>
     <p><%= Faker::Company.catch_phrase %></p>
     <% if rand(1..4) == 1 %>
+      <%
+      progress = rand(0..100)
+      color = "danger"
+      color = "warning" if progress > 33
+      color = "success" if progress > 65
+      %>
     <div class="d-flex align-items-center justify-content-between mb-1">
       <h5 class="h6 mb-0">Progress</h5>
-      <div class="fw-bold small"><span>40%</span></div>
+      <div class="fw-bold small"><span><%= progress %>%</span></div>
     </div>
     <div class="progress">
-      <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar bg-<%= color %>" role="progressbar" style="width: <%= progress %>%" aria-valuenow="<%= progress %>" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
     <% end %>
     <%
