@@ -1,7 +1,6 @@
 module Surge
   class Sidenav
-    attr_accessor :nodes
-    attr_reader :digest, :path
+    attr_reader :nodes, :digest, :path
     delegate :render, to: ApplicationController
 
     def initialize(nodes, path)
