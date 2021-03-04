@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   include CableReady::Broadcaster
+  include Surge
   add_flash_types :primary, :secondary, :success, :danger, :warning, :info, :light, :dark
-  before_action :qrcode
+  before_action :qrcode, if: :user_signed_in?
+  before_action :sidenav, if: :user_signed_in?
   after_action :broadcast_flash, if: :user_signed_in?
   after_action :clear_flash, unless: :user_signed_in?
 
@@ -23,5 +25,9 @@ class ApplicationController < ActionController::Base
         offset: 0, color: '000', shape_rendering: 'crispEdges', module_size: 6
       )
     end
+  end
+
+  def sidenav
+    @sidenav = Surge::Sidenav.new(SIDENAV, request.path).build.html_safe
   end
 end

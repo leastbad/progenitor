@@ -1,0 +1,6 @@
+<li class="nav-item <%= "active" if node.active %>">
+  <a href="<%= node.url %>" class="nav-link">
+    <span class="sidebar-icon"><img src="<%= asset_pack_path "media/images/#{node.image}" %>" class="rounded-circle" height="20" width="20" alt="<%= node.label %>"></span>
+    <span class="sidebar-text"><%= node.label %></span>
+  </a>
+</li>
