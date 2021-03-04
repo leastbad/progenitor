@@ -167,20 +167,19 @@
             <div class="mb-6">
               <span class="h6 fw-bold">Simple Range Slider</span>
             </div>
-            <div class="input-slider" data-controller="slider"
-              data-slider-min-value="100" data-slider-max-value="500" data-slider-current-value="200">
-              <input type="hidden" data-slider-target="input">
+            <div class="input-slider" data-controller="slider" data-slider-min-value="100" data-slider-max-value="500">
+              <div data-slider-target="element"></div>
+              <input type="hidden" data-slider-target="input" value="300">
             </div>
           </div>
           <div class="col-12 col-md-5">
             <div class="mb-6">
               <span class="h6 fw-bold">Range Slider with numbers</span>
             </div>
-            <div data-controller="range-slider"
-            data-range-slider-min-value="100" data-range-slider-max-value="500"
-            data-range-slider-low-value="200" data-range-slider-high-value="400">
-            <input type="hidden" data-range-slider-target="low">
-            <input type="hidden" data-range-slider-target="high">
+            <div data-controller="range-slider" data-range-slider-min-value="100" data-range-slider-max-value="500">
+              <div data-range-slider-target="element"></div>
+              <input type="hidden" data-range-slider-target="low" value="200">
+              <input type="hidden" data-range-slider-target="high" value="400">
             </div>
           </div>
         </div>

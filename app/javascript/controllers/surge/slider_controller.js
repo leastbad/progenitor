@@ -2,12 +2,12 @@ import { Controller } from 'stimulus'
 import noUiSlider from 'nouislider'
 
 export default class extends Controller {
-  static values = { min: Number, max: Number, current: Number }
-  static targets = ['input']
+  static values = { min: Number, max: Number }
+  static targets = ['input', 'element']
 
   connect () {
-    this.slider = noUiSlider.create(this.element, {
-      start: this.currentValue,
+    this.slider = noUiSlider.create(this.elementTarget, {
+      start: this.inputTarget.value,
       connect: [true, false],
       step: 1,
       range: {
@@ -22,9 +22,5 @@ export default class extends Controller {
 
   disconnect () {
     this.slider.destroy()
-    const hidden = document.createElement('input')
-    hidden.type = 'hidden'
-    hidden.setAttribute('data-slider-target', 'input')
-    this.element.appendChild(hidden)
   }
 }

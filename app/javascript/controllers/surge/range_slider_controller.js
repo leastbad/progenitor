@@ -3,12 +3,12 @@ import noUiSlider from 'nouislider'
 import wNumb from 'wnumb'
 
 export default class extends Controller {
-  static values = { min: Number, max: Number, low: Number, high: Number }
-  static targets = ['low', 'high']
+  static values = { min: Number, max: Number }
+  static targets = ['low', 'high', 'element']
 
   connect () {
-    this.slider = noUiSlider.create(this.element, {
-      start: [this.lowValue, this.highValue],
+    this.slider = noUiSlider.create(this.elementTarget, {
+      start: [this.lowTarget.value, this.highTarget.value],
       connect: !0,
       tooltips: [wNumb({ decimals: 0 }), wNumb({ decimals: 0 })],
       step: 1,
@@ -24,13 +24,5 @@ export default class extends Controller {
 
   disconnect () {
     this.slider.destroy()
-    const hiddenLow = document.createElement('input')
-    hiddenLow.type = 'hidden'
-    hiddenLow.setAttribute('data-range-slider-target', 'low')
-    this.element.appendChild(hiddenLow)
-    const hiddenHigh = document.createElement('input')
-    hiddenHigh.type = 'hidden'
-    hiddenHigh.setAttribute('data-range-slider-target', 'high')
-    this.element.appendChild(hiddenHigh)
   }
 }
