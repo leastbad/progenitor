@@ -28,6 +28,6 @@ class ApplicationController < ActionController::Base
   end
 
   def sidenav
-    @sidenav = Surge::Sidenav.new(SIDENAV, request.path).build.html_safe
+    @sidenav = Surge::Sidenav.new(SIDENAV, request.path).to_s
   end
 end
