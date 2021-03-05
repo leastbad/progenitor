@@ -1,18 +1,36 @@
-<div class="modal fade" id="modal-new-event" tabindex="-1" role="dialog" aria-labelledby="modal-new-event" aria-hidden="true">
+<div
+  class="modal fade"
+  id="modal-new-event"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modal-new-event"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-dialog-centered" role="document">
     <form id="addNewEventForm" class="modal-content">
       <div class="modal-body">
         <div class="mb-4">
           <label for="eventTitleAdd">Event title</label>
-          <input type="text" class="form-control" id="eventTitleAdd" required>
+          <input type="text" class="form-control" id="eventTitleAdd" required />
         </div>
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="mb-4">
               <label for="dateStartAdd">Select start date</label>
               <div class="input-group">
-                <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
-                <input data-datepicker="" class="form-control" id="dateStartAdd" type="text" placeholder="yyyy/mm/dd" required data-controller="flatpickr" data-flatpickr-min-date="<%= Time.zone.now - 1.day %>">
+                <span class="input-group-text"
+                  ><span class="far fa-calendar-alt"></span
+                ></span>
+                <input
+                  data-datepicker=""
+                  class="form-control"
+                  id="dateStartAdd"
+                  type="text"
+                  placeholder="yyyy/mm/dd"
+                  required
+                  data-controller="flatpickr"
+                  data-flatpickr-min-date="<%= Time.zone.now - 1.day %>"
+                />
               </div>
             </div>
           </div>
@@ -20,16 +38,35 @@
             <div class="mb-2">
               <label for="dateEndAdd">Select end date</label>
               <div class="input-group">
-                <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
-                <input data-datepicker="" class="form-control" id="dateEndAdd" type="text" placeholder="yyyy/mm/dd" required data-controller="flatpickr" data-flatpickr-min-date="<%= Time.zone.now - 1.day %>">
+                <span class="input-group-text"
+                  ><span class="far fa-calendar-alt"></span
+                ></span>
+                <input
+                  data-datepicker=""
+                  class="form-control"
+                  id="dateEndAdd"
+                  type="text"
+                  placeholder="yyyy/mm/dd"
+                  required
+                  data-controller="flatpickr"
+                  data-flatpickr-min-date="<%= Time.zone.now - 1.day %>"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-dark" id="addNewEvent">Add new event</button>
-        <button type="button" class="btn btn-gray-300 ms-auto" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-dark" id="addNewEvent">
+          Add new event
+        </button>
+        <button
+          type="button"
+          class="btn btn-gray-300 ms-auto"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
       </div>
     </form>
   </div>

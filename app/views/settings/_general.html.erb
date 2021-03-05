@@ -5,13 +5,25 @@
       <div class="col-md-6 mb-3">
         <div>
           <label for="first_name">First Name</label>
-          <input class="form-control" id="first_name" type="text" placeholder="<%= Faker::Name.first_name %>" required>
+          <input
+            class="form-control"
+            id="first_name"
+            type="text"
+            placeholder="<%= Faker::Name.first_name %>"
+            required
+          />
         </div>
       </div>
       <div class="col-md-6 mb-3">
         <div>
           <label for="last_name">Last Name</label>
-          <input class="form-control" id="last_name" type="text" placeholder="<%= Faker::Name.last_name %>" required>
+          <input
+            class="form-control"
+            id="last_name"
+            type="text"
+            placeholder="<%= Faker::Name.last_name %>"
+            required
+          />
         </div>
       </div>
     </div>
@@ -19,13 +31,26 @@
       <div class="col-md-6 mb-3">
         <label for="birthday">Birthday</label>
         <div class="input-group">
-          <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
-          <input data-controller="flatpickr" id="birthday" class="form-control" type="text" placeholder="yyyy/mm/dd" required>
+          <span class="input-group-text"
+            ><span class="far fa-calendar-alt"></span
+          ></span>
+          <input
+            data-controller="flatpickr"
+            id="birthday"
+            class="form-control"
+            type="text"
+            placeholder="yyyy/mm/dd"
+            required
+          />
         </div>
       </div>
       <div class="col-md-6 mb-3">
         <label for="gender">Gender</label>
-        <select class="form-select mb-0" id="gender" aria-label="Gender select example">
+        <select
+          class="form-select mb-0"
+          id="gender"
+          aria-label="Gender select example"
+        >
           <option selected>Gender</option>
           <option value="1">Female</option>
           <option value="2">Male</option>
@@ -36,13 +61,27 @@
       <div class="col-md-6 mb-3">
         <div class="form-group">
           <label for="email">Email</label>
-          <input class="form-control" id="email" type="email" placeholder="name@company.com" required>
+          <input
+            class="form-control"
+            id="email"
+            type="email"
+            placeholder="name@company.com"
+            required
+          />
         </div>
       </div>
       <div class="col-md-6 mb-3">
         <div class="form-group">
           <label for="phone">Phone</label>
-          <input class="form-control" id="phone" type="tel" placeholder="+1 212-555-1234" required data-controller="cleave" data-cleave-options-value='{"phone":true,"phoneRegionCode":"US"}'>
+          <input
+            class="form-control"
+            id="phone"
+            type="tel"
+            placeholder="+1 212-555-1234"
+            required
+            data-controller="cleave"
+            data-cleave-options-value='{"phone":true,"phoneRegionCode":"US"}'
+          />
         </div>
       </div>
     </div>
@@ -51,13 +90,25 @@
       <div class="col-sm-9 mb-3">
         <div class="form-group">
           <label for="address">Address</label>
-          <input class="form-control" id="address" type="text" placeholder="Enter your home address" required>
+          <input
+            class="form-control"
+            id="address"
+            type="text"
+            placeholder="Enter your home address"
+            required
+          />
         </div>
       </div>
       <div class="col-sm-3 mb-3">
         <div class="form-group">
           <label for="number">Number</label>
-          <input class="form-control" id="number" type="number" placeholder="No." required>
+          <input
+            class="form-control"
+            id="number"
+            type="number"
+            placeholder="No."
+            required
+          />
         </div>
       </div>
     </div>
@@ -65,12 +116,24 @@
       <div class="col-sm-4 mb-3">
         <div class="form-group">
           <label for="city">City</label>
-          <input class="form-control" id="city" type="text" placeholder="City" required>
+          <input
+            class="form-control"
+            id="city"
+            type="text"
+            placeholder="City"
+            required
+          />
         </div>
       </div>
       <div class="col-sm-4 mb-3">
         <label for="state">State</label>
-        <select class="w-100 mb-0" id="state" name="state" aria-label="State select example" data-controller="select">
+        <select
+          class="w-100 mb-0"
+          id="state"
+          name="state"
+          aria-label="State select example"
+          data-controller="select"
+        >
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
           <option value="AZ">Arizona</option>
@@ -127,7 +190,15 @@
       <div class="col-sm-4">
         <div class="form-group">
           <label for="zip">ZIP</label>
-          <input class="form-control" id="zip" type="text" placeholder="90210" data-controller="cleave" data-cleave-options-value='{"numeral":true,"numericOnly":true,"numeralPositiveOnly":true,"numeralThousandsGroupStyle":"none"}' data-cleave-digits-value="5">
+          <input
+            class="form-control"
+            id="zip"
+            type="text"
+            placeholder="90210"
+            data-controller="cleave"
+            data-cleave-options-value='{"numeral":true,"numericOnly":true,"numeralPositiveOnly":true,"numeralThousandsGroupStyle":"none"}'
+            data-cleave-digits-value="5"
+          />
         </div>
       </div>
     </div>

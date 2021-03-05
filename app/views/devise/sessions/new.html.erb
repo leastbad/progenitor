@@ -1,41 +1,55 @@
 <section class="d-flex align-items-center my-5 mt-lg-6 mb-lg-5">
   <div class="container">
-    <div class="row justify-content-center form-bg-image" data-controller="background" data-background-breakpoint-value="992" data-background-image-value="<%= asset_pack_path "media/images/screentime.svg" %>">
+    <div
+      class="row justify-content-center form-bg-image"
+      data-controller="background"
+      data-background-breakpoint-value="992"
+      data-background-image-value="<%= asset_pack_path "media/images/screentime.svg" %>"
+    >
       <div class="col-12 d-flex align-items-center justify-content-center">
-        <div class="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+        <div
+          class="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500"
+        >
           <div class="text-center text-md-center mb-4 mt-md-0">
             <h1 class="mb-0 h3">Login to your account</h1>
           </div>
           <%= form_with(model: resource, scope: resource_name, url: session_path(resource_name), method: :post, class: "mt-4") do |f| %>
             <div class="form-group mb-4">
-              <%= f.label :email, "Your Email" %>   
+              <%= f.label :email, "Your Email" %>
               <div class="input-group">
-                <span class="input-group-text"><span class="fas fa-envelope"></span></span>
+                <span class="input-group-text"
+                  ><span class="fas fa-envelope"></span
+                ></span>
                 <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "example@company.com", autofocus: true, required: true %>
-              </div>  
+              </div>
             </div>
             <div class="form-group">
               <div class="form-group mb-4">
                 <%= f.label :password, "Your Password" %>
                 <div class="input-group">
-                  <span class="input-group-text"><span class="fas fa-unlock-alt"></span></span>
+                  <span class="input-group-text"
+                    ><span class="fas fa-unlock-alt"></span
+                  ></span>
                   <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control", required: true %>
-                </div>  
+                </div>
               </div>
               <div class="d-flex justify-content-between align-items-top mb-4">
                 <% if devise_mapping.rememberable? %>
-                <div class="form-check">
-                  <%= f.check_box :remember_me, class: "form-check-input" %>
-                  <%= f.label :remember_me, "Remember me", class: "form-check-label mb-0" %>
-                </div>
+                  <div class="form-check">
+                    <%= f.check_box :remember_me, class: "form-check-input" %>
+                    <%= f.label :remember_me, "Remember me", class: "form-check-label mb-0" %>
+                  </div>
                 <% end %>
                 <% if devise_mapping.recoverable? %>
-                <div>
-                  <%= link_to "Lost password?", new_password_path(resource_name), class: "small text-end" %>
-                </div>
+                  <div>
+                    <%= link_to "Lost password?", new_password_path(resource_name), class: "small text-end" %>
+                  </div>
                 <% end %>
               </div>
-              <div class="d-none justify-content-between align-items-top mb-4" id="form_errors">
+              <div
+                class="d-none justify-content-between align-items-top mb-4"
+                id="form_errors"
+              >
                 <div class="input-group text-danger" id="error_message"></div>
               </div>
             </div>

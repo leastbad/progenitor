@@ -1,40 +1,64 @@
-  <div class="card hover-state border-bottom rounded-0 py-3 <%= "rounded-top" if index == 0 %>">
-    <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
-      <div class="col-1 align-items-center px-0 d-none d-lg-flex">
-        <div class="form-check inbox-check me-2">
-          <input class="form-check-input" type="checkbox" value="" id="mailCheck<%= index %>">
-          <label class="form-check-label" for="mailCheck<%= index %>"></label>
-        </div>
-        <div class="rating-star d-none d-lg-inline-block">
-          <input type="checkbox" id="InboxStar<%= index %>" name="star">
-          <label class="rating-star-label" for="InboxStar<%= index %>">
-            <span class="sr-only">Star</span>
-          </label>
-        </div>
+<div
+  class="card hover-state border-bottom rounded-0 py-3 <%= "rounded-top" if index == 0 %>"
+>
+  <div
+    class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0"
+  >
+    <div class="col-1 align-items-center px-0 d-none d-lg-flex">
+      <div class="form-check inbox-check me-2">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="mailCheck<%= index %>"
+        />
+        <label class="form-check-label" for="mailCheck<%= index %>"></label>
       </div>
-      <div class="col-10 col-lg-2 ps-0 ps-lg-3">
-        <%= render partial: "user", object: ["steve", "mike", "anne", "jill", "casey"].sample %>
-      </div>
-      <div class="col-2 col-lg-2 d-flex align-items-center justify-content-end px-0 order-lg-4">
-        <div class="text-muted small d-none d-lg-block"><%= Faker::Time.between(from: DateTime.now - 3, to: DateTime.now, format: "%d %B %l:%M %p") %></div>
-        <div class="btn-group ms-3">
-          <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="icon icon-sm">
-              <span class="fas fa-ellipsis-h icon-dark"></span>
-            </span>
-            <span class="sr-only">Toggle Dropdown</span>
-          </button>
-          <div class="dropdown-menu dropdown-menu-end py-0">
-            <a class="dropdown-item rounded-top" href="#"><span class="fas fa-user-shield me-2"></span> Reset Pass</a>
-            <a class="dropdown-item" href="messages/new"><span class="fas fa-eye me-2"></span>View Details</a>
-            <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-user-times me-2"></span>Suspend</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-lg-7 d-flex align-items-center mt-3 mt-lg-0 ps-0">
-        <a href="/messages/new" class="fw-normal text-gray truncate-text">
-          <span class="fw-normal ps-lg-5"><%= Faker::Books::Dune.quote %></span>
-        </a>
+      <div class="rating-star d-none d-lg-inline-block">
+        <input type="checkbox" id="InboxStar<%= index %>" name="star" />
+        <label class="rating-star-label" for="InboxStar<%= index %>">
+          <span class="sr-only">Star</span>
+        </label>
       </div>
     </div>
+    <div class="col-10 col-lg-2 ps-0 ps-lg-3">
+      <%= render partial: "user", object: ["steve", "mike", "anne", "jill", "casey"].sample %>
+    </div>
+    <div
+      class="col-2 col-lg-2 d-flex align-items-center justify-content-end px-0 order-lg-4"
+    >
+      <div class="text-muted small d-none d-lg-block">
+        <%= Faker::Time.between(from: DateTime.now - 3, to: DateTime.now, format: "%d %B %l:%M %p") %>
+      </div>
+      <div class="btn-group ms-3">
+        <button
+          class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <span class="icon icon-sm">
+            <span class="fas fa-ellipsis-h icon-dark"></span>
+          </span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end py-0">
+          <a class="dropdown-item rounded-top" href="#"
+            ><span class="fas fa-user-shield me-2"></span> Reset Pass</a
+          >
+          <a class="dropdown-item" href="messages/new"
+            ><span class="fas fa-eye me-2"></span>View Details</a
+          >
+          <a class="dropdown-item text-danger rounded-bottom" href="#"
+            ><span class="fas fa-user-times me-2"></span>Suspend</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-7 d-flex align-items-center mt-3 mt-lg-0 ps-0">
+      <a href="/messages/new" class="fw-normal text-gray truncate-text">
+        <span class="fw-normal ps-lg-5"><%= Faker::Books::Dune.quote %></span>
+      </a>
+    </div>
   </div>
+</div>

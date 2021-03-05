@@ -1,11 +1,28 @@
 <section class="vh-lg-100 bg-soft d-flex align-items-center my-4">
   <div class="container">
-    <p class="text-center"><a href="/" class="text-gray-700"><i class="fas fa-angle-left me-2"></i> Back to homepage</a></p>
-    <div class="row justify-content-center form-bg-image" data-controller="background" data-background-breakpoint-value="992" data-background-image-value="<%= asset_pack_path "media/images/screentime.svg" %>">
+    <p class="text-center">
+      <a href="/" class="text-gray-700"
+        ><i class="fas fa-angle-left me-2"></i> Back to homepage</a
+      >
+    </p>
+    <div
+      class="row justify-content-center form-bg-image"
+      data-controller="background"
+      data-background-breakpoint-value="992"
+      data-background-image-value="<%= asset_pack_path "media/images/screentime.svg" %>"
+    >
       <div class="col-12 d-flex align-items-center justify-content-center">
-        <div class="bg-white shadow-soft border border-light rounded p-4 p-lg-5 w-100 fmxw-500">
+        <div
+          class="bg-white shadow-soft border border-light rounded p-4 p-lg-5 w-100 fmxw-500"
+        >
           <div class="text-center text-md-center mb-4 mt-md-0">
-            <div class="user-avatar large-avatar mx-auto mb-3 border-dark p-2"><img class="rounded-circle" alt="<%= current_user.name %>" src="<%= user_image(current_user) %>"></div>
+            <div class="user-avatar large-avatar mx-auto mb-3 border-dark p-2">
+              <img
+                class="rounded-circle"
+                alt="<%= current_user.name %>"
+                src="<%= user_image(current_user) %>"
+              />
+            </div>
             <h1 class="h3"><%= current_user.name %></h1>
             <p class="text-gray">Better to be safe than sorry.</p>
           </div>
@@ -13,8 +30,16 @@
             <div class="mb-4">
               <label for="exampleInputPasswordCard4">Your Password</label>
               <div class="input-group">
-                <span class="input-group-text"><span class="fas fa-unlock-alt"></span></span>
-                <input type="password" placeholder="Password" autocomplete="password" class="form-control" id="exampleInputPasswordCard4">
+                <span class="input-group-text"
+                  ><span class="fas fa-unlock-alt"></span
+                ></span>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  autocomplete="password"
+                  class="form-control"
+                  id="exampleInputPasswordCard4"
+                />
               </div>
             </div>
             <div class="d-grid mt-3">

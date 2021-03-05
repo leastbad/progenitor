@@ -1,28 +1,63 @@
 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-  <div class="list-group">
-  </div>
+  <div class="list-group"></div>
   <div class="d-grid">
-    <button type="button" class="btn btn-outline-gray-700 dashed-outline" data-bs-toggle="modal" data-bs-target="#KanbanAddGroup">
+    <button
+      type="button"
+      class="btn btn-outline-gray-700 dashed-outline"
+      data-bs-toggle="modal"
+      data-bs-target="#KanbanAddGroup"
+    >
       <span class="fas fa-plus me-2"></span> Add another group
     </button>
-    <div class="modal fade" id="KanbanAddGroup" tabindex="-1" aria-labelledby="KanbanAddGroupLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="KanbanAddGroup"
+      tabindex="-1"
+      aria-labelledby="KanbanAddGroupLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-4">
           <div class="modal-header pb-0 border-0">
-            <h5 class="modal-title fw-normal" id="KanbanAddGroupLabel">Add a new group</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title fw-normal" id="KanbanAddGroupLabel">
+              Add a new group
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body pb-0">
             <div class="mb-3">
-              <input type="email" class="form-control" id="exampleFormControlInput" placeholder="Enter a title for this group">
+              <input
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput"
+                placeholder="Enter a title for this group"
+              />
             </div>
             <div class="mb-3">
-              <textarea class="form-control" id="exampleFormControlTextarea" placeholder="Enter a description for this group" rows="3"></textarea>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea"
+                placeholder="Enter a description for this group"
+                rows="3"
+              ></textarea>
             </div>
           </div>
           <div class="modal-footer border-0 pt-0 justify-content-start">
-            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-success"><span class="fas fa-plus me-2"></span>Add group</button>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-success">
+              <span class="fas fa-plus me-2"></span>Add group
+            </button>
           </div>
         </div>
       </div>

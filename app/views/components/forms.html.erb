@@ -7,76 +7,154 @@
           <div class="col-lg-4 col-sm-6">
             <div class="mb-4">
               <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                aria-describedby="emailHelp"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
             </div>
             <div class="mb-3">
               <label for="exampleInputIconLeft">Icon Left</label>
               <div class="input-group">
-                <span class="input-group-text" id="basic-addon1"><span class="fas fa-search"></span></span>
-                <input type="search" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search">
+                <span class="input-group-text" id="basic-addon1"
+                  ><span class="fas fa-search"></span
+                ></span>
+                <input
+                  type="search"
+                  class="form-control"
+                  id="exampleInputIconLeft"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
               </div>
             </div>
             <div class="mb-3">
               <label for="exampleInputIconRight">Icon Right</label>
               <div class="input-group">
-                <input type="search" class="form-control" id="exampleInputIconRight" placeholder="Search" aria-label="Search">
-                <span class="input-group-text" id="basic-addon2"><span class="fas fa-search"></span></span>
+                <input
+                  type="search"
+                  class="form-control"
+                  id="exampleInputIconRight"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <span class="input-group-text" id="basic-addon2"
+                  ><span class="fas fa-search"></span
+                ></span>
               </div>
             </div>
             <div class="mb-3">
               <label for="exampleInputIconPassword">Password</label>
               <div class="input-group">
-                <input type="password" autocomplete="new-password" class="form-control" id="exampleInputIconPassword" placeholder="Password" aria-label="Password">
-                <span class="input-group-text" id="basic-addon3"><span class="fas fa-unlock-alt"></span></span>
+                <input
+                  type="password"
+                  autocomplete="new-password"
+                  class="form-control"
+                  id="exampleInputIconPassword"
+                  placeholder="Password"
+                  aria-label="Password"
+                />
+                <span class="input-group-text" id="basic-addon3"
+                  ><span class="fas fa-unlock-alt"></span
+                ></span>
               </div>
             </div>
             <div class="mb-3">
               <label for="firstName">First name</label>
-              <input type="text" class="form-control is-valid" id="firstName" value="Mark" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
+              <input
+                type="text"
+                class="form-control is-valid"
+                id="firstName"
+                value="Mark"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
             </div>
           </div>
           <div class="col-lg-4 col-sm-6">
             <div class="mb-2">
               <label class="my-1 me-2" for="user">Select user:</label>
-              <select id="user" class="w-100" name="user" data-controller="select" data-select-reflex-value="Users#search">
-              <% User.where(demo: true).each do |user| %>
-                <option value="<%= user.id %>"><%= user.name %></option>
-              <% end %>
+              <select
+                id="user"
+                class="w-100"
+                name="user"
+                data-controller="select"
+                data-select-reflex-value="Users#search"
+              >
+                <% User.where(demo: true).each do |user| %><option
+                    value="<%= user.id %>"
+                  >
+                    <%= user.name %>
+                  </option>
+                <% end %>
               </select>
             </div>
             <label class="my-1 me-2" for="users">Select users:</label>
-            <select id="users" class="w-100" name="users[]" multiple="multiple" data-controller="select" data-select-reflex-value="Users#search">
-              <% User.where(demo: true).each do |user| %>
-                <option value="<%= user.id %>"><%= user.name %></option>
+            <select
+              id="users"
+              class="w-100"
+              name="users[]"
+              multiple="multiple"
+              data-controller="select"
+              data-select-reflex-value="Users#search"
+            >
+              <% User.where(demo: true).each do |user| %><option
+                  value="<%= user.id %>"
+                >
+                  <%= user.name %>
+                </option>
               <% end %>
             </select>
             <div class="my-4">
               <label for="textarea">Example textarea</label>
-              <textarea class="form-control" placeholder="Enter your message..." id="textarea" rows="4"></textarea>
+              <textarea
+                class="form-control"
+                placeholder="Enter your message..."
+                id="textarea"
+                rows="4"
+              ></textarea>
             </div>
             <div class="mb-4">
               <label for="usernameValidate">Username</label>
-              <input type="text" class="form-control is-invalid" id="usernameValidate" required>
-              <div class="invalid-feedback">
-                Please choose a username.
-              </div>
+              <input
+                type="text"
+                class="form-control is-invalid"
+                id="usernameValidate"
+                required
+              />
+              <div class="invalid-feedback">Please choose a username.</div>
             </div>
           </div>
           <div class="col-lg-4 col-sm-6">
             <div class="mb-3">
               <label for="birthday">Birthday</label>
               <div class="input-group">
-                <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
-                <input data-controller="flatpickr" class="form-control" id="birthday" type="text" placeholder="yyyy/mm/dd" required>
+                <span class="input-group-text"
+                  ><span class="far fa-calendar-alt"></span
+                ></span>
+                <input
+                  data-controller="flatpickr"
+                  class="form-control"
+                  id="birthday"
+                  type="text"
+                  placeholder="yyyy/mm/dd"
+                  required
+                />
               </div>
             </div>
             <div class="mb-3">
               <label for="disabledTextInput">Name</label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input" disabled>
+              <input
+                type="text"
+                id="disabledTextInput"
+                class="form-control"
+                placeholder="Disabled input"
+                disabled
+              />
             </div>
             <div class="mb-3">
               <label for="disabledSelect">Disabled select menu</label>
@@ -86,7 +164,12 @@
             </div>
             <div class="mb-4">
               <label class="my-1 me-2" for="country">Country</label>
-              <select class="w-100" id="country" aria-label="Default select example" data-controller="select">
+              <select
+                class="w-100"
+                id="country"
+                aria-label="Default select example"
+                data-controller="select"
+              >
                 <option selected>Open this select menu</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -94,8 +177,10 @@
               </select>
             </div>
             <div class="mb-3">
-              <label for="formFile" class="form-label">Default file input example</label>
-              <input class="form-control" type="file" id="formFile">
+              <label for="formFile" class="form-label"
+                >Default file input example</label
+              >
+              <input class="form-control" type="file" id="formFile" />
             </div>
           </div>
         </div>
@@ -105,13 +190,24 @@
               <span class="h6 fw-bold">Checkboxes Round</span>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="defaultCheck10">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="defaultCheck10"
+              />
               <label class="form-check-label" for="defaultCheck10">
                 Default checkbox
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="defaultCheck20" disabled>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="defaultCheck20"
+                disabled
+              />
               <label class="form-check-label" for="defaultCheck20">
                 Disabled checkbox
               </label>
@@ -121,19 +217,39 @@
             <fieldset>
               <legend class="h6">Radios</legend>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios1"
+                  value="option1"
+                  checked
+                />
                 <label class="form-check-label" for="exampleRadios1">
                   Default radio
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios2"
+                  value="option2"
+                />
                 <label class="form-check-label" for="exampleRadios2">
                   Second default radio
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios3"
+                  value="option3"
+                  disabled
+                />
                 <label class="form-check-label" for="exampleRadios3">
                   Disabled radio
                 </label>
@@ -145,20 +261,50 @@
               <span class="h6 fw-bold">Switches</span>
             </div>
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-              <label class="form-check-label" for="flexSwitchCheckDefault">Default switch input</label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="flexSwitchCheckDefault"
+              />
+              <label class="form-check-label" for="flexSwitchCheckDefault"
+                >Default switch input</label
+              >
             </div>
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-              <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch input</label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="flexSwitchCheckChecked"
+                checked
+              />
+              <label class="form-check-label" for="flexSwitchCheckChecked"
+                >Checked switch input</label
+              >
             </div>
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
-              <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch input</label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="flexSwitchCheckDisabled"
+                disabled
+              />
+              <label class="form-check-label" for="flexSwitchCheckDisabled"
+                >Disabled switch input</label
+              >
             </div>
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
-              <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked switch input</label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="flexSwitchCheckCheckedDisabled"
+                checked
+                disabled
+              />
+              <label
+                class="form-check-label"
+                for="flexSwitchCheckCheckedDisabled"
+                >Disabled checked switch input</label
+              >
             </div>
           </div>
         </div>
@@ -167,19 +313,32 @@
             <div class="mb-6">
               <span class="h6 fw-bold">Simple Range Slider</span>
             </div>
-            <div class="input-slider" data-controller="slider" data-slider-min-value="100" data-slider-max-value="500">
+            <div
+              class="input-slider"
+              data-controller="slider"
+              data-slider-min-value="100"
+              data-slider-max-value="500"
+            >
               <div data-slider-target="element"></div>
-              <input type="hidden" data-slider-target="input" value="300">
+              <input type="hidden" data-slider-target="input" value="300" />
             </div>
           </div>
           <div class="col-12 col-md-5">
             <div class="mb-6">
               <span class="h6 fw-bold">Range Slider with numbers</span>
             </div>
-            <div data-controller="range-slider" data-range-slider-min-value="100" data-range-slider-max-value="500">
+            <div
+              data-controller="range-slider"
+              data-range-slider-min-value="100"
+              data-range-slider-max-value="500"
+            >
               <div data-range-slider-target="element"></div>
-              <input type="hidden" data-range-slider-target="low" value="200">
-              <input type="hidden" data-range-slider-target="high" value="400">
+              <input type="hidden" data-range-slider-target="low" value="200" />
+              <input
+                type="hidden"
+                data-range-slider-target="high"
+                value="400"
+              />
             </div>
           </div>
         </div>

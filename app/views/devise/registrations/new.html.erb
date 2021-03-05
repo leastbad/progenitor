@@ -1,8 +1,15 @@
 <section class="d-flex align-items-center my-5 mt-lg-6 mb-lg-5">
   <div class="container">
-    <div class="row justify-content-center form-bg-image" data-controller="background" data-background-breakpoint-value="992" data-background-image-value="<%= asset_pack_path "media/images/screentime.svg" %>">
+    <div
+      class="row justify-content-center form-bg-image"
+      data-controller="background"
+      data-background-breakpoint-value="992"
+      data-background-image-value="<%= asset_pack_path "media/images/screentime.svg" %>"
+    >
       <div class="col-12 d-flex align-items-center justify-content-center">
-        <div class="mb-4 mb-lg-0 bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+        <div
+          class="mb-4 mb-lg-0 bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500"
+        >
           <div class="text-center text-md-center mb-4 mt-md-0">
             <h1 class="mb-0 h3">Create an account</h1>
           </div>
@@ -10,37 +17,45 @@
             <%= f.container_for :email, class: "form-group mb-4" do %>
               <%= f.label :email, "Your Email" %>
               <div class="input-group">
-                <span class="input-group-text"><span class="fas fa-envelope"></span></span>
+                <span class="input-group-text"
+                  ><span class="fas fa-envelope"></span
+                ></span>
                 <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "example@company.com", autofocus: true, required: true %>
-              </div>  
+              </div>
               <%= f.error_for :email, class: "input-group" %>
             <% end %>
             <%= f.container_for :name, class: "form-group mb-4" do %>
               <%= f.label :name, "Your Name" %>
               <div class="input-group">
-                <span class="input-group-text"><span class="fas fa-user"></span></span>
+                <span class="input-group-text"
+                  ><span class="fas fa-user"></span
+                ></span>
                 <%= f.text_field :name, autocomplete: "given-name", class: "form-control", placeholder: "Helen", required: true %>
-              </div>  
+              </div>
               <%= f.error_for :name, class: "input-group" %>
             <% end %>
             <div class="form-group">
               <%= f.container_for :password, class: "form-group mb-4" do %>
-              <%= f.label :password, "Your Password" %>
+                <%= f.label :password, "Your Password" %>
                 <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> characters minimum)</em>
                 <% end %>
                 <div class="input-group">
-                  <span class="input-group-text"><span class="fas fa-unlock-alt"></span></span>
+                  <span class="input-group-text"
+                    ><span class="fas fa-unlock-alt"></span
+                  ></span>
                   <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "form-control", required: true %>
-                </div>  
+                </div>
                 <%= f.error_for :password, class: "input-group" %>
               <% end %>
               <%= f.container_for :password_confirmation, class: "form-group mb-4" do %>
                 <%= f.label :password_confirmation, "Confirm Password" %>
                 <div class="input-group">
-                  <span class="input-group-text"><span class="fas fa-unlock-alt"></span></span>
+                  <span class="input-group-text"
+                    ><span class="fas fa-unlock-alt"></span
+                  ></span>
                   <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "form-control", required: true %>
-                </div>  
+                </div>
                 <%= f.error_for :password_confirmation, class: "input-group" %>
               <% end %>
             </div>
