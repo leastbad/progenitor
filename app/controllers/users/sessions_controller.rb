@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  layout "pages"
   # not needed when doing real page loads
   # def create
   #   super do

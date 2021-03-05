@@ -34,7 +34,9 @@ module Surge
           ),
             submenu(node[:subitems]),
             render(partial: "sidenav/submenu_close")].join
+
         else
+          
           paths = node[:paths] || []
           paths << node[:url] unless paths.include?(node[:url])
 

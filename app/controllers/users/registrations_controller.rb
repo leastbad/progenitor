@@ -2,6 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   include Optimism
+  layout "pages"
 
   before_action :configure_permitted_parameters
 

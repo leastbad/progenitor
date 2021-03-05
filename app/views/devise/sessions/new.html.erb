@@ -57,10 +57,31 @@
               <button type="submit" class="btn btn-primary">Sign in</button>
             </div>
           <% end %>
+          <div class="my-4 text-center">
+            <span class="fw-normal">or, pretend to be:</span>
+          </div>
+          <div class="d-flex justify-content-center my-4 ps-3">
+            <% %w(steve jill anne mike casey).each do |user| %>
+              <%= form_with(model: resource, scope: resource_name, url: session_path(resource_name), method: :post, class: "d-flex flex-column align-items-center") do |f| %>
+                <%= f.hidden_field :email, value: "#{user}@test.com" %>
+                <%= f.hidden_field :password, value: "topsecret" %>
+                <button
+                  type="submit"
+                  class="btn btn-icon-only btn-pill me-3 mb-1"
+                >
+                  <img
+                    class="btn btn-icon-only btn-pill btn-outline-gray-400"
+                    src="<%= asset_pack_path("media/images/team/#{user}.jpg") %>"
+                  />
+                </button>
+                <span class="me-3"><%= user.capitalize %></span>
+              <% end %>
+            <% end %>
+          </div>
           <div class="d-flex justify-content-center align-items-center mt-4">
             <span class="fw-normal">
-              Not registered?
-              <%= link_to "Create account", new_registration_path(resource_name), class: "fw-bold" %>
+              You can also
+              <%= link_to "create an account", new_registration_path(resource_name), class: "fw-bold" %>.
             </span>
           </div>
         </div>

@@ -18,55 +18,41 @@
           <div class="text-center text-md-center mb-4 mt-md-0">
             <h1 class="mb-0 h3">Create an account</h1>
           </div>
-          <form action="#">
+          <%
+          # remote this in a real app
+          resource = User.new
+          resource_name = "user"
+          %>
+          <%= form_with(model: resource, scope: resource_name, url: registration_path(resource_name), method: :post, class: "mt-4") do |f| %>
             <div class="form-group mb-4">
-              <label for="email">Your Email</label>
+              <%= f.label :email, "Your Email" %>
               <div class="input-group">
                 <span class="input-group-text" id="basic-addon3"
                   ><span class="fas fa-envelope"></span
                 ></span>
-                <input
-                  type="email"
-                  class="form-control"
-                  autocomplete="email"
-                  placeholder="<%= Faker::Internet.free_email %>"
-                  id="email"
-                  autofocus
-                  required
-                />
+                <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "example@company.com", autofocus: true, required: true %>
               </div>
             </div>
             <div class="form-group">
               <div class="form-group mb-4">
-                <label for="password">Your Password</label>
+                <%= f.label :password, "Your Password" %>
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>
                 <div class="input-group">
                   <span class="input-group-text" id="basic-addon4"
                     ><span class="fas fa-unlock-alt"></span
                   ></span>
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    autocomplete="new-password"
-                    class="form-control"
-                    id="password"
-                    required
-                  />
+                  <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "form-control", required: true %>
                 </div>
               </div>
               <div class="form-group mb-4">
-                <label for="confirm_password">Confirm Password</label>
+                <%= f.label :password_confirmation, "Confirm Password" %>
                 <div class="input-group">
                   <span class="input-group-text" id="basic-addon5"
                     ><span class="fas fa-unlock-alt"></span
                   ></span>
-                  <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    autocomplete="new-password"
-                    class="form-control"
-                    id="confirm_password"
-                    required
-                  />
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "form-control", required: true %>
                 </div>
               </div>
               <div class="form-check mb-4">
@@ -85,7 +71,7 @@
             <div class="d-grid">
               <button type="submit" class="btn btn-dark">Sign in</button>
             </div>
-          </form>
+          <% end %>
           <div class="mt-3 mb-4 text-center">
             <span class="fw-normal">or</span>
           </div>
