@@ -25,16 +25,14 @@ module Surge
             paths << subitem_paths
           end
 
-          [render(
-            partial: "sidenav/submenu_open",
+          render(
+            partial: "sidenav/submenu",
             locals: {
               node: OpenStruct.new(node),
-              active: paths.flatten.include?(path)
+              active: paths.flatten.include?(path),
+              submenu: submenu(node[:subitems]).html_safe
             }
-          ),
-            submenu(node[:subitems]),
-            render(partial: "sidenav/submenu_close")].join
-
+          )
         else
           
           paths = node[:paths] || []
