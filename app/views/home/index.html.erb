@@ -1,3 +1,29 @@
-<button data-reflex="click->Example#send_message">
-  Send a console message
-</button>
+<h1 class="h4 mt-4">Tres Commas</h1>
+<div class="row mt-4">
+  <div class="col-8 col-lg-6 col-xl-4 mb-4">
+    <div class="card border-light shadow-sm components-section">
+      <div class="card-body d-flex justify-content-center">
+        <button
+          class="btn btn-dark"
+          type="button"
+          data-reflex="click->Example#send_message"
+        >
+          <span class="far fa-paper-plane me-2"></span>Send console log message
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-8 col-lg-6 col-xl-4 mb-4">
+    <div class="card border-light shadow-sm components-section">
+      <div class="card-body d-flex justify-content-center">
+        <button
+          class="btn btn-dark"
+          type="button"
+          data-reflex="click->Example#send_toast"
+        >
+          <span class="fas fa-bread-slice me-2"></span>Send toast message
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
