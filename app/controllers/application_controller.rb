@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   add_flash_types :primary, :secondary, :success, :danger, :warning, :info, :light, :dark
   before_action :qrcode, if: :user_signed_in?
   before_action :sidenav, if: :user_signed_in?
+  before_action :masquerade_user!
   after_action :broadcast_flash, if: :user_signed_in?
   after_action :clear_flash, unless: :user_signed_in?
 

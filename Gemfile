@@ -23,7 +23,7 @@ end
 
 group :development do
   gem 'web-console', '>= 4.1.0'
-	gem 'rack-mini-profiler', '~> 2.0'
+	# gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem "pry-rails"
   gem "ngrok-tunnel", "~> 2.1"
@@ -48,3 +48,4 @@ gem "sidekiq-scheduler", "~> 3.0"
 gem "rqrcode", "~> 1.2"
 gem "pagy", "~> 3.10.0"
 gem "faker", "~> 2.16"
+gem "devise_masquerade", "~> 1.3"

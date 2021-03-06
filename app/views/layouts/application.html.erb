@@ -5,6 +5,7 @@
     <%= render partial: "layouts/nav" if user_signed_in? %>
     <%= render partial: "layouts/sidenav" if user_signed_in? %>
     <main class="<%= "content" if user_signed_in? %>">
+      <%= render partial: "layouts/masquerade" if user_signed_in? && user_masquerade? %>
       <%= render partial: "layouts/topbar" if user_signed_in? %>
       <%= yield %>
       <%= render partial: "layouts/footer" %>

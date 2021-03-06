@@ -4,12 +4,9 @@ import { Notyf } from 'notyf'
 import flash from '../shared/notyf'
 
 let channel
-let notyf
 
 document.addEventListener('turbolinks:load', () => {
   if (channel) return
-
-  notyf = new Notyf(flash)
 
   channel = consumer.subscriptions.create('UsersChannel', {
     received (data) {
@@ -21,5 +18,5 @@ document.addEventListener('turbolinks:load', () => {
 })
 
 function notify (notification) {
-  notyf.open({ type: notification[0], message: notification[1] })
+  new Notyf(flash).open({ type: notification[0], message: notification[1] })
 }
