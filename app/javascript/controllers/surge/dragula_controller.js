@@ -14,11 +14,18 @@ export default class extends Controller {
   }
 
   resize ({ width }) {
-    if (width > 991 && !this.dragula)
+    if (width > 991 && !this.dragula) {
       this.dragula = dragula(this.containerTargets, {
         accepts: (el, target, source, sibling) => {
           return el.hasAttribute('data-drag')
         }
       })
+      this.dragula.on('drag', () =>
+        this.containerTargets.forEach(ele => ele.classList.add('dragging'))
+      )
+      this.dragula.on('dragend', () =>
+        this.containerTargets.forEach(ele => ele.classList.remove('dragging'))
+      )
+    }
   }
 }

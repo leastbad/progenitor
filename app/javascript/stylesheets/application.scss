@@ -63,3 +63,7 @@ html {
 .mw-content {
   min-width: fit-content;
 }
+
+.kanban-list.dragging {
+  border: 2px dotted $secondary;
+}
