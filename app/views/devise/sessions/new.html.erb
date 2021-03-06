@@ -63,8 +63,8 @@
           <div class="d-flex justify-content-center my-4 ps-3">
             <% %w(steve jill anne mike casey).each do |user| %>
               <%= form_with(model: resource, scope: resource_name, url: session_path(resource_name), method: :post, class: "d-flex flex-column align-items-center") do |f| %>
-                <%= f.hidden_field :email, value: "#{user}@test.com" %>
-                <%= f.hidden_field :password, value: "topsecret" %>
+                <%= f.hidden_field :email, value: "#{user}@test.com", id: "user_email_#{user}" %>
+                <%= f.hidden_field :password, value: "topsecret", id: "user_password_#{user}" %>
                 <button
                   type="submit"
                   class="btn btn-icon-only btn-pill me-3 mb-1"
