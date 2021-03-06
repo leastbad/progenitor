@@ -1,4 +1,4 @@
-class FlashJob < ApplicationJob
+class ToastJob < ApplicationJob
   queue_as :default
 
   def perform(user, type, message)

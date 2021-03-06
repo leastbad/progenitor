@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   private
 
   def broadcast_flash
-    flash.each { |k,v| FlashJob.set(wait: 2.second).perform_later(current_user, k, v) }
+    flash.each { |k,v| ToastJob.set(wait: 2.second).perform_later(current_user, k, v) }
     flash.clear
   end
 
