@@ -245,8 +245,10 @@
             <% unless user_masquerade? %>
               <a
                 class="dropdown-item rounded-top fw-bold"
-                href="<%= masquerade_path(User.first) %>"
-                ><span class="fas fa-mask fa-fw"></span>Pretend to be Steve</a
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#modal-masquerade"
+                ><span class="fas fa-mask fa-fw"></span>Pretend to be someone</a
               >
             <% end %>
             <a class="dropdown-item rounded-top fw-bold" href="#"

@@ -8,6 +8,7 @@
       <%= render partial: "layouts/masquerade" if user_signed_in? && user_masquerade? %>
       <%= render partial: "layouts/topbar" if user_signed_in? %>
       <%= yield %>
+      <%= render partial: "modals/masquerade" if user_signed_in? %>
       <%= render partial: "layouts/footer" %>
     </main>
   </body>
