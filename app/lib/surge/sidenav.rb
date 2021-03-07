@@ -34,7 +34,7 @@ module Surge
             }
           )
         else
-          
+
           paths = node[:paths] || []
           paths << node[:url] unless paths.include?(node[:url])
 

@@ -1,39 +1,39 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby "2.7.2"
 
-gem 'rails', '~> 6.1.2.1'
-gem 'pg', '~> 1.1'
-gem 'puma', '~> 5.2.1'
-gem 'webpacker', '~> 5.2.1'
-gem 'turbolinks', '~> 5.2'
-gem 'jbuilder', '~> 2.7'
-gem "redis", ">= 4.0", :require => ["redis", "redis/connection/hiredis"]
+gem "rails", "~> 6.1.2.1"
+gem "pg", "~> 1.1"
+gem "puma", "~> 5.2.1"
+gem "webpacker", "~> 5.2.1"
+gem "turbolinks", "~> 5.2"
+gem "jbuilder", "~> 2.7"
+gem "redis", ">= 4.0", require: ["redis", "redis/connection/hiredis"]
 gem "hiredis"
 gem "redis-session-store", "~> 0.11.3"
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'image_processing', '~> 1.2'
 
-gem 'bootsnap', '>= 1.4.4', require: false
+gem "bootsnap", ">= 1.4.4", require: false
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-  gem 'web-console', '>= 4.1.0'
-	# gem 'rack-mini-profiler', '~> 2.0'
-  gem 'listen', '~> 3.3'
+  gem "web-console", ">= 4.1.0"
+  # gem 'rack-mini-profiler', '~> 2.0'
+  gem "listen", "~> 3.3"
   gem "pry-rails"
   gem "ngrok-tunnel", "~> 2.1"
   gem "letter_opener", "~> 1.7"
 end
 
 group :test do
-  gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem "capybara", ">= 3.26"
+  gem "selenium-webdriver"
+  gem "webdrivers"
 end
 
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -49,3 +49,5 @@ gem "rqrcode", "~> 1.2"
 gem "pagy", "~> 3.10.0"
 gem "faker", "~> 2.16"
 gem "devise_masquerade", "~> 1.3"
+
+gem "standard", "~> 1.0"

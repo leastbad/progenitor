@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   private
 
   def broadcast_flash
-    flash.each { |k,v| ToastJob.set(wait: 2.second).perform_later(current_user, k, v) }
+    flash.each { |k, v| ToastJob.set(wait: 2.second).perform_later(current_user, k, v) }
     flash.clear
   end
 
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     return @qr = false unless defined?(Ngrok::Tunnel) && Ngrok::Tunnel.running?
     @qr = Rails.cache.fetch("progenitor:qr:#{Ngrok::Tunnel.ngrok_url}") do
       RQRCode::QRCode.new(Ngrok::Tunnel.ngrok_url).as_svg(
-        offset: 0, color: '000', shape_rendering: 'crispEdges', module_size: 6
+        offset: 0, color: "000", shape_rendering: "crispEdges", module_size: 6
       )
     end
   end
