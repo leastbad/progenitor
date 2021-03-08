@@ -67,3 +67,19 @@ html {
 .kanban-list.dragging {
   border: 2px dotted $secondary;
 }
+
+.read-progress {
+  color: #000000;
+  height: 5px !important;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  div {
+    height: 5px !important;
+    background-color: $secondary;
+    transition: width 50ms ease;
+    width: 0%;
+  }
+}
