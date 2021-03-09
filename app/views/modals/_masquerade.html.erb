@@ -1,36 +1,18 @@
-<div
-  class="modal fade"
-  id="modal-masquerade"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="modal-masquerade"
-  aria-hidden="true"
->
+<div class="modal fade" id="modal-masquerade" tabindex="-1" role="dialog" aria-labelledby="modal-masquerade" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h2 class="h6 modal-title">Pretend to be someone</h2>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body d-flex justify-content-center">
         <% User.where(demo: true).where.not(id: current_user.id).each do |user| %>
-          <div class="d-flex flex-column align-items-center my-4 ps-3">
-            <a
-              href="<%= masquerade_path(user) %>"
-              class="btn btn-icon-only btn-pill me-3 mb-1"
-            >
-              <img
-                class="btn btn-icon-only btn-pill btn-outline-gray-400"
-                src="<%= asset_pack_path("media/images/team/#{user.name.downcase}.jpg") %>"
-              />
-            </a>
-            <span class="me-3"><%= user.name %></span>
-          </div>
+        <div class="d-flex flex-column align-items-center my-4 ps-3">
+          <a href="<%= masquerade_path(user) %>" class="btn btn-icon-only btn-pill me-3 mb-1">
+            <img class="btn btn-icon-only btn-pill btn-outline-gray-400" src="<%= asset_pack_path("media/images/team/#{user.name.downcase}.jpg") %>" />
+          </a>
+          <span class="me-3"><%= user.name %></span>
+        </div>
         <% end %>
       </div>
     </div>

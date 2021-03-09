@@ -1,5 +1,4 @@
-<%= render "controls" %>
-<%= render "filter" %>
+<%= render "controls" %> <%= render "filter" %>
 <div class="card card-body shadow-sm table-wrapper table-responsive">
   <table class="table table-hover">
     <thead>
@@ -14,14 +13,10 @@
       </tr>
     </thead>
     <tbody>
-      <% 10.times do %>
-        <%= render "transaction" %>
-      <% end %>
+      <% 10.times do %> <%= render "transaction" %> <% end %>
     </tbody>
   </table>
-  <div
-    class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between"
-  >
+  <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
     <nav aria-label="Page navigation example">
       <ul class="pagination mb-0">
         <li class="page-item">
@@ -47,8 +42,6 @@
         </li>
       </ul>
     </nav>
-    <div class="fw-normal small mt-4 mt-lg-0">
-      Showing <b>10</b> out of <b>45</b> entries
-    </div>
+    <div class="fw-normal small mt-4 mt-lg-0">Showing <b>10</b> out of <b>45</b> entries</div>
   </div>
 </div>

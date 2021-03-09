@@ -1,40 +1,18 @@
-<div
-  class="modal fade"
-  id="modal-edit-event"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="modal-edit-event"
-  aria-hidden="true"
->
+<div class="modal fade" id="modal-edit-event" tabindex="-1" role="dialog" aria-labelledby="modal-edit-event" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <form id="editEventForm" class="modal-content">
       <div class="modal-body">
         <div class="mb-4">
           <label for="eventTitleEdit">Event title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="eventTitleEdit"
-            required
-          />
+          <input type="text" class="form-control" id="eventTitleEdit" required />
         </div>
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="">
               <label for="dateStartEdit">Select start date</label>
               <div class="input-group">
-                <span class="input-group-text"
-                  ><span class="far fa-calendar-alt"></span
-                ></span>
-                <input
-                  data-datepicker=""
-                  class="form-control"
-                  id="dateStartEdit"
-                  type="text"
-                  placeholder="yyyy/mm/dd"
-                  required
-                  data-controller="flatpickr"
-                />
+                <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
+                <input data-datepicker="" class="form-control" id="dateStartEdit" type="text" placeholder="yyyy/mm/dd" required data-controller="flatpickr" />
               </div>
             </div>
           </div>
@@ -42,18 +20,8 @@
             <div class="mb-2">
               <label for="dateEndEdit">Select end date</label>
               <div class="input-group">
-                <span class="input-group-text"
-                  ><span class="far fa-calendar-alt"></span
-                ></span>
-                <input
-                  data-datepicker=""
-                  class="form-control"
-                  id="dateEndEdit"
-                  type="text"
-                  placeholder="yyyy/mm/dd"
-                  required
-                  data-controller="flatpickr"
-                />
+                <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
+                <input data-datepicker="" class="form-control" id="dateEndEdit" type="text" placeholder="yyyy/mm/dd" required data-controller="flatpickr" />
               </div>
             </div>
           </div>
@@ -66,11 +34,7 @@
         <button type="button" class="btn btn-danger" id="deleteEvent">
           Delete event
         </button>
-        <button
-          type="button"
-          class="btn btn-link text-gray ms-auto"
-          data-bs-dismiss="modal"
-        >
+        <button type="button" class="btn btn-link text-gray ms-auto" data-bs-dismiss="modal">
           Close
         </button>
       </div>

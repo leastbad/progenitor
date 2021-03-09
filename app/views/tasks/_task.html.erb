@@ -1,7 +1,4 @@
-<%
-status = ["Done", "In Progress", "Waiting"].sample
-color = {"Done" => "success", "In Progress" => "warning", "Waiting" => "purple"}
-%>
+<% status = ["Done", "In Progress", "Waiting"].sample color = {"Done" => "success", "In Progress" => "warning", "Waiting" => "purple"} %>
 <div class="card hover-state border-bottom rounded-0 rounded-top py-3" data-controller="strikethrough">
   <div class="card-body d-sm-flex align-items-center flex-wrap flex-lg-nowrap py-0">
     <div class="col-1 text-left text-sm-center mb-2 mb-sm-0">
@@ -22,13 +19,13 @@ color = {"Done" => "success", "In Progress" => "warning", "Waiting" => "purple"}
       </div>
       <div>
         <a href="./single-message.html" class="fw-bold text-dark">
-          <span class="fw-normal text-gray" data-strikethrough-target="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pulvinar feugiat consequat. Duis lacus nibh, sagittis id varius vel, aliquet non augue.  </span>
+          <span class="fw-normal text-gray" data-strikethrough-target="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pulvinar feugiat consequat. Duis lacus nibh, sagittis id varius vel, aliquet non augue. </span>
         </a>
       </div>
     </div>
     <div class="col-10 col-sm-2 col-lg-2 col-xl-2 d-none d-lg-block d-xl-inline-flex align-items-center ms-lg-auto text-right justify-content-end px-md-0">
       <div class="rating-star star-lg d-none d-lg-inline-block">
-        <input type="checkbox" id="InboxStar<%= index %>" name="star">
+        <input type="checkbox" id="InboxStar<%= index %>" name="star" />
         <label class="rating-star-label" for="InboxStar<%= index %>">
           <span class="fas fa-star fa-lg"></span>
         </label>

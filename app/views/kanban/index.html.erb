@@ -1,13 +1,7 @@
 <%= render "kanban/controls" %>
-<div
-  class="container-fluid kanban-container py-4 px-0"
-  data-controller="dragula"
->
+<div class="container-fluid kanban-container py-4 px-0" data-controller="dragula">
   <div class="row d-flex flex-nowrap">
-    <% ["to_do", "in_progress", "done", "deployed"].each do |group|%>
-      <%= render partial: "kanban/group", object: group %>
-    <% end %>
-    <%= render "kanban/add_group" %>
+    <% ["to_do", "in_progress", "done", "deployed"].each do |group|%> <%= render partial: "kanban/group", object: group %> <% end %> <%= render "kanban/add_group" %>
   </div>
   <%= render "kanban/modal" %>
 </div>

@@ -1,17 +1,9 @@
-<%
-  name = Faker::Name.name
-  initials = name.split(" ")[0, 2].map(&:first).join
-  avatar_color = ["success", "warning", "primary", "secondary", "danger", "info"].sample
-  status = ["Active", "Inactive", "Pending", "Suspended"].sample
-  color = {"Active" => "success", "Inactive" => "info", "Pending" => "warning", "Suspended" => "danger"}
-  icon = {"Active" => "check-circle", "Inactive" => "clock", "Pending" => "info-circle", "Suspended" => "info-circle"}
-%>
+<% name = Faker::Name.name initials = name.split(" ")[0, 2].map(&:first).join avatar_color = ["success", "warning", "primary", "secondary", "danger", "info"].sample status = ["Active", "Inactive", "Pending", "Suspended"].sample color = {"Active" => "success", "Inactive" => "info", "Pending" => "warning", "Suspended" => "danger"} icon = {"Active" => "check-circle", "Inactive" => "clock", "Pending" => "info-circle", "Suspended" => "info-circle"} %>
 <tr>
   <td>
     <div class="form-check dashboard-check">
-      <input class="form-check-input" type="checkbox" value="" id="userCheck2">
-      <label class="form-check-label" for="userCheck2">
-      </label>
+      <input class="form-check-input" type="checkbox" value="" id="userCheck2" />
+      <label class="form-check-label" for="userCheck2"> </label>
     </div>
   </td>
   <td>
@@ -24,7 +16,9 @@
     </a>
   </td>
   <td><span class="fw-normal"><%= Faker::Date.backward(days: 14) %></span></td>
-  <td><span class="fw-normal"><span class="fas fa-<%= icon[status] %> text-<%= color[status] %> me-2"></span>Email</span></td>
+  <td>
+    <span class="fw-normal"><span class="fas fa-<%= icon[status] %> text-<%= color[status] %> me-2"></span>Email</span>
+  </td>
   <td><span class="fw-normal text-<%= color[status] %>"><%= status %></span></td>
   <td>
     <div class="btn-group">

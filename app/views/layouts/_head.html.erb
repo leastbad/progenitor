@@ -13,15 +13,7 @@
   <meta name="pill-messages" content="4" />
   <meta name="pill-version" content="v1.2" />
 
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= action_cable_meta_tag %>
+  <%= csrf_meta_tags %> <%= csp_meta_tag %> <%= action_cable_meta_tag %> <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-  <script
-    src="https://kit.fontawesome.com/293f8b86ea.js"
-    crossorigin="anonymous"
-  ></script>
+  <script src="https://kit.fontawesome.com/293f8b86ea.js" crossorigin="anonymous"></script>
 </head>
