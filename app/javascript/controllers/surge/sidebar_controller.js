@@ -1,15 +1,16 @@
 import { Controller } from 'stimulus'
-import { useResize } from 'stimulus-use'
-import debounce from 'lodash/debounce'
+import { useResize, useDebounce } from 'stimulus-use'
 
 export default class extends Controller {
+  static debounces = ['resize']
+
   initialize () {
-    this.resize = debounce(this.resize, 10)
     this.sidebarToggle = document.getElementById('sidebar-toggle')
   }
 
   connect () {
     useResize(this, { element: document.body })
+    useDebounce(this, { wait: 10 })
     this.sidebarToggle.addEventListener('click', this.clicked)
     this.element.addEventListener('mouseenter', this.mouseEntered)
     this.element.addEventListener('mouseleave', this.mouseLeft)

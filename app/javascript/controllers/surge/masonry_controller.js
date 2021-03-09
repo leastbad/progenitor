@@ -1,14 +1,14 @@
 import { Controller } from 'stimulus'
 import Masonry from 'masonry-layout'
-import { useResize } from 'stimulus-use'
-import debounce from 'lodash/debounce'
+import { useResize, useDebounce } from 'stimulus-use'
 
 export default class extends Controller {
   static targets = ['item']
+  static debounces = ['resize']
 
   initialize () {
-    this.resize = debounce(this.resize, 20)
     useResize(this)
+    useDebounce(this, { wait: 20 })
   }
 
   resize ({ width }) {
