@@ -1,4 +1,11 @@
-<% events = [] 20.times do |index| date = Time.zone.now - (rand(0..45).days) events << { id: index + 1, title: "Meeting with " + Faker::Name.name, start: date.strftime("%Y-%m-%d"), end: (date + (rand(0..3).days)).strftime("%Y-%m-%d"), className: "bg-" + ["pink", "secondary", "dark", "blue", "purple", "danger", "success"].sample } end %> <%= render "controls" %>
+<% 
+events = [] 
+20.times do |index| 
+date = Time.zone.now - (rand(0..45).days) 
+events << { id: index + 1, title: "Meeting with " + Faker::Name.name, start: date.strftime("%Y-%m-%d"), end: (date + (rand(0..3).days)).strftime("%Y-%m-%d"), className: "bg-" + ["pink", "secondary", "dark", "blue", "purple", "danger", "success"].sample } 
+end 
+%> 
+<%= render "controls" %>
 <div class="card">
   <div id="calendar" class="p-4" data-controller="calendar" data-calendar-events-value="<%= JSON.generate(events) %>"></div>
 </div>

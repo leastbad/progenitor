@@ -1,4 +1,11 @@
-<% name = Faker::Name.name initials = name.split(" ")[0, 2].map(&:first).join avatar_color = ["success", "warning", "primary", "secondary", "danger", "info"].sample status = ["Active", "Inactive", "Pending", "Suspended"].sample color = {"Active" => "success", "Inactive" => "info", "Pending" => "warning", "Suspended" => "danger"} icon = {"Active" => "check-circle", "Inactive" => "clock", "Pending" => "info-circle", "Suspended" => "info-circle"} %>
+<% 
+name = Faker::Name.name 
+initials = name.split(" ")[0, 2].map(&:first).join 
+avatar_color = ["success", "warning", "primary", "secondary", "danger", "info"].sample 
+status = ["Active", "Inactive", "Pending", "Suspended"].sample 
+color = {"Active" => "success", "Inactive" => "info", "Pending" => "warning", "Suspended" => "danger"} 
+icon = {"Active" => "check-circle", "Inactive" => "clock", "Pending" => "info-circle", "Suspended" => "info-circle"} 
+%>
 <tr>
   <td>
     <div class="form-check dashboard-check">

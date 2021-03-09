@@ -9,7 +9,12 @@
           <div class="text-center text-md-center mb-4 mt-md-0">
             <h1 class="mb-0 h3">Create an account</h1>
           </div>
-          <% # remote this in a real app resource = User.new resource_name = "user" %> <%= form_with(model: resource, scope: resource_name, url: registration_path(resource_name), method: :post, class: "mt-4") do |f| %>
+          <% 
+          # remote this in a real app 
+          resource = User.new 
+          resource_name = "user" 
+          %> 
+          <%= form_with(model: resource, scope: resource_name, url: registration_path(resource_name), method: :post, class: "mt-4") do |f| %>
           <div class="form-group mb-4">
             <%= f.label :email, "Your Email" %>
             <div class="input-group">

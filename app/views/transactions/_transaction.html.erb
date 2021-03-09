@@ -1,4 +1,8 @@
-<% active = Faker::Subscription.status color = {"Active" => "success", "Idle" => "info", "Pending" => "warning", "Blocked" => "danger"} date = Faker::Date.between(from: 4.months.ago, to: 2.months.ago) %>
+<% 
+active = Faker::Subscription.status 
+color = {"Active" => "success", "Idle" => "info", "Pending" => "warning", "Blocked" => "danger"} 
+date = Faker::Date.between(from: 4.months.ago, to: 2.months.ago) 
+%>
 <tr>
   <td>
     <a href="/pages/invoice" class="fw-bold">

@@ -19,7 +19,13 @@
   <div class="card-body p-0">
     <% if rand(1..3) == 1 %> <img src="https://source.unsplash.com/500x262/?<%= ["technology", "women", "nature", "cats"].sample %>" class="card-img-top mb-2 mb-lg-3" alt="mockup"> <% end %>
     <p><%= Faker::Company.catch_phrase %></p>
-    <% if rand(1..4) == 1 %> <% progress = rand(0..100) color = "danger" color = "warning" if progress > 33 color = "success" if progress > 65 %>
+    <% if rand(1..4) == 1 %>
+    <% 
+    progress = rand(0..100) 
+    color = "danger" 
+    color = "warning" if progress > 33 
+    color = "success" if progress > 65 
+    %>
     <div class="d-flex align-items-center justify-content-between mb-1">
       <h5 class="h6 mb-0">Progress</h5>
       <div class="fw-bold small"><span><%= progress %>%</span></div>
@@ -27,7 +33,14 @@
     <div class="progress">
       <div class="progress-bar bg-<%= color %>" role="progressbar" style="width: <%= progress %>%" aria-valuenow="<%= progress %>" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
-    <% end %> <% users = [] rand(0..5).times do users << ["steve", "mike", "anne", "jill", "casey"].sample end users.uniq! %>
+    <% end %>
+    <% 
+    users = [] 
+    rand(0..5).times do 
+      users << ["steve", "mike", "anne", "jill", "casey"].sample 
+    end 
+    users.uniq! 
+    %>
     <h5 class="fs-6 fw-normal mt-4"><%= pluralize(users.size, "Assignee") %></h5>
     <div class="avatar-group">
       <% users.each do | user | %> <%= render partial: "kanban/user", object: user %> <% end %>
