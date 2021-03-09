@@ -1,0 +1,10 @@
+{
+  "overrides": [
+    {
+      "files": "*.html.erb",
+      "options": {
+        "printWidth": 1000
+      }
+    }
+  ]
+}

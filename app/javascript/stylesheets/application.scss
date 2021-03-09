@@ -83,3 +83,30 @@ html {
     width: 0%;
   }
 }
+
+.character-limit-container {
+  height: 20px;
+  width: 20px;
+  .polite {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+  .progressbar {
+    transition-duration: 0.3s;
+    transition-property: opacity;
+    .svg-container {
+      transition-duration: 0.15s;
+      transform: rotate(-90deg);
+      transition-property: height, width;
+      svg {
+        overflow: visible;
+      }
+    }
+  }
+  .number-container {
+    .number {
+      font-size: 13px;
+      min-width: 40px;
+    }
+  }
+}

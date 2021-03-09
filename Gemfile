@@ -49,5 +49,4 @@ gem "rqrcode", "~> 1.2"
 gem "pagy", "~> 3.10.0"
 gem "faker", "~> 2.16"
 gem "devise_masquerade", "~> 1.3"
-
 gem "standard", "~> 1.0"
