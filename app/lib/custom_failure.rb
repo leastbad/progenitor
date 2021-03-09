@@ -1,6 +1,10 @@
 class CustomFailure < Devise::FailureApp
   include CableReady::Broadcaster
 
+  def redirect_url
+    new_user_session_path
+  end
+
   def respond
     if http_auth?
       cable_ready[OptimismChannel]
