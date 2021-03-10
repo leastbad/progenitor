@@ -1,45 +1,9 @@
 class ApplicationController < ActionController::Base
   include CableReady::Broadcaster
-  include Surge
-  add_flash_types :primary, :secondary, :success, :danger, :warning, :info, :light, :dark
-  before_action :qrcode, if: :user_signed_in?
-  before_action :sidenav, if: :user_signed_in?
-  before_action :masquerade_user!, if: :user_signed_in?
-  after_action :broadcast_flash, if: :user_signed_in?
-  after_action :clear_flash, unless: :user_signed_in?
+  
+  include QRCodeable
+  include Toastable
+  include Navigatable
+  include Masqueradable
 
-  private
-
-  def broadcast_flash
-    flash.each { |k, v| ToastJob.set(wait: 2.second).perform_later(current_user, k, v) }
-    flash.clear
-  end
-
-  def clear_flash
-    flash.clear
-  end
-
-  def qrcode
-    case Rails.env
-    when "development"
-      return @qr = false unless defined?(Ngrok::Tunnel) && Ngrok::Tunnel.running?
-      @qr = generate_qr(Ngrok::Tunnel.ngrok_url)
-    when "production"
-      @qr = generate_qr(request.base_url)
-    else
-      @qr = false
-    end
-  end
-
-  def generate_qr(url)
-    Rails.cache.fetch("progenitor:qr:#{url}") do
-      RQRCode::QRCode.new(url).as_svg(
-        offset: 0, color: "000", shape_rendering: "crispEdges", module_size: 6
-      )
-    end.html_safe
-  end
-
-  def sidenav
-    @sidenav = Surge::Sidenav.new(SIDENAV, request.path).to_s
-  end
 end

@@ -1,5 +1,5 @@
 module Surge
-  class Sidenav
+  class NavBuilder
     attr_reader :nodes, :digest, :path
     delegate :render, to: ApplicationController
 

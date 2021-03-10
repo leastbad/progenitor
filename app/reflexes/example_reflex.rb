@@ -2,7 +2,7 @@
 
 class ExampleReflex < ApplicationReflex
   def send_toast
-    ToastJob.perform_later(current_user, "success", "Hi, #{current_user.name}!")
+    ToastJob.perform_later(current_user, "secondary", "Hi, #{current_user.name}!")
     morph :nothing
   end
 
