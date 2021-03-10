@@ -1,3 +1,16 @@
+const purgecss = require('@fullhuman/postcss-purgecss')({
+  content: [
+    './app/**/*.html.erb',
+    './app/helpers/**/*.rb',
+    './app/javascript/**/*.js'
+  ],
+  defaultExtractor: content => {
+    const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
+    const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
+    return broadMatches.concat(innerMatches)
+  }
+})
+
 module.exports = {
   plugins: [
     require('postcss-import'),
@@ -7,6 +20,7 @@ module.exports = {
         flexbox: 'no-2009'
       },
       stage: 3
-    })
+    }),
+    ...(process.env.NODE_ENV === 'production' ? [purgecss] : [])
   ]
 }
