@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   add_flash_types :primary, :secondary, :success, :danger, :warning, :info, :light, :dark
   before_action :qrcode, if: :user_signed_in?
   before_action :sidenav, if: :user_signed_in?
-  before_action :masquerade_user!
+  before_action :masquerade_user!, if: :user_signed_in?
   after_action :broadcast_flash, if: :user_signed_in?
   after_action :clear_flash, unless: :user_signed_in?
 
@@ -20,12 +20,23 @@ class ApplicationController < ActionController::Base
   end
 
   def qrcode
-    return @qr = false unless defined?(Ngrok::Tunnel) && Ngrok::Tunnel.running?
-    @qr = Rails.cache.fetch("progenitor:qr:#{Ngrok::Tunnel.ngrok_url}") do
-      RQRCode::QRCode.new(Ngrok::Tunnel.ngrok_url).as_svg(
+    case Rails.env
+    when "development"
+      return @qr = false unless defined?(Ngrok::Tunnel) && Ngrok::Tunnel.running?
+      @qr = generate_qr(Ngrok::Tunnel.ngrok_url)
+    when "production"
+      @qr = generate_qr(request.base_url)
+    else
+      @qr = false
+    end
+  end
+
+  def generate_qr(url)
+    Rails.cache.fetch("progenitor:qr:#{url}") do
+      RQRCode::QRCode.new(url).as_svg(
         offset: 0, color: "000", shape_rendering: "crispEdges", module_size: 6
       )
-    end
+    end.html_safe
   end
 
   def sidenav
