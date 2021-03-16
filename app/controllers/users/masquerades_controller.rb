@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Users::MasqueradesController < Devise::MasqueradesController
   def show
     cable_ready[SessionChannel].dispatch_event(name: "reconnect").broadcast_to(session.id)
