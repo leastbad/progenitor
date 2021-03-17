@@ -110,3 +110,10 @@ html {
     }
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  body.dark {
+    background-color: black;
+    filter: hue-rotate(180deg) invert(90%);
+  }
+}
