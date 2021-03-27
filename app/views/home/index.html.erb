@@ -2,15 +2,61 @@
 <div class="row mt-4">
   <div class="col-8 col-lg-6 col-xl-4 mb-4">
     <div class="card border-light shadow-sm components-section">
+      <div class="card-header">
+        <h3>Console Log</h3>
+      </div>
       <div class="card-body d-flex justify-content-center">
-        <button class="btn btn-dark" type="button" data-reflex="click->Example#send_message"><span class="far fa-paper-plane me-2"></span>Send console log message</button>
+        <button class="btn btn-dark" type="button" data-reflex="click->Example#send_message"><span class="far fa-paper-plane me-2"></span>Send message</button>
       </div>
     </div>
   </div>
   <div class="col-8 col-lg-6 col-xl-4 mb-4">
     <div class="card border-light shadow-sm components-section">
+      <div class="card-header">
+        <h3>Toast</h3>
+      </div>
       <div class="card-body d-flex justify-content-center">
-        <button class="btn btn-dark" type="button" data-reflex="click->Example#send_toast"><span class="fas fa-bread-slice me-2"></span>Send toast message</button>
+        <button class="btn btn-dark" type="button" data-reflex="click->Example#send_toast"><span class="fas fa-bread-slice me-2"></span>Send message</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-8 col-lg-6 col-xl-4 mb-4">
+    <div class="card border-light shadow-sm components-section">
+      <div class="card-header">
+        <h3>Clock</h3>
+      </div>
+      <div class="card-body d-flex justify-content-center">
+        <button class="btn btn-dark" type="button" data-reflex="click->Example#clock"><span class="fas fa-clock me-2"></span><%= ChronoTrigger::Clock.ticking? ? "Stop" : "Start" %></button>
+      </div>
+    </div>
+  </div>
+  <div class="col-8 col-lg-6 col-xl-4 mb-4">
+    <div class="card border-light shadow-sm components-section">
+      <div class="card-header">
+        <h3>Heartbeat</h3>
+      </div>
+      <div class="card-body d-flex justify-content-center">
+        <button class="btn btn-dark" type="button" data-reflex="click->Example#heartbeat"><span class="fas fa-heartbeat me-2"></span>Let's gooo</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-8 col-lg-6 col-xl-4 mb-4">
+    <div class="card border-light shadow-sm components-section">
+      <div class="card-header">
+        <h3>Clear Heartbeat</h3>
+      </div>
+      <div class="card-body d-flex justify-content-center">
+        <button class="btn btn-dark" type="button" data-reflex="click->Example#clear"><span class="fas fa-heart-broken me-2"></span>Dear John</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-8 col-lg-6 col-xl-4 mb-4">
+    <div class="card border-light shadow-sm components-section">
+      <div class="card-header">
+        <h3>Threads</h3>
+      </div>
+      <div class="card-body d-flex justify-content-center">
+        <button class="btn btn-dark" type="button" data-reflex="click->Example#threads"><span class="fas fa-angry me-2"></span>Truth</button>
       </div>
     </div>
   </div>

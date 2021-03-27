@@ -21,6 +21,7 @@ application.register('flatpickr', Flatpickr)
 application.consumer = consumer
 
 StimulusReflex.initialize(application, {
+  consumer,
   controller,
   isolate: true
 })

@@ -86,6 +86,12 @@ SIDENAV = [
     url: "/map",
     icon: "map-marked-alt"
   }, {
+    id: "files",
+    type: "item",
+    label: "Files",
+    url: "/files",
+    icon: "file-upload"
+  }, {
     id: "pages",
     type: "submenu",
     label: "Pages",
