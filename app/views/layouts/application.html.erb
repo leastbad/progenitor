@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <%= render partial: "layouts/head" %>
-  <body>
+  <body data-controller="radiolabel">
     <%= render partial: "layouts/nav" if user_signed_in? %>
     <%= render partial: "layouts/sidenav" if user_signed_in? %>
     <main class="<%= "content" if user_signed_in? %>">
