@@ -6,7 +6,6 @@ import Turbolinks from 'turbolinks'
 import Rails from '@rails/ujs'
 import * as ActiveStorage from '@rails/activestorage'
 import LocalTime from 'local-time'
-import 'simplebar'
 
 import 'controllers'
 import 'channels'

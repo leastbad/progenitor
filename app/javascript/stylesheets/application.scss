@@ -117,3 +117,21 @@ html {
     filter: hue-rotate(180deg) invert(90%);
   }
 }
+
+.stroke-current {
+  stroke: currentColor;
+}
+
+.stroke-4 {
+  stroke-width: 4;
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}

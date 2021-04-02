@@ -1,11 +1,13 @@
 import { Controller } from 'stimulus'
 import { useResize, useDebounce } from 'stimulus-use'
+import SimpleBar from 'simplebar'
 
 export default class extends Controller {
   static debounces = ['resize']
 
   initialize () {
     this.sidebarToggle = document.getElementById('sidebar-toggle')
+    new SimpleBar(this.element)
   }
 
   connect () {
