@@ -135,3 +135,13 @@ html {
 .duration-500 {
   transition-duration: 500ms;
 }
+
+@keyframes show-b {
+  from { transform: translate3d(120%, 0, 0) }
+  to { transform: translate3d(0, 0, 0); } 
+}
+
+@keyframes show-a {
+  from { transform: translate3d(-120%, 0, 0) }
+  to { transform: translate3d(0, 0, 0); } 
+}
