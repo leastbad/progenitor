@@ -1,4 +1,4 @@
-require "active_support/concern"
+# frozen_string_literal: true
 
 module Masqueradable
   extend ActiveSupport::Concern
