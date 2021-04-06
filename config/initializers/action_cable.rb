@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# ActionCable.server.config.logger = Logger.new(nil)
+ActionCable.server.config.logger = Logger.new(nil)
 
 module ActionCable
   class RemoteConnections

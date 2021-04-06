@@ -39,3 +39,4 @@ yarn-debug.log*
 /db/*.sqlite3-*
 
 .ngrok
+ktgask.shutdown
