@@ -12,7 +12,10 @@ document.addEventListener('turbolinks:load', () => {
     received (data) {
       if (!data) channel = undefined
       if (data.notification) notify(data.notification)
-      if (data.cableReady) CableReady.perform(data.operations)
+      if (data.cableReady)
+        CableReady.perform(data.operations, {
+          emitMissingElementWarnings: false
+        })
     }
   })
 })
