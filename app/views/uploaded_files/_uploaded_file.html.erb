@@ -1,0 +1,47 @@
+<% if uploaded_file.persisted? %>
+  <div class="col-6 col-lg-4 col-xxl-3" id="file-<%= uploaded_file.id %>">
+    <div class="card shadow-sm mb-4">
+      <div class="card-header border-bottom border-gray-300 overflow-hidden">
+        <h3 class="h5 mb-0 text-nowrap"><%= uploaded_file.blob.filename %></h3>
+      </div>
+      <div class="card-body d-flex justify-content-center">
+        <%= 
+          case uploaded_file.blob&.content_type
+          when /\Aaudio/
+            audio_tag rails_blob_path(uploaded_file.blob, only_path: true), class: "mw-100", controls: true, style: "height: 128px;"
+          when /\Avideo/
+            video_tag rails_blob_path(uploaded_file.blob, only_path: true), class: "mw-100", controls: true, style: "height: 128px;"
+          when /\Aimage/
+            image_tag uploaded_file.blob.representation(resize_to_fill: [128, 128])
+          else
+            content_tag :span, "", class: "fas fa-file fa-5x", style: "height: 128px;"
+          end
+        %>
+      </div>
+      <div class="card-footer d-grid overflow-hidden" data-controller="swap">
+        <button type="button" class="btn btn-danger flex-grow-1" data-swap-target="a" data-action="swap#enter">Delete</button>
+        <div class="d-flex justify-content-between d-none" data-swap-target="b">
+          <button type="button" class="btn btn-dark flex-grow-1 me-3"  data-action="swap#exit">Cancel</button>
+          <button type="button" class="btn btn-danger" data-reflex="click->Upload#remove" data-id="<%= uploaded_file.id %>">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="col-6 col-lg-4 col-xxl-3" id="file-<%= uploaded_file.uuid %>">
+    <div class="d-none">
+      <%= form_with scope: uploaded_file, url: "/" do |form| %>
+        <%= form.hidden_field :input, class: "input", id: nil %>
+        <%= form.hidden_field :uuid, id: nil %>
+        <%= form.file_field :blob, id: nil %>
+      <% end %>
+    </div>
+    <svg class="w-75 h-75" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <g transform="rotate(-90 100 100)">
+        <circle class="stroke-current stroke-4 text-secondary fw-normal" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+        <circle class="stroke-current stroke-4 text-primary fw-lighter transition-all duration-500 bar" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="565.48"></circle>
+      </g>
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" class="stroke-current fw-bolder fs-4 percent">0 %</text>
+    </svg>
+  </div>
+<% end %>

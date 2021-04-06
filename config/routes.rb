@@ -5,8 +5,6 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
 
-  resources :uploaded_files, only: :create
-
   get "dashboard/overview", to: "dashboard#overview"
   get "dashboard/traffic", to: "dashboard#traffic"
   get "dashboard/analysis", to: "dashboard#analysis"
@@ -20,7 +18,7 @@ Rails.application.routes.draw do
   get "settings", to: "settings#index"
   get "calendar", to: "calendar#index"
   get "map", to: "map#index"
-  get "files", to: "files#index"
+  get "files", to: "uploaded_files#index"
   get "pages/invoice", to: "pages#invoice"
   get "pages/sign-in", to: "pages#sign_in"
   get "pages/sign-up", to: "pages#sign_up"
