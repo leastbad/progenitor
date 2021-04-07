@@ -24,7 +24,8 @@ export default class extends Controller {
     interpolation: String
   }
   initialize () {
-    this.previousData = null
+    this.previouslineData = null
+    this.previousareaData = null
     this.chart = new Chartist.Line(this.element, this.dataValue, {
       low: this.lowValue,
       showArea: this.showAreaValue,
@@ -47,7 +48,7 @@ export default class extends Controller {
             begin: 2000 * data.index,
             dur: 2000,
             from:
-              this.previousData ||
+              this[`previous${data.type}Data`] ||
               data.path
                 .clone()
                 .scale(1, 0)
@@ -57,7 +58,7 @@ export default class extends Controller {
             easing: Chartist.Svg.Easing.easeOutQuint
           }
         })
-        this.previousData = data.path.clone().stringify()
+        this[`previous${data.type}Data`] = data.path.clone().stringify()
       }
     })
   }
