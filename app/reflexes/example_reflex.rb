@@ -31,4 +31,9 @@ class ExampleReflex < ApplicationReflex
     puts Thread.list
     morph :nothing
   end
+
+  def meta
+    cable_ready[UsersChannel].meta(name: "pill-version", content: "69").broadcast_to(current_user)
+    morph :nothing
+  end
 end

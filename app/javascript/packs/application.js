@@ -27,8 +27,9 @@ CableReady.DOMOperations.toast = operation => {
   new Notyf(flash).open(operation)
 }
 
-CableReady.DOMOperations.increment = operation => {
-  console.log('Jazz hands!', operation)
+CableReady.DOMOperations.meta = operation => {
+  const { name, content } = operation
+  document.head.querySelector(`meta[name=${name}]`).content = content
 }
 
 document.addEventListener('DOMContentLoaded', function () {
