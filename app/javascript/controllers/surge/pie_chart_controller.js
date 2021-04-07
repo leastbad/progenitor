@@ -21,7 +21,7 @@ export default class extends Controller {
   }
 
   initialize () {
-    new Chartist.Pie(this.element, this.dataValue, {
+    this.chart = new Chartist.Pie(this.element, this.dataValue, {
       labelInterpolationFnc: value => {
         return (
           Math.round((value / this.dataValue.series.reduce(sum)) * 100) + '%'
@@ -37,5 +37,9 @@ export default class extends Controller {
       plugins: this.tooltipValue ? [Chartist.plugins.tooltip()] : [],
       startAngle: this.startAngleValue
     })
+  }
+
+  dataValueChanged () {
+    this.chart.update(this.dataValue)
   }
 }

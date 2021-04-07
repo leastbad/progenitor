@@ -24,7 +24,8 @@ export default class extends Controller {
     interpolation: String
   }
   initialize () {
-    new Chartist.Line(this.element, this.dataValue, {
+    this.previousData = null
+    this.chart = new Chartist.Line(this.element, this.dataValue, {
       low: this.lowValue,
       showArea: this.showAreaValue,
       fullWidth: this.fullWidthValue,
@@ -39,5 +40,29 @@ export default class extends Controller {
         labelInterpolationFnc: interpolations[this.interpolationValue]
       }
     })
+    this.chart.on('draw', data => {
+      if (data.type === 'line' || data.type === 'area') {
+        data.element.animate({
+          d: {
+            begin: 2000 * data.index,
+            dur: 2000,
+            from:
+              this.previousData ||
+              data.path
+                .clone()
+                .scale(1, 0)
+                .translate(0, data.chartRect.height())
+                .stringify(),
+            to: data.path.clone().stringify(),
+            easing: Chartist.Svg.Easing.easeOutQuint
+          }
+        })
+        this.previousData = data.path.clone().stringify()
+      }
+    })
+  }
+
+  dataValueChanged () {
+    this.chart.update(this.dataValue)
   }
 }

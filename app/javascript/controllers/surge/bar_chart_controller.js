@@ -11,7 +11,7 @@ export default class extends Controller {
   }
 
   initialize () {
-    var chart = new Chartist.Bar(this.element, this.dataValue, {
+    this.chart = new Chartist.Bar(this.element, this.dataValue, {
       low: this.lowValue,
       showArea: this.showAreaValue,
       plugins: this.tooltipValue ? [Chartist.plugins.tooltip()] : [],
@@ -25,7 +25,7 @@ export default class extends Controller {
       }
     })
 
-    chart.on('draw', function (data) {
+    this.chart.on('draw', function (data) {
       if (data.type === 'line' || data.type === 'area') {
         data.element.animate({
           d: {
@@ -42,5 +42,9 @@ export default class extends Controller {
         })
       }
     })
+  }
+
+  dataValueChanged () {
+    this.chart.update(this.dataValue)
   }
 }
