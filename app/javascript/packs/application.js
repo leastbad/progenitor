@@ -27,11 +27,6 @@ CableReady.DOMOperations.toast = operation => {
   new Notyf(flash).open(operation)
 }
 
-CableReady.DOMOperations.meta = operation => {
-  const { name, content } = operation
-  document.head.querySelector(`meta[name=${name}]`).content = content
-}
-
 document.addEventListener('DOMContentLoaded', function () {
   if (document.body.hasAttribute('data-unlock-audio')) {
     const unlocked = () => {

@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/hopsoft/stimulus_reflex.git
-  revision: ae318edc1e96d531daf420db6e715d76bf24e90c
+  revision: f13a9a88b105296b56d2c0b464c5a1f241b2fa02
   branch: master
   specs:
     stimulus_reflex (3.4.1)
@@ -99,7 +99,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (3.0.0)
-    chrono_trigger (1.0.0)
+    chrono_trigger (1.0.5)
       concurrent-ruby (~> 1.1, >= 1.1.8)
       concurrent-ruby-edge (~> 0.6, >= 0.6.0)
       rails (>= 5.2)
