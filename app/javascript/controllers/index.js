@@ -32,3 +32,11 @@ if (process.env.RAILS_ENV === 'development') {
     application.register('radiolabel', Radiolabel.default)
   )
 }
+
+document.addEventListener('turbolinks:before-cache', () => {
+  application.controllers.forEach(controller => {
+    if (typeof controller.teardown === 'function') {
+      controller.teardown()
+    }
+  })
+})
