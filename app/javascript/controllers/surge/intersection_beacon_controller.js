@@ -20,7 +20,7 @@ export default class extends ApplicationController {
   appear (entry) {
     if (this.charges) {
       this.charges--
-      this.stimulate(this.reflexValue)
+      this.stimulate(this.reflexValue, Math.round(entry.time))
     }
   }
 }
