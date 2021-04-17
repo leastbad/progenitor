@@ -145,6 +145,11 @@ SIDENAV = [
     icon: "box-open",
     subitems: [
       {
+        id: "beacons",
+        label: "Beacons",
+        url: "/components/beacons"
+      },
+      {
         id: "buttons",
         label: "Buttons",
         url: "/components/buttons"
@@ -163,6 +168,11 @@ SIDENAV = [
         id: "typography",
         label: "Typography",
         url: "/components/typography"
+      },
+      {
+        id: "youtube",
+        label: "Youtube",
+        url: "/components/youtube"
       }
     ]
   }, {

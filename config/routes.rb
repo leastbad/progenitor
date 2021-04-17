@@ -27,10 +27,12 @@ Rails.application.routes.draw do
   get "pages/lock", to: "pages#lock"
   get "pages/error-404", to: "pages#error_404"
   get "pages/error-500", to: "pages#error_500"
+  get "components/beacons", to: "components#beacons"
   get "components/buttons", to: "components#buttons"
   get "components/forms", to: "components#forms"
   get "components/modals", to: "components#modals"
   get "components/typography", to: "components#typography"
+  get "components/youtube", to: "components#youtube"
   get "cards", to: "cards#index"
 
   root to: "home#index"

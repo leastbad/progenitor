@@ -7,7 +7,7 @@ class BeaconReflex < ApplicationReflex
     morph :nothing
   end
 
-  def intersection(time)
+  def tripwire(time)
     puts time
     morph :nothing
   end
