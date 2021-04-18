@@ -18,10 +18,12 @@
   .ss-content {
     border-color: $input-border-color;
     border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     @include box-shadow($box-shadow);
     .ss-list {
       max-height: 300px;
       border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
     }
   }
 }

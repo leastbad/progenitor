@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+  
   def gravatar(email)
     hash = Digest::MD5.hexdigest(email)
     protocol = Rails.env.production? ? "https" : "http"

@@ -1,20 +1,20 @@
 <div class="table-settings mb-4">
   <div class="row justify-content-between align-items-center">
-    <div class="col-9 col-lg-4 d-flex">
+    <div class="col-9 col-lg-6 d-flex">
       <div class="input-group me-2 me-lg-3">
         <span class="input-group-text"><span class="fas fa-search"></span></span>
-        <input type="text" class="form-control" placeholder="Search" />
+        <input type="text" class="form-control" placeholder="Search" data-reflex="input->Customers#search" data-filter="<%= filter.id %>" />
       </div>
-      <select class="form-select w-25" aria-label="Message select example 2">
-        <option selected>All</option>
-        <option value="1">Active</option>
-        <option value="2">Inactive</option>
-        <option value="3">Pending</option>
-        <option value="3">Canceled</option>
+      <select class="w-50" data-controller="select" data-select-show-search-value="false" required data-reflex="change->Customers#state" data-filter="<%= filter.id %>">
+        <option selected value="">All</option>
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+        <option value="Pending">Pending</option>
+        <option value="Suspended">Suspended</option>
       </select>
     </div>
-    <div class="col-3 col-lg-8 text-right">
-      <div class="btn-group me-1">
+    <div class="col-3 col-lg-6 text-right">
+      <div class="btn-group me-1" data-controller="dropdown">
         <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="icon icon-sm icon-gray pt-1">
             <span class="fas fa-sliders-h"></span>
@@ -23,27 +23,9 @@
         </button>
         <div class="dropdown-menu dropdown-menu-end pb-0">
           <span class="small ps-3 fw-bold text-dark">Show</span>
-          <a class="dropdown-item d-flex fw-bold" href="#"
-            >10 <span class="icon icon-small ms-auto"><span class="fas fa-check"></span></span
-          ></a>
-          <a class="dropdown-item fw-bold" href="#">20</a>
-          <a class="dropdown-item fw-bold rounded-bottom" href="#">30</a>
-        </div>
-      </div>
-      <div class="btn-group">
-        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="icon icon-sm icon-gray pt-1">
-            <span class="fas fa-cog"></span>
-          </span>
-          <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <div class="dropdown-menu dropdown-menu-xs dropdown-menu-end pb-0">
-          <span class="small ps-3 fw-bold text-dark">Show</span>
-          <a class="dropdown-item d-flex fw-bold" href="#"
-            >10 <span class="icon icon-small ms-auto"><span class="fas fa-check"></span></span
-          ></a>
-          <a class="dropdown-item fw-bold" href="#">20</a>
-          <a class="dropdown-item fw-bold rounded-bottom" href="#">30</a>
+          <a class="dropdown-item d-flex fw-bold" href="#" data-reflex="click->Customers#items" data-items="10" data-filter="<%= filter.id %>">10 <span class="icon icon-small ms-auto"><span class="fas fa-check"></span></span></a>
+          <a class="dropdown-item d-flex fw-bold" href="#" data-reflex="click->Customers#items" data-items="20" data-filter="<%= filter.id %>">20 <span class="icon icon-small ms-auto d-none"><span class="fas fa-check"></span></span></a>
+          <a class="dropdown-item d-flex fw-bold rounded-bottom" href="#" data-reflex="click->Customers#items" data-items="30" data-filter="<%= filter.id %>">30 <span class="icon icon-small ms-auto d-none"><span class="fas fa-check"></span></span></a>
         </div>
       </div>
     </div>

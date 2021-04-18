@@ -1,11 +1,4 @@
-<% 
-name = Faker::Name.name 
-initials = name.split(" ")[0, 2].map(&:first).join 
-avatar_color = ["success", "warning", "primary", "secondary", "danger", "info"].sample 
-status = ["Active", "Inactive", "Pending", "Suspended"].sample 
-color = {"Active" => "success", "Inactive" => "info", "Pending" => "warning", "Suspended" => "danger"} 
-icon = {"Active" => "check-circle", "Inactive" => "clock", "Pending" => "info-circle", "Suspended" => "info-circle"} 
-%>
+<%  color = {"Active" => "success", "Inactive" => "info", "Pending" => "warning", "Suspended" => "danger"} %>
 <tr>
   <td>
     <div class="form-check dashboard-check">
@@ -15,18 +8,16 @@ icon = {"Active" => "check-circle", "Inactive" => "clock", "Pending" => "info-ci
   </td>
   <td>
     <a href="#" class="d-flex align-items-center">
-      <div class="user-avatar bg-<%= avatar_color %> me-3"><span><%= initials %></span></div>
+      <div class="user-avatar bg-<%= color[customer.state] %> me-3"><span><%= customer.name.split(" ")[0, 2].map(&:first).join %></span></div>
       <div class="d-block">
-        <span class="fw-bold"><%= name %></span>
-        <div class="small text-gray"><%= Faker::Internet.email %></div>
+        <span class="fw-bold"><%= customer.name %></span>
+        <div class="small text-gray"><%= customer.email %></div>
       </div>
     </a>
   </td>
-  <td><span class="fw-normal"><%= Faker::Date.backward(days: 14) %></span></td>
-  <td>
-    <span class="fw-normal"><span class="fas fa-<%= icon[status] %> text-<%= color[status] %> me-2"></span>Email</span>
-  </td>
-  <td><span class="fw-normal text-<%= color[status] %>"><%= status %></span></td>
+  <td><span class="fw-normal text-wrap"><%= customer.company %></span></td>
+  <td><span class="fw-normal"><%= customer.position %></span></td>
+  <td><span class="fw-normal text-<%= color[customer.state] %>"><%= customer.state %></span></td>
   <td>
     <div class="btn-group">
       <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

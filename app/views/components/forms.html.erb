@@ -40,7 +40,7 @@
           <div class="col-lg-4 col-sm-6">
             <div class="mb-2">
               <label class="my-1 me-2" for="user">Select user:</label>
-              <select id="user" class="w-100" name="user" data-controller="select" data-select-reflex-value="Users#search" data-reflex-dataset="#cunt">
+              <select id="user" class="w-100" name="user" data-controller="select" data-select-reflex-value="Users#search">
                 <% User.where(demo: true).each do |user| %>
                 <option value="<%= user.id %>">
                   <%= user.name %>
@@ -48,7 +48,7 @@
                 <% end %>
               </select>
             </div>
-            <label class="my-1 me-2" for="users" id="cunt" data-fuck="true">Select users:</label>
+            <label class="my-1 me-2" for="users">Select users:</label>
             <select id="users" class="w-100" name="users[]" multiple="multiple" data-controller="select" data-select-reflex-value="Users#search">
               <% User.where(demo: true).each do |user| %>
               <option value="<%= user.id %>">

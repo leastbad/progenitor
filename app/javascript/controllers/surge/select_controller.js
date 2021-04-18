@@ -7,7 +7,8 @@ export default class extends ApplicationController {
     placeholder: String,
     searchText: String,
     searchingText: String,
-    reflex: String
+    reflex: String,
+    showSearch: Boolean
   }
 
   connect () {
@@ -20,6 +21,7 @@ export default class extends ApplicationController {
       closeOnSelect,
       allowDeselect,
       limit: this.limitValue,
+      showSearch: this.hasShowSearchValue ? this.showSearchValue : true,
       placeholder: this.hasPlaceholderValue
         ? this.placeholderValue
         : 'Select Value',
