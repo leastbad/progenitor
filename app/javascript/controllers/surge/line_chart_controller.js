@@ -21,11 +21,15 @@ export default class extends Controller {
     showGridY: Boolean,
     showLabelX: Boolean,
     showLabelY: Boolean,
-    interpolation: String
+    interpolation: String,
+    delay: Number,
+    duration: Number
   }
   initialize () {
     this.previouslineData = null
     this.previousareaData = null
+    this.delay = this.hasDelayValue ? this.delayValue : 500
+    this.duration = this.hasDurationValue ? this.durationValue : 2000
     this.chart = new Chartist.Line(this.element, this.dataValue, {
       low: this.lowValue,
       showArea: this.showAreaValue,
@@ -45,8 +49,8 @@ export default class extends Controller {
       if (data.type === 'line' || data.type === 'area') {
         data.element.animate({
           d: {
-            begin: 2000 * data.index,
-            dur: 2000,
+            begin: this.delay * data.index,
+            dur: this.duration,
             from:
               this[`previous${data.type}Data`] ||
               data.path

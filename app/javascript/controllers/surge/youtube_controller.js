@@ -61,7 +61,7 @@ export default class extends Controller {
     return this.youtube
   }
   get time () {
-    return Math.round(this.player.getCurrentTime())
+    return parseInt(this.player.getCurrentTime())
   }
   get duration () {
     return this.player.getDuration()
