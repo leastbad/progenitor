@@ -21,12 +21,10 @@ export default class extends Controller {
         svg.remove('d-none')
         if (link.direction === 'asc') {
           link.direction = 'desc'
-          svg.remove('fa-chevron-down')
-          svg.add('fa-chevron-up')
+          svg.replace('fa-chevron-down', 'fa-chevron-up')
         } else {
           link.direction = 'asc'
-          svg.remove('fa-chevron-up')
-          svg.add('fa-chevron-down')
+          svg.replace('fa-chevron-up', 'fa-chevron-down')
         }
       } else {
         link.direction = 'desc'
