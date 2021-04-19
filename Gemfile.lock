@@ -19,6 +19,15 @@ GIT
       rails (>= 5.2)
       redis
 
+GIT
+  remote: https://github.com/leastbad/all_futures.git
+  revision: edc66b208d6ab05507864d25241f685fd1388261
+  branch: master
+  specs:
+    all_futures (1.0.0)
+      activeentity (~> 6.1)
+      kredis (~> 0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -325,7 +334,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activeentity (~> 6.1)
+  all_futures!
   bootsnap (>= 1.4.4)
   byebug
   cable_ready!
