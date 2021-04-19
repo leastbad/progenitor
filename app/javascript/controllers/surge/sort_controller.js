@@ -14,10 +14,24 @@ export default class extends Controller {
   }
 
   click = e => {
-    const data = e.target.dataset
-    const icon = e.target.querySelector('span')
-    if (data.active === 'true') {
-      data.direction = data.direction === 'asc' ? 'desc' : 'asc'
-    }
+    this.columns.forEach(c => {
+      const link = c.dataset
+      const svg = c.querySelector('svg').classList
+      if (c.isSameNode(e.target)) {
+        svg.remove('d-none')
+        if (link.direction === 'asc') {
+          link.direction = 'desc'
+          svg.remove('fa-chevron-down')
+          svg.add('fa-chevron-up')
+        } else {
+          link.direction = 'asc'
+          svg.remove('fa-chevron-up')
+          svg.add('fa-chevron-down')
+        }
+      } else {
+        link.direction = 'desc'
+        svg.add('d-none')
+      }
+    })
   }
 }

@@ -19,10 +19,10 @@
             <label class="form-check-label" for="userCheck55"> </label>
           </div>
         </th>
-        <th class="border-bottom" data-filter="<%= @filter.id %>" data-active="true" data-order="name" data-direction="asc" data-reflex="click->Customers#sort">Name <span class="ms-2 fas fa-chevron-down"></span></th>
-        <th class="border-bottom" data-filter="<%= @filter.id %>" data-active="false" data-order="company" data-direction="asc" data-reflex="click->Customers#sort">Company</th>
-        <th class="border-bottom" data-filter="<%= @filter.id %>" data-active="false" data-order="position" data-direction="asc" data-reflex="click->Customers#sort">Position</th>
-        <th class="border-bottom" data-filter="<%= @filter.id %>" data-active="false" data-order="state" data-direction="asc" data-reflex="click->Customers#sort">Status</th>
+        <th class="border-bottom" data-filter="<%= @filter.id %>" data-order="name" data-direction="asc" data-reflex="click->Customers#sort">Name <span class="ms-2 fas fa-chevron-down"></span></th>
+        <th class="border-bottom" data-filter="<%= @filter.id %>" data-order="company" data-direction="desc" data-reflex="click->Customers#sort">Company <span class="ms-2 fas fa-chevron-down d-none"></span></th>
+        <th class="border-bottom" data-filter="<%= @filter.id %>" data-order="position" data-direction="desc" data-reflex="click->Customers#sort">Position <span class="ms-2 fas fa-chevron-down d-none"></span></th>
+        <th class="border-bottom" data-filter="<%= @filter.id %>" data-order="state" data-direction="desc" data-reflex="click->Customers#sort">Status <span class="ms-2 fas fa-chevron-down d-none"></span></th>
         <th class="border-bottom">Action</th>
       </tr>
     </thead>
