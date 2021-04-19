@@ -16,7 +16,10 @@ export default class extends Controller {
       }
     })
     this.slider.on('update', (a, b, c) => {
-      this.inputTarget.value = c[0]
+      const target = this.inputTarget
+      if (parseInt(target.value) === c[0]) return
+      target.value = c[0]
+      target.dispatchEvent(new CustomEvent('change', { bubbles: true }))
     })
   }
 

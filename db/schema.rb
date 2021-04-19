@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_04_18_132740) do
     t.string "name"
     t.string "email"
     t.string "company"
-    t.string "position"
+    t.integer "age"
     t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -5,5 +5,5 @@ User.create! email: "mike@test.com", name: "Mike", password: "topsecret", passwo
 User.create! email: "casey@test.com", name: "Casey", password: "topsecret", password_confirmation: "topsecret", demo: true
 
 45.times do
-  Customer.create! name: Faker::Name.name, email: Faker::Internet.email, company: Faker::Company.name, position: Faker::Job.position, state: ["Active", "Inactive", "Pending", "Suspended"].sample
+  Customer.create! name: Faker::Name.name, email: Faker::Internet.email, company: Faker::Company.name, age: rand(18..70), state: ["Active", "Inactive", "Pending", "Suspended"].sample
 end

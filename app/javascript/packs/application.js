@@ -7,6 +7,7 @@ import * as ActiveStorage from '@rails/activestorage'
 import CableReady from 'cable_ready'
 import { Notyf } from 'notyf'
 import flash from '../shared/notyf'
+import debounced from 'debounced'
 
 // import Turbo from '@hotwired/turbo'
 // import LocalTime from 'local-time'
@@ -20,6 +21,7 @@ const images = require.context('../images', true)
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+debounced.initialize()
 
 // LocalTime.start()
 

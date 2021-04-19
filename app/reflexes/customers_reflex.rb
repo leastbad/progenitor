@@ -23,6 +23,24 @@ class CustomersReflex < ApplicationReflex
     end
   end
 
+  def lawyers
+    facet do |filter|
+      filter[:lawyers] = element.checked
+    end
+  end
+
+  def low
+    facet do |filter|
+      filter[:low] = element.value
+    end
+  end
+
+  def high
+    facet do |filter|
+      filter[:high] = element.value
+    end
+  end
+
   def sort
     facet do |filter|
       filter[:order] = element.dataset.order

@@ -19,6 +19,8 @@ $function$;
   end
 
   def down
+    execute "DROP EXTENSION pg_trgm;"
+    execute "DROP EXTENSION fuzzystrmatch;"
     say_with_time("Dropping table for pg_search multisearch") do
       drop_table :pg_search_documents
     end
