@@ -4,6 +4,10 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js'
   ],
+  safelist: {
+    standard: [/^bg/, /^text/],
+    greedy: [/^ss/]
+  },
   defaultExtractor: content => {
     const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
     const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []

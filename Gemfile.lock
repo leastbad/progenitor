@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/hopsoft/cable_ready.git
-  revision: 7cea7eb3ce262380dccca18b913a52b1ca2a2f72
+  revision: 1318b07c27538ae2be445d20876941d546fada61
   branch: master
   specs:
     cable_ready (4.5.0)
@@ -9,8 +9,8 @@ GIT
 
 GIT
   remote: https://github.com/hopsoft/stimulus_reflex.git
-  revision: f13a9a88b105296b56d2c0b464c5a1f241b2fa02
-  branch: master
+  revision: ef4325ff941baf39f71be5c90f58fc7e87c6300b
+  branch: dataset
   specs:
     stimulus_reflex (3.4.1)
       cable_ready (>= 4.5)
@@ -21,10 +21,10 @@ GIT
 
 GIT
   remote: https://github.com/leastbad/all_futures.git
-  revision: edc66b208d6ab05507864d25241f685fd1388261
+  revision: d9984140261ec37cfe80dfc6568122d4dc8c89e3
   branch: master
   specs:
-    all_futures (1.0.0)
+    all_futures (1.0.2)
       activeentity (~> 6.1)
       kredis (~> 0.2)
 
