@@ -9,8 +9,8 @@ GIT
 
 GIT
   remote: https://github.com/hopsoft/stimulus_reflex.git
-  revision: ef4325ff941baf39f71be5c90f58fc7e87c6300b
-  branch: dataset
+  revision: e723884d8986d9b97e282cb597e2484dcbc9e31a
+  branch: master
   specs:
     stimulus_reflex (3.4.1)
       cable_ready (>= 4.5)

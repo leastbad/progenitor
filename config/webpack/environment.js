@@ -1,12 +1,12 @@
 const { environment } = require('@rails/webpacker')
 
-const webpack = require('webpack')
-environment.plugins.append(
-  'Provide',
-  new webpack.ProvidePlugin({
-    Rails: '@rails/ujs'
-  })
-)
+// const webpack = require('webpack')
+// environment.plugins.append(
+//   'Provide',
+//   new webpack.ProvidePlugin({
+//     Rails: '@rails/ujs'
+//   })
+// )
 
 // Get the actual sass-loader config
 const sassLoader = environment.loaders.get('sass')
