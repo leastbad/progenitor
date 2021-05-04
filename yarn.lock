@@ -5343,10 +5343,10 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
-mrujs@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.0.5.tgz#1a52a1ae70cf0e8ab804d4acdc98602130638652"
-  integrity sha512-U8YKIT03cPlXl2SuwK6OJptqnQQf0+M6Me4RhZKMIbW4gLkm9U1vrIT6N7rkhIyu8pDU+yf3VHKVN+eHusLPCA==
+mrujs@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.0.6.tgz#38cd4eea483a87e3b831c1f7b0e4a216b28d20be"
+  integrity sha512-bGsGYy1fgQ3LOXvFA3toy+cS7G6NzCoLTlPBAdD8QKBwOxj4coN3P4gwGIzOvQ9PiP8GPbydZT83Y+DeuF8XHw==
 
 ms@2.0.0:
   version "2.0.0"

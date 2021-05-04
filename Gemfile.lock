@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/hopsoft/cable_ready.git
-  revision: 1318b07c27538ae2be445d20876941d546fada61
+  revision: 22f64d9c89e3b7ffb4e02499d4c2d768bc4a7c73
   branch: master
   specs:
     cable_ready (4.5.0)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/hopsoft/stimulus_reflex.git
-  revision: e723884d8986d9b97e282cb597e2484dcbc9e31a
+  revision: f6e9d202e745a18e40d35c40d6c41d289b11017e
   branch: master
   specs:
     stimulus_reflex (3.4.1)
@@ -247,6 +247,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
+    rorvswild (1.5.10)
     rqrcode (1.2.0)
       chunky_png (~> 1.0)
       rqrcode_core (~> 0.2)
@@ -359,6 +360,7 @@ DEPENDENCIES
   rails (~> 6.1.3.1)
   redis (>= 4.0)
   redis-session-store (~> 0.11.3)
+  rorvswild
   rqrcode (~> 1.2)
   selenium-webdriver
   sidekiq (~> 6.1)

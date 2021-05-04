@@ -4,7 +4,7 @@ const { environment } = require('@rails/webpacker')
 // environment.plugins.append(
 //   'Provide',
 //   new webpack.ProvidePlugin({
-//     Rails: '@rails/ujs'
+//     Rails: 'mrujs'
 //   })
 // )
 
