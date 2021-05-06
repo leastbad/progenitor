@@ -5,7 +5,7 @@
         <span class="input-group-text"><span class="fas fa-search"></span></span>
         <input type="text" class="form-control" placeholder="Search" data-reflex="debounced:input->Customers#search" data-filter="<%= filter.id %>" />
       </div>
-      <select class="w-50 me-2 me-lg-3" data-controller="select" data-select-show-search-value="false" required data-reflex="change->Customers#state" data-filter="<%= filter.id %>">
+      <select class="w-50 me-2 me-lg-3" data-controller="select" data-select-show-search-value="false" required data-reflex="change->Customers#status" data-filter="<%= filter.id %>">
         <option selected value="">All</option>
         <option value="Active">Active</option>
         <option value="Inactive">Inactive</option>
@@ -37,7 +37,11 @@
           <div role="separator" class="dropdown-divider my-0"></div>
           <div class="form-check form-switch d-flex justify-content-start mt-2">
             <label class="form-check-label ms-n17" for="lawyers">Lawyers</label>
-            <input class="form-check-input ms-35" type="checkbox" id="lawyers" data-reflex="change->Customers#lawyers" data-filter="<%= filter.id %>" />
+            <input class="form-check-input form-check-position" type="checkbox" id="lawyers" data-reflex="change->Customers#lawyers" data-filter="<%= filter.id %>" />
+          </div>
+          <div class="form-check form-switch d-flex justify-content-start mt-2">
+            <label class="form-check-label ms-n17" for="threshold">Uptight</label>
+            <input class="form-check-input form-check-position" type="checkbox" id="threshold" data-reflex="change->Customers#threshold" data-filter="<%= filter.id %>" />
           </div>
         </div>
       </div>

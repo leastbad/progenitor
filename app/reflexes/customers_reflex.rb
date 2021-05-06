@@ -17,9 +17,9 @@ class CustomersReflex < ApplicationReflex
     end
   end
 
-  def state
+  def status
     facet do |filter|
-      filter[:state] = element.value
+      filter[:status] = element.value
     end
   end
 
@@ -48,13 +48,19 @@ class CustomersReflex < ApplicationReflex
     end
   end
 
+  def threshold
+    facet do |filter|
+      filter[:threshold] = element.checked ? 0.3 : 0.1
+    end
+  end
+
   private
 
   def facet
     filter = CustomerFilter.find(element.dataset.filter)
     yield filter
     pagy, customers = pagy(filter.scope, page: filter.page, items: filter.items)
-    morph "#customers", wrap(render(customers), customers)
+    morph "#customers", render_collection(customers)
     morph "#paginator", render(partial: "customers/paginator", locals: {pagy: pagy, filter: filter})
   end
 end
