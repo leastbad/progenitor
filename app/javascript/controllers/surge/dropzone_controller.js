@@ -40,7 +40,9 @@ export default class extends ApplicationController {
         hiddenFileField.setAttribute('type', 'hidden')
         hiddenFileField.setAttribute('value', blob.signed_id)
 
-        this.stimulate('Upload#submit', form)
+        this.stimulate('Upload#submit', form, {
+          serializeForm: true
+        })
       }
     })
   }
