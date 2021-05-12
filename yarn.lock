@@ -6024,10 +6024,10 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
-mrujs@0.1.0-beta.3:
-  version "0.1.0-beta.3"
-  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.1.0-beta.3.tgz#50f75d9607982cc29b6e242be51cc6ef763a2b18"
-  integrity sha512-PumfaMPI0KtllRsE6sFcOTACAGSWbqc//Zycx3Hf8Tl9T9wfOg6VhRnyN2M0HQa9GcRtNMuAuNQVteQ1FUWs+Q==
+mrujs@0.1.0-beta.6:
+  version "0.1.0-beta.6"
+  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.1.0-beta.6.tgz#7097adbed5a22dab872947b736174055cd1b010b"
+  integrity sha512-F28dIV6FDyxQAMY55H7/994nKk+N47OCfeeCNCJ7+Q9HlAL7+jI4Nnq6dXw6Zneu0HVOk5CF99Kbl7cEZd+UIw==
   dependencies:
     "@rails/webpacker" "5.3.0"
     webpack "^4.46.0"
