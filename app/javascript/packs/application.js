@@ -25,7 +25,7 @@ debounced.initialize()
 
 // LocalTime.start()
 
-CableReady.operations.toast = operation => {
+CableReady.DOMOperations.toast = operation => {
   new Notyf(flash).open(operation)
 }
 
