@@ -8,4 +8,5 @@ CableReady.configure do |config|
   # config.on_new_version_available = :ignore
 
   config.add_operation_name :toast
+  # config.add_operation_name :play_sound
 end

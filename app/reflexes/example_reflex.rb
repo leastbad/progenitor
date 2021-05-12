@@ -33,6 +33,7 @@ class ExampleReflex < ApplicationReflex
   end
 
   def meta
+    cable_ready.play_sound(src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/858/outfoxing.mp3").broadcast
     morph :nothing
   end
 end
