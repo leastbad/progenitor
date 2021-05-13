@@ -28,3 +28,13 @@ debounced.initialize()
 CableReady.DOMOperations.toast = operation => {
   new Notyf(flash).open(operation)
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const unlocked = () => {
+    document.body.removeEventListener('click', unlocked)
+    document.body.removeEventListener('touchstart', unlocked)
+    document.body.setAttribute('data-audio-unlocked', true)
+  }
+  document.body.addEventListener('click', unlocked)
+  document.body.addEventListener('touchstart', unlocked)
+})

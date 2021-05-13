@@ -57,7 +57,13 @@ if Rails.env.development?
     if ENV["NGROK_SUBDOMAIN"]
       options[:subdomain] = ENV["NGROK_SUBDOMAIN"]
     end
-    puts "[NGROK] tunneling at " + Ngrok::Tunnel.start(options)
+    ngrok = Ngrok::Tunnel.start(options)
+    puts RQRCode::QRCode.new(ngrok).as_ansi(
+      light: "\033[47m", dark: "\033[40m",
+      fill_character: "  ",
+      quiet_zone_size: 1
+    )
+    puts "[NGROK] tunneling at " + ngrok
     unless ENV["NGROK_INSPECT"] == "false"
       puts "[NGROK] inspector web interface listening at http://localhost:4040"
     end
