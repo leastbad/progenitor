@@ -1459,6 +1459,12 @@
     "@babel/helper-validator-identifier" "^7.14.0"
     to-fast-properties "^2.0.0"
 
+"@cable_ready/audio_operations@https://github.com/cableready/audio_operations":
+  version "5.0.0"
+  resolved "https://github.com/cableready/audio_operations#12d330aa8b8808ce535f573628c55313af5b694b"
+  dependencies:
+    cable_ready "https://github.com/marcoroth/cable_ready#add-operations"
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -2488,6 +2494,12 @@ cable_ready@^4.4.5:
   version "4.4.6"
   resolved "https://registry.yarnpkg.com/cable_ready/-/cable_ready-4.4.6.tgz#a46c879ec48b722d78cb1fbe0c1850d2f6b2762a"
   integrity sha512-nqo50yrnOlV0CKc+ysXnIzwulk7q54hGYUwbJb1s0pBY0eu1yjDhgdU8g9dxfO5xapK6S7oceuEnZ4FQawbU5g==
+  dependencies:
+    morphdom "^2.6.1"
+
+"cable_ready@https://github.com/marcoroth/cable_ready#add-operations":
+  version "4.5.0"
+  resolved "https://github.com/marcoroth/cable_ready#f66c573e1d04b22fb65ff4e398c6dff8e504ee91"
   dependencies:
     morphdom "^2.6.1"
 

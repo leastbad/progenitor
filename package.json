@@ -2,6 +2,7 @@
   "name": "progenitor",
   "private": true,
   "dependencies": {
+    "@cable_ready/audio_operations": "https://github.com/cableready/audio_operations",
     "@fullcalendar/core": "^5.5.1",
     "@fullcalendar/daygrid": "^5.5.0",
     "@fullcalendar/interaction": "^5.5.0",
