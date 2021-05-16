@@ -24,13 +24,11 @@ export default class extends Controller {
 
   meta = mutation => {
     const content = mutation[0].target.content
-    if (content && content !== '0') {
+    if (content) {
       this.element.textContent = mutation[0].target.content
-      this.element.classList.remove('d-none')
       this.play('/etc_woodblock_2x_octave.mp3')
     } else {
       this.element.textContent = ''
-      this.element.classList.add('d-none')
     }
   }
 }

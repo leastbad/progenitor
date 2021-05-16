@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/hopsoft/cable_ready.git
-  revision: b4fe49da5b287b83164c89c6df442d4288d51979
-  branch: console_table
+  revision: 73ac5282d43645462441f5f42fa3affb7be829e3
+  branch: master
   specs:
     cable_ready (4.5.0)
       rails (>= 5.2)
