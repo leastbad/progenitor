@@ -8,10 +8,6 @@ import consumer from '../channels/consumer'
 import controller from '../controllers/application_controller'
 import Flatpickr from 'stimulus-flatpickr'
 import Dropzone from 'dropzone'
-import CableReady from 'cable_ready'
-import AudioOperations from '@cable_ready/audio_operations'
-
-CableReady.addOperations(AudioOperations)
 
 Dropzone.autoDiscover = false
 

@@ -9,6 +9,7 @@ import flash from '../shared/notyf'
 import debounced from 'debounced'
 import Rails from '@rails/ujs'
 // import Rails from 'mrujs'
+import AudioOperations from '@cable_ready/audio_operations'
 
 // import LocalTime from 'local-time'
 
@@ -22,6 +23,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 debounced.initialize()
+CableReady.addOperations(AudioOperations)
 
 // LocalTime.start()
 
