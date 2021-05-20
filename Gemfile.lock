@@ -1,6 +1,15 @@
 GIT
-  remote: https://github.com/hopsoft/cable_ready.git
-  revision: 73ac5282d43645462441f5f42fa3affb7be829e3
+  remote: https://github.com/leastbad/all_futures.git
+  revision: c4fae461c3c85160dba8025d4db0b1d9e3e7aac6
+  branch: master
+  specs:
+    all_futures (1.0.2)
+      activeentity (~> 6.1)
+      kredis (~> 0.2)
+
+GIT
+  remote: https://github.com/stimulusreflex/cable_ready.git
+  revision: 5d3c41b2ef8e17974001d3327b52d875c29e6e1a
   branch: master
   specs:
     cable_ready (4.5.0)
@@ -8,8 +17,8 @@ GIT
       thread-local (>= 1.1.0)
 
 GIT
-  remote: https://github.com/hopsoft/stimulus_reflex.git
-  revision: 9e6de165e26cf8e9c5c3b7153602e0bb9c7293d1
+  remote: https://github.com/stimulusreflex/stimulus_reflex.git
+  revision: 782ce1d10219e456a78970f17f9db37b8c03c671
   branch: master
   specs:
     stimulus_reflex (3.4.1)
@@ -18,15 +27,6 @@ GIT
       rack
       rails (>= 5.2)
       redis
-
-GIT
-  remote: https://github.com/leastbad/all_futures.git
-  revision: c4fae461c3c85160dba8025d4db0b1d9e3e7aac6
-  branch: master
-  specs:
-    all_futures (1.0.2)
-      activeentity (~> 6.1)
-      kredis (~> 0.2)
 
 GEM
   remote: https://rubygems.org/
