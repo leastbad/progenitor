@@ -247,7 +247,6 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
-    rorvswild (1.5.10)
     rqrcode (2.0.0)
       chunky_png (~> 1.0)
       rqrcode_core (~> 1.0)
@@ -302,9 +301,6 @@ GEM
     thwait (0.2.0)
       e2mmap
     tilt (2.0.10)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
@@ -360,14 +356,12 @@ DEPENDENCIES
   rails (~> 6.1.3.1)
   redis (>= 4.0)
   redis-session-store (~> 0.11.3)
-  rorvswild
   rqrcode (~> 2.0)
   selenium-webdriver
   sidekiq (~> 6.1)
   sidekiq-scheduler (~> 3.0)
   standard (~> 1.0)
   stimulus_reflex!
-  turbolinks (~> 5.2)
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.4.0)
