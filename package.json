@@ -2,7 +2,7 @@
   "name": "progenitor",
   "private": true,
   "dependencies": {
-    "@cable_ready/audio_operations": "https://github.com/cableready/audio_operations",
+    "@cable_ready/audio_operations": "5.0.0-pre0",
     "@fullcalendar/core": "^5.5.1",
     "@fullcalendar/daygrid": "^5.5.0",
     "@fullcalendar/interaction": "^5.5.0",
@@ -23,7 +23,7 @@
     "leaflet": "^1.7.1",
     "local-time": "^2.1.0",
     "masonry-layout": "^4.2.2",
-    "mrujs": "0.1.0-beta.6",
+    "mrujs": "0.1.0",
     "notyf": "^3.9.0",
     "nouislider": "^14.6.3",
     "postcss": "^8.2.10",

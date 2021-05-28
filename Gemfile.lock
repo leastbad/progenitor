@@ -9,20 +9,20 @@ GIT
 
 GIT
   remote: https://github.com/stimulusreflex/cable_ready.git
-  revision: 5d3c41b2ef8e17974001d3327b52d875c29e6e1a
+  revision: b74cf8a516fe71e2ab7cc58656ebfffbf921ffbb
   branch: master
   specs:
-    cable_ready (4.5.0)
+    cable_ready (5.0.0.pre0)
       rails (>= 5.2)
       thread-local (>= 1.1.0)
 
 GIT
   remote: https://github.com/stimulusreflex/stimulus_reflex.git
-  revision: 782ce1d10219e456a78970f17f9db37b8c03c671
+  revision: 909b2708d19140ee503cd259116d19571ce4b769
   branch: master
   specs:
-    stimulus_reflex (3.4.1)
-      cable_ready (>= 4.5)
+    stimulus_reflex (3.5.0.pre0)
+      cable_ready (= 5.0.0.pre0)
       nokogiri
       rack
       rails (>= 5.2)
@@ -275,7 +275,7 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    semantic_range (2.3.1)
+    semantic_range (3.0.0)
     sidekiq (6.1.3)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -319,7 +319,7 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (>= 3.0, < 4.0)
-    webpacker (5.2.1)
+    webpacker (5.4.0)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -370,7 +370,7 @@ DEPENDENCIES
   turbolinks (~> 5.2)
   web-console (>= 4.1.0)
   webdrivers
-  webpacker (~> 5.2.1)
+  webpacker (~> 5.4.0)
 
 RUBY VERSION
    ruby 2.7.2p137

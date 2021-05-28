@@ -33,6 +33,7 @@ class ExampleReflex < ApplicationReflex
   end
 
   def meta
+    cable_ready.console_log(message: "3").console_log(message: "2", delay: 1000).console_log(message: "1", delay: 2000).console_log(message: "Blast off?")
     morph :nothing
   end
 end
