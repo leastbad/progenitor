@@ -10,15 +10,17 @@ consumer.subscriptions.create('SessionChannel', {
   },
 
   connected () {
+    this.reconnecting = false
     document.addEventListener('reconnect', this.reconnect)
   },
 
   disconnected () {
     document.removeEventListener('reconnect', this.reconnect)
+    if (this.reconnecting) consumer.connect()
   },
 
   reconnect () {
+    this.reconnecting = true
     consumer.disconnect()
-    consumer.connect()
   }
 })

@@ -54,3 +54,4 @@ gem "chrono_trigger", "~> 1.0"
 gem "pg_search", "~> 2.3"
 gem "all_futures", github: "leastbad/all_futures", branch: "master"
 gem "rorvswild"
+gem "valid_email2", "~> 3.1.3" # https://github.com/lisinge/valid_email2

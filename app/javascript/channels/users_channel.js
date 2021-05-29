@@ -9,10 +9,7 @@ document.addEventListener('turbolinks:load', () => {
   channel = consumer.subscriptions.create('UsersChannel', {
     received (data) {
       if (!data) channel = undefined
-      if (data.cableReady)
-        CableReady.perform(data.operations, {
-          emitMissingElementWarnings: false
-        })
+      if (data.cableReady) CableReady.perform(data.operations)
     }
   })
 })
