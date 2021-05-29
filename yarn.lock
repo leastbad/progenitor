@@ -4410,11 +4410,6 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
-mrujs@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.1.1.tgz#316ba8c66c2e8303445ce70862a5516d42f2cdd9"
-  integrity sha512-TwG5ccs5kogwc1ZUwAd96SpmlZ4xxjY1m681cuvWT/p0ih/dp0Gx6JZC/4UYyIm0iKMXy2uGZXI3ov36njyvXg==
-
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"

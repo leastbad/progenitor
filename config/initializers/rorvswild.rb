@@ -1,1 +1,1 @@
-# RorVsWild.start(api_key: Rails.application.credentials.rorvswild)
+RorVsWild.start(api_key: Rails.application.credentials.rorvswild)
