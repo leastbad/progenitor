@@ -38,9 +38,7 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.8"
-# gem "cable_ready", "~> 4.5.0"
 gem "cable_ready", github: "stimulusreflex/cable_ready", branch: "master"
-# gem "stimulus_reflex", "~> 3.4.1"
 gem "stimulus_reflex", github: "stimulusreflex/stimulus_reflex", branch: "master"
 gem "optimism", "~> 0.4.2"
 gem "sidekiq", "~> 6.2.1"
@@ -53,5 +51,5 @@ gem "kredis", "~> 0.2.3"
 gem "chrono_trigger", "~> 1.0"
 gem "pg_search", "~> 2.3"
 gem "all_futures", github: "leastbad/all_futures", branch: "master"
-gem "rorvswild"
+# gem "rorvswild"
 gem "valid_email2", "~> 3.1.3" # https://github.com/lisinge/valid_email2
