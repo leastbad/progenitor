@@ -1,6 +1,8 @@
 import CableReady from 'cable_ready'
 import consumer from './consumer'
 
+let reconnecting = false
+
 consumer.subscriptions.create('SessionChannel', {
   received (data) {
     if (data.cableReady)
@@ -10,17 +12,17 @@ consumer.subscriptions.create('SessionChannel', {
   },
 
   connected () {
-    this.reconnecting = false
+    reconnecting = false
     document.addEventListener('reconnect', this.reconnect)
   },
 
   disconnected () {
     document.removeEventListener('reconnect', this.reconnect)
-    if (this.reconnecting) consumer.connect()
+    if (reconnecting) consumer.connect()
   },
 
   reconnect () {
-    this.reconnecting = true
+    reconnecting = true
     consumer.disconnect()
   }
 })

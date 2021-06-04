@@ -35,5 +35,5 @@ Rails.application.routes.draw do
   get "components/youtube", to: "components#youtube"
   get "cards", to: "cards#index"
 
-  root to: "home#index"
+  root "home#index"
 end

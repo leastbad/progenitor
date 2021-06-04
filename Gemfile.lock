@@ -9,20 +9,20 @@ GIT
 
 GIT
   remote: https://github.com/stimulusreflex/cable_ready.git
-  revision: b74cf8a516fe71e2ab7cc58656ebfffbf921ffbb
+  revision: a7437891ca82caefeeee107b5d9aeaa26037fa26
   branch: master
   specs:
-    cable_ready (5.0.0.pre0)
+    cable_ready (5.0.0.pre1)
       rails (>= 5.2)
       thread-local (>= 1.1.0)
 
 GIT
   remote: https://github.com/stimulusreflex/stimulus_reflex.git
-  revision: 909b2708d19140ee503cd259116d19571ce4b769
-  branch: master
+  revision: 9adb4055292deeaf2daf1eb102d07560485a4fbe
+  branch: connection
   specs:
-    stimulus_reflex (3.5.0.pre0)
-      cable_ready (= 5.0.0.pre0)
+    stimulus_reflex (3.5.0.pre1)
+      cable_ready (= 5.0.0.pre1)
       nokogiri
       rack
       rails (>= 5.2)
@@ -252,7 +252,6 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
-    rorvswild (1.5.12)
     rqrcode (2.0.0)
       chunky_png (~> 1.0)
       rqrcode_core (~> 1.0)
@@ -366,7 +365,6 @@ DEPENDENCIES
   rails (~> 6.1.3.2)
   redis (>= 4.2.5)
   redis-session-store (~> 0.11.3)
-  rorvswild
   rqrcode (~> 2.0)
   selenium-webdriver
   sidekiq (~> 6.2.1)
