@@ -39,7 +39,7 @@ end
 
 gem "devise", "~> 4.8"
 gem "cable_ready", github: "stimulusreflex/cable_ready", branch: "master"
-gem "stimulus_reflex", github: "stimulusreflex/stimulus_reflex", branch: "connection"
+gem "stimulus_reflex", github: "stimulusreflex/stimulus_reflex", branch: "master"
 gem "optimism", "~> 0.4.2"
 gem "sidekiq", "~> 6.2.1"
 gem "sidekiq-scheduler", "~> 3.0"

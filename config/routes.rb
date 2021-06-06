@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "home#index"
+
   devise_for :users, controllers: {
     masquerades: "users/masquerades",
     registrations: "users/registrations",
@@ -34,6 +36,4 @@ Rails.application.routes.draw do
   get "components/typography", to: "components#typography"
   get "components/youtube", to: "components#youtube"
   get "cards", to: "cards#index"
-
-  root "home#index"
 end

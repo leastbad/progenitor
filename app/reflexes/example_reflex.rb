@@ -33,8 +33,6 @@ class ExampleReflex < ApplicationReflex
   end
 
   def meta
-    puts session_id
-    puts connection.connection_identifier
     morph :nothing
   end
 end
