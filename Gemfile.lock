@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/stimulusreflex/cable_ready.git
-  revision: a7437891ca82caefeeee107b5d9aeaa26037fa26
+  revision: e63f415c3adc537abe973ee81410600a9862d7a5
   branch: master
   specs:
     cable_ready (5.0.0.pre1)
@@ -171,17 +171,12 @@ GEM
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.0.3)
-    mini_portile2 (2.5.2)
-      net-ftp (~> 0.1)
+    mini_portile2 (2.5.3)
     minitest (5.14.4)
     msgpack (1.4.2)
-    net-ftp (0.1.2)
-      net-protocol
-      time
-    net-protocol (0.1.0)
     ngrok-tunnel (2.1.1)
     nio4r (2.5.7)
-    nokogiri (1.11.6)
+    nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     optimism (0.4.2)
@@ -306,7 +301,6 @@ GEM
     thwait (0.2.0)
       e2mmap
     tilt (2.0.10)
-    time (0.1.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)

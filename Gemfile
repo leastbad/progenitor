@@ -8,7 +8,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.2.1"
 gem "webpacker", "~> 5.4.0"
 gem "jbuilder", "~> 2.7"
-gem "redis", ">= 4.2.5", require: ["redis", "redis/connection/hiredis"]
+gem "redis", ">= 4.2.5", require: ["redis/connection/hiredis", "redis"]
 gem "hiredis"
 gem "redis-session-store", "~> 0.11.3"
 gem 'image_processing', '~> 1.2'
