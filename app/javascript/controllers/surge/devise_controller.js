@@ -13,6 +13,6 @@ export default class extends Controller {
 
   loginFailed = async event => {
     this.errorsTarget.classList.replace('d-none', 'd-flex')
-    this.messageTarget.textContent = await event.detail.response.text()
+    this.messageTarget.textContent = await event.detail.response.response.text()
   }
 }
