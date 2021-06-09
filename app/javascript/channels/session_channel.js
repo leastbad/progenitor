@@ -18,6 +18,7 @@ consumer.subscriptions.create('SessionChannel', {
 
   disconnected () {
     document.removeEventListener('reconnect', this.reconnect)
+    // if (reconnecting) setTimeout(() => consumer.connect())
     if (reconnecting) consumer.connect()
   },
 
