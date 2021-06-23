@@ -21,7 +21,7 @@ module Surge
             },
             {
               id: "traffic",
-              label: "Traffic & Engagement",
+              label: "Traffic",
               url: "/dashboard/traffic"
             },
             {
