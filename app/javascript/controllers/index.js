@@ -8,6 +8,7 @@ import consumer from '../channels/consumer'
 import controller from '../controllers/application_controller'
 import Flatpickr from 'stimulus-flatpickr'
 import Dropzone from 'dropzone'
+import CableReady from 'cable_ready'
 
 Dropzone.autoDiscover = false
 
@@ -39,3 +40,5 @@ document.addEventListener('turbolinks:before-cache', () => {
     }
   })
 })
+
+CableReady.initialize({ consumer })

@@ -11,5 +11,6 @@
       <%= render partial: "modals/masquerade" if user_signed_in? %>
       <%= render partial: "layouts/footer" %>
     </main>
+    <%= stream_from :all_users %>
   </body>
 </html>
