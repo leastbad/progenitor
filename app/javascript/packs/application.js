@@ -66,7 +66,9 @@ class MrujsCableCar {
   }
 
   async process (event) {
-    CableReady.perform(await event.detail.fetchResponse.responseJson)
+    const x = await event.detail.fetchResponse
+    console.log(x.isHtml)
+    CableReady.perform(x.responseJson)
   }
 }
 
