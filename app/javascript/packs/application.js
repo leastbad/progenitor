@@ -18,10 +18,11 @@ import 'channels'
 const images = require.context('../images', true)
 // const imagePath = name => images(name, true)
 
-class MrujsCableCar {
-  constructor () {
+class CableCar {
+  constructor (cable_ready) {
     this.observer = new MutationObserver(this.callback)
     this.elements = []
+    this.cable_ready = cable_ready
   }
 
   connect () {
@@ -36,7 +37,7 @@ class MrujsCableCar {
 
   disconnect () {
     this.elements.forEach(element => {
-      element.removeEventListener('ajax:complete', this.process)
+      element.removeEventListener('ajax:complete', this.perform)
       element.observer.disconnect()
     })
     this.observer.disconnect()
@@ -47,7 +48,7 @@ class MrujsCableCar {
   }
 
   scanner = element => {
-    element.addEventListener('ajax:complete', this.process)
+    element.addEventListener('ajax:complete', this.perform)
     element.dataset.type = 'json'
     element.dataset.remote = 'true'
     element.observer = new MutationObserver(this.integrity)
@@ -65,13 +66,13 @@ class MrujsCableCar {
     })
   }
 
-  async process (event) {
-    CableReady.perform(await event.detail.fetchResponse.responseJson)
+  perform = async event => {
+    this.cable_ready.perform(await event.detail.fetchResponse.responseJson)
   }
 }
 
 Rails.start({
-  plugins: [new MrujsCableCar()]
+  plugins: [new CableCar(CableReady)]
 })
 
 Turbolinks.start()
