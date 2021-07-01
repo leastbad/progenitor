@@ -18,7 +18,62 @@ import 'channels'
 const images = require.context('../images', true)
 // const imagePath = name => images(name, true)
 
-Rails.start()
+class MrujsCableCar {
+  constructor () {
+    this.observer = new MutationObserver(this.callback)
+    this.elements = []
+  }
+
+  connect () {
+    setTimeout(() => {
+      document.querySelectorAll('[data-cable-car]').forEach(this.scanner)
+      this.observer.observe(document.documentElement, {
+        attributeFilter: ['data-cable-car'],
+        subtree: true
+      })
+    })
+  }
+
+  disconnect () {
+    this.elements.forEach(element => {
+      element.removeEventListener('ajax:complete', this.process)
+      element.observer.disconnect()
+    })
+    this.observer.disconnect()
+  }
+
+  callback = mutations => {
+    mutations.forEach(mutation => this.scanner(mutation.target))
+  }
+
+  scanner = element => {
+    element.addEventListener('ajax:complete', this.process)
+    element.dataset.type = 'json'
+    element.dataset.remote = 'true'
+    element.observer = new MutationObserver(this.integrity)
+    element.observer.observe(element, {
+      attributeFilter: ['data-type', 'data-remote']
+    })
+    this.elements.push(element)
+  }
+
+  integrity = mutations => {
+    mutations.forEach(mutation => {
+      const element = mutation.target
+      if (!element.hasAttribute('data-type')) element.dataset.type = 'json'
+      if (!element.hasAttribute('data-remote')) element.dataset.remote = 'true'
+    })
+  }
+
+  async process (event) {
+    CableReady.perform(await event.detail.fetchResponse.responseJson)
+  }
+}
+
+Rails.start({
+  plugins: [new MrujsCableCar()]
+})
+
 Turbolinks.start()
 ActiveStorage.start()
 debounced.initialize()

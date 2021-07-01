@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "home#index"
+  get "home/cc", to: "home#cc"
 
   devise_for :users, controllers: {
     masquerades: "users/masquerades",
