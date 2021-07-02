@@ -20,18 +20,17 @@ const images = require.context('../images', true)
 
 class CableCar {
   constructor (cable_ready) {
-    this.observer = new MutationObserver(this.callback)
+    this.observer = new MutationObserver(this.scanner)
     this.elements = []
     this.cable_ready = cable_ready
   }
 
   connect () {
-    setTimeout(() => {
-      document.querySelectorAll('[data-cable-car]').forEach(this.scanner)
-      this.observer.observe(document.documentElement, {
-        attributeFilter: ['data-cable-car'],
-        subtree: true
-      })
+    document.addEventListener('turbolinks:load', this.scanner)
+    document.addEventListener('turbo:load', this.scanner)
+    this.observer.observe(document.documentElement, {
+      attributeFilter: ['data-cable-car'],
+      subtree: true
     })
   }
 
@@ -40,22 +39,24 @@ class CableCar {
       element.removeEventListener('ajax:complete', this.perform)
       element.observer.disconnect()
     })
-    this.observer.disconnect()
+    document.removeEventListener('turbolinks:load', this.scanner)
+    document.removeEventListener('turbo:load', this.scanner)
   }
 
-  callback = mutations => {
-    mutations.forEach(mutation => this.scanner(mutation.target))
-  }
-
-  scanner = element => {
-    element.addEventListener('ajax:complete', this.perform)
-    element.dataset.type = 'json'
-    element.dataset.remote = 'true'
-    element.observer = new MutationObserver(this.integrity)
-    element.observer.observe(element, {
-      attributeFilter: ['data-type', 'data-remote']
-    })
-    this.elements.push(element)
+  scanner = () => {
+    if (this.preview) return
+    Array.from(document.querySelectorAll('[data-cable-car]'))
+      .filter(element => !element.observer)
+      .forEach(element => {
+        element.addEventListener('ajax:complete', this.perform)
+        element.dataset.type = 'json'
+        element.dataset.remote = 'true'
+        element.observer = new MutationObserver(this.integrity)
+        element.observer.observe(element, {
+          attributeFilter: ['data-type', 'data-remote']
+        })
+        this.elements.push(element)
+      })
   }
 
   integrity = mutations => {
@@ -68,6 +69,13 @@ class CableCar {
 
   perform = async event => {
     this.cable_ready.perform(await event.detail.fetchResponse.responseJson)
+  }
+
+  get preview () {
+    return (
+      document.documentElement.hasAttribute('data-turbolinks-preview') ||
+      document.documentElement.hasAttribute('data-turbo-preview')
+    )
   }
 }
 
