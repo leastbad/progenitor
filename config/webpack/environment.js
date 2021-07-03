@@ -4,17 +4,15 @@ const { environment } = require('@rails/webpacker')
 // environment.plugins.append(
 //   'Provide',
 //   new webpack.ProvidePlugin({
-//     Rails: 'mrujs'
+//     ApplicationController: ['../application_controller', 'default']
 //   })
 // )
 
-// Get the actual sass-loader config
 const sassLoader = environment.loaders.get('sass')
 const sassLoaderConfig = sassLoader.use.find(function (element) {
   return element.loader == 'sass-loader'
 })
 
-// Use Dart-implementation of Sass (default is node-sass)
 const options = sassLoaderConfig.options
 options.implementation = require('sass')
 
