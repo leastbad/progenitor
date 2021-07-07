@@ -25,9 +25,9 @@ StimulusReflex.initialize(application, {
 
 if (process.env.RAILS_ENV === 'development') {
   StimulusReflex.debug = true
-  // import('radiolabel').then(Radiolabel =>
-  //   application.register('radiolabel', Radiolabel.default)
-  // )
+  import('radiolabel').then(Radiolabel =>
+    application.register('radiolabel', Radiolabel.default)
+  )
 }
 
 document.addEventListener('turbolinks:before-cache', () => {
