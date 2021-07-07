@@ -33,6 +33,18 @@ CableReady.operations.toast = operation => {
   new Notyf(flash).open(operation)
 }
 
+CableReady.operations.favicon = operation => {
+  let link = document.head.querySelector(`link[rel~='icon']`)
+  if (!link) {
+    link = document.createElement('link')
+    link.rel = 'icon'
+    document.head.appendChild(link)
+  }
+  link.href = operation.emoji
+    ? `https://fav.farm/${operation.emoji}`
+    : operation.src
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   const unlocked = () => {
     document.body.removeEventListener('click', unlocked)

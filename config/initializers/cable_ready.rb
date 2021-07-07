@@ -9,4 +9,5 @@ CableReady.configure do |config|
 
   config.add_operation_name :toast
   config.add_operation_name :play_sound
+  config.add_operation_name :favicon
 end
