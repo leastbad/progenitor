@@ -41,7 +41,7 @@ CableReady.operations.favicon = operation => {
     document.head.appendChild(link)
   }
   link.href = operation.emoji
-    ? `https://fav.farm/${operation.emoji}`
+    ? `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text x=%220%22 y=%2214%22>${operation.emoji}</text></svg>`
     : operation.src
 }
 
