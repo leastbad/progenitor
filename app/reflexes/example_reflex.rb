@@ -33,6 +33,7 @@ class ExampleReflex < ApplicationReflex
   end
 
   def meta
+    binding.pry
     morph :nothing
   end
 end
