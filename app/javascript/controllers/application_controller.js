@@ -5,8 +5,4 @@ export default class extends Controller {
   connect () {
     StimulusReflex.register(this)
   }
-
-  json = data => {
-    return data.json()
-  }
 }
