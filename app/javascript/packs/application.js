@@ -1,21 +1,21 @@
 import 'stylesheets/application.scss'
 
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle'
+import Rails, { CableCar } from 'mrujs'
 import * as Turbo from '@hotwired/turbo'
 import * as ActiveStorage from '@rails/activestorage'
 import CableReady from 'cable_ready'
 import { Notyf } from 'notyf'
 import flash from '../shared/notyf'
 import debounced from 'debounced'
-import Rails, { CableCar } from 'mrujs'
 import AudioOperations from '@cable_ready/audio_operations'
 
 // import LocalTime from 'local-time'
 
+window.Turbo = Turbo
+
 import 'controllers'
 import 'channels'
-
-window.Turbo = Turbo
 
 const images = require.context('../images', true)
 // const imagePath = name => images(name, true)
