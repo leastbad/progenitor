@@ -3,7 +3,7 @@ import CableReady from 'cable_ready'
 
 let channel
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('turbo:load', () => {
   if (channel) return
 
   channel = consumer.subscriptions.create('UsersChannel', {

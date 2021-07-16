@@ -145,7 +145,7 @@
             <a class="dropdown-item fw-bold" href="#"><span class="fas fa-envelope-open-text fa-fw"></span>Messages</a>
             <a class="dropdown-item fw-bold" href="#"><span class="fas fa-user-shield fa-fw"></span>Support</a>
             <div role="separator" class="dropdown-divider"></div>
-            <%= link_to(destroy_user_session_path, method: 'delete', class: "dropdown-item rounded-bottom fw-bold") do %>
+            <%= link_to(destroy_user_session_path, method: 'delete', data: {turbo: false}, class: "dropdown-item rounded-bottom fw-bold") do %>
               <span class="fas fa-sign-out-alt text-danger fa-fw"></span>Logout
             <% end %>
           </div>

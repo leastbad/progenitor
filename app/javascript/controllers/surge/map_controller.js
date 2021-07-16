@@ -4,11 +4,11 @@ import svgmap from 'svgmap-next'
 export default class extends Controller {
   connect () {
     this.addMap()
-    document.addEventListener('turbolinks:before-cache', this.destroyMap)
+    document.addEventListener('turbo:before-cache', this.destroyMap)
   }
 
   disconnect () {
-    document.removeEventListener('turbolinks:before-cache', this.destroyMap)
+    document.removeEventListener('turbo:before-cache', this.destroyMap)
   }
 
   destroyMap = () => {
