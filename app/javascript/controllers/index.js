@@ -32,9 +32,7 @@ if (process.env.RAILS_ENV === 'development') {
 
 document.addEventListener('turbo:before-cache', () => {
   application.controllers.forEach(controller => {
-    if (typeof controller.teardown === 'function') {
-      controller.teardown()
-    }
+    if (typeof controller.teardown === 'function') controller.teardown()
   })
 })
 
