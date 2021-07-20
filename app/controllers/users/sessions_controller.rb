@@ -12,6 +12,6 @@ class Users::SessionsController < Devise::SessionsController
   def destroy
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
     cable_ready[SessionChannel].dispatch_event(name: "reconnect").broadcast_to(request.session.id)
-    redirect_to new_user_session_path
+    redirect_to unauthenticated_root_path
   end
 end

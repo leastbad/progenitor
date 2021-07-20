@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root "home#index"
   patch "home/cc", to: "home#cc"
 
   devise_for :users, controllers: {
@@ -7,6 +6,16 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
+
+  devise_scope :user do
+    authenticated :user do
+      root 'home#index', as: :root
+    end
+  
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
 
   get "dashboard/overview", to: "dashboard#overview"
   get "dashboard/traffic", to: "dashboard#traffic"
