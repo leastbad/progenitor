@@ -51,7 +51,7 @@ Rails.application.configure do
   config.log_tags = [:request_id]
 
   # Use a different cache store in production.
-  config.cache_store = :redis_cache_store, {driver: :hiredis, url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" }}
+  config.cache_store = :redis_cache_store, {driver: :hiredis, url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/0" }}
 
   config.session_store :redis_session_store, {
     key: "progenitor_production_session_",
@@ -61,7 +61,7 @@ Rails.application.configure do
       expire_after: 1.year,
       ttl: 1.year,
       key_prefix: "progenitor:production:session:",
-      url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" }
+      url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/0" }
     }
   }
 
