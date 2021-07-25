@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/stimulusreflex/cable_ready.git
-  revision: 750850a56cf7c7f27fc8f7548e49d72eba6f5f18
+  revision: 3b10f2dc4099730a8bf4a4b8425e0da433fe031e
   branch: master
   specs:
     cable_ready (5.0.0.pre2)
@@ -18,10 +18,10 @@ GIT
 
 GIT
   remote: https://github.com/stimulusreflex/stimulus_reflex.git
-  revision: 4c52f316b5b6ac748a6c563ccfc4f1c35b52b779
+  revision: 623ca60a7c2d7ec0d5baa7c23ca89a2ebeb964e7
   branch: master
   specs:
-    stimulus_reflex (3.5.0.pre1)
+    stimulus_reflex (3.5.0.pre2)
       cable_ready (= 5.0.0.pre2)
       nokogiri
       rack

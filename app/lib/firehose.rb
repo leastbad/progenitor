@@ -4,7 +4,7 @@ class Firehose
   attr_reader :redis
 
   def initialize
-    @redis = Redis.new
+    @redis = ::ActionCable.server.pubsub.redis_connection_for_subscriptions
   end
 
   def process(command, key)
