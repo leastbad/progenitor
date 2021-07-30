@@ -22,6 +22,7 @@ module ActionCable
           elsif on_success
             on_success.call
           end
+          @redis.set channel_count_key(channel), @subscribers[channel].size, ex: 1.minute
         end
       end
 
@@ -34,7 +35,7 @@ module ActionCable
             remove_channel channel
           end
           
-          puts "Removed #{channel}"
+          @redis.set channel_count_key(channel), @subscribers[channel].size, ex: 1.minute
         end
       end
 
@@ -46,6 +47,22 @@ module ActionCable
           Process.pid,
           Rails.object_id
         ].compact.join(":")
+      end
+
+      def channel_sum_key(channel)
+        [
+          ActionCable.server.config.cable[:channel_prefix],
+          channel,
+          "count",
+          "*"
+        ].compact.join(":")
+      end
+
+      def count_subscribers(channel)
+        puts @redis.get(channel_sum_key(channel))
+        # this 100% cannot work.
+        @redis.pubsub("channels", channel_sum_key(channel)).map {|key| @redis.get(key) }.sum
+      end
     end
   end
 end
