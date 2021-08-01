@@ -3,6 +3,6 @@ class HomeController < ApplicationController
 
   def cc
     # render operations: cable_car.favicon(src: "doge.jpg")
-    render operations: cable_car.favicon(emoji: "💩")
+    render operations: cable_car.favicon(emoji: "💩", batch: "frank")
   end
 end
