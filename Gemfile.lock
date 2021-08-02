@@ -9,8 +9,8 @@ GIT
 
 GIT
   remote: https://github.com/stimulusreflex/cable_ready.git
-  revision: 3b10f2dc4099730a8bf4a4b8425e0da433fe031e
-  branch: master
+  revision: a340d91066daeea81a9fb97cfb84ec87fbc2d694
+  branch: simple_json
   specs:
     cable_ready (5.0.0.pre2)
       rails (>= 5.2)
@@ -18,11 +18,10 @@ GIT
 
 GIT
   remote: https://github.com/stimulusreflex/stimulus_reflex.git
-  revision: 623ca60a7c2d7ec0d5baa7c23ca89a2ebeb964e7
-  branch: master
+  revision: c8871c6680d9c5774c3ba3a1467b4f170a516490
+  branch: simple_json
   specs:
     stimulus_reflex (3.5.0.pre2)
-      cable_ready (= 5.0.0.pre2)
       nokogiri
       rack
       rails (>= 5.2)
@@ -186,6 +185,8 @@ GEM
     parallel (1.20.1)
     parser (3.0.1.1)
       ast (~> 2.4.1)
+    pastel (0.8.0)
+      tty-color (~> 0.5)
     pg (1.2.3)
     pg_search (2.3.5)
       activerecord (>= 5.2)
@@ -266,6 +267,10 @@ GEM
     ruby-progressbar (1.11.0)
     ruby-vips (2.1.2)
       ffi (~> 1.12)
+    ruby_jard (0.2.0)
+      byebug (>= 11.1.0)
+      pastel (>= 0.7.4)
+      pry (>= 0.13.0)
     rubyzip (2.3.0)
     rufus-scheduler (3.7.0)
       fugit (~> 1.1, >= 1.1.6)
@@ -299,6 +304,7 @@ GEM
     thwait (0.2.0)
       e2mmap
     tilt (2.0.10)
+    tty-color (0.6.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
@@ -357,6 +363,7 @@ DEPENDENCIES
   redis (>= 4.2.5)
   redis-session-store (~> 0.11.3)
   rqrcode (~> 2.0)
+  ruby_jard
   selenium-webdriver
   sidekiq (~> 6.2.1)
   sidekiq-scheduler (~> 3.0)
