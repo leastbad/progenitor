@@ -36,7 +36,8 @@
 @import "bootstrap/scss/utilities/_api";
 @import "flatpickr/dist/flatpickr.css";
 @import "slim-select/src/slim-select/slimselect.scss";
-@import "chartist/dist/scss/chartist.scss";
+@import "vendor/chartist/chartist.scss";
+@import "vendor/chartist/chartist-settings.scss";
 @import "dragula/dist/dragula.css";
 @import "mixins";
 @import "functions";
