@@ -31,9 +31,9 @@ class ExampleReflex < ApplicationReflex
     puts Thread.list
     morph :nothing
   end
-
+  
   def meta
-    binding.pry
+    # jard
     morph :nothing
   end
 end
