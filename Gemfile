@@ -38,8 +38,8 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.8"
-gem "cable_ready", github: "stimulusreflex/cable_ready", branch: "simple_json"
-gem "stimulus_reflex", github: "stimulusreflex/stimulus_reflex", branch: "simple_json"
+gem "cable_ready", github: "stimulusreflex/cable_ready", branch: "stream_updates"
+gem "stimulus_reflex", github: "stimulusreflex/stimulus_reflex", branch: "master"
 gem "optimism", "~> 0.4.2"
 gem "sidekiq", "~> 6.2.1"
 gem "sidekiq-scheduler", "~> 3.0"
