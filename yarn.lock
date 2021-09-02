@@ -949,12 +949,24 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.17.tgz#25fdbdfd282c2f86ddf3fcefbd98be99cd2627e2"
   integrity sha512-0p1rCgM3LLbAdwBnc7gqgnvjHg9KpbhcSphergHShlkWz8EdPawoMJ3/VbezI0mGC5eKCDzMaPgF9Yca6cKvrg==
 
+"@popperjs/core@^2.8.3":
+  version "2.9.3"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.3.tgz#8b68da1ebd7fc603999cf6ebee34a4899a14b88e"
+  integrity sha512-xDu17cEfh7Kid/d95kB6tZsLOmSWKCZKtprnhVepjsSaCij+lM3mItSJDuuHDMbCWTh8Ejmebwb+KONcCJ0eXQ==
+
 "@prettier/plugin-ruby@^1.5.3":
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/@prettier/plugin-ruby/-/plugin-ruby-1.6.1.tgz#14489985513a72e052b57c1cf9beae288880faa8"
   integrity sha512-PGDCATgVTQz0s/NB9nStiXVCIr+hG/XnKeAO/kguaHrNf8VwCpP5Ul+/KQao0z0QFBy2PDY8kWptfDQCa7WMXg==
   dependencies:
     prettier ">=1.10"
+
+"@rails-mini-profiler/assets@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@rails-mini-profiler/assets/-/assets-0.4.0.tgz#e04666945366de7c0b2b92a22f4d5b2002a7992b"
+  integrity sha512-YuUSiI0Re7FHGvaQmObYWZl/801XaMdSwh3ss4OIpw+NWRQMoP015Zomdt2KdkzHby4VIUI670LjCVFmDyt0tg==
+  dependencies:
+    tippy.js "^6.3.1"
 
 "@rails/actioncable@^6.1.2-1":
   version "6.1.4"
@@ -4465,10 +4477,10 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
-mrujs@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.4.2.tgz#7a4eb2dd75bdc1cf903cfa5bd0eef6e74a3fc91a"
-  integrity sha512-YyikziqaLsj3CwB5TphvxVx725bHl89sNUJfU1KK5T1dgNFeB8oCpOW9FM2jmulTxPfDFO+kIs6p2HfiPD0M7g==
+mrujs@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.4.3.tgz#edef68d69ce866cb5018fd77a37cae87e1c6e913"
+  integrity sha512-PSM6jQFU0H5M/f8z5+OPkQyzPpRYVBtdxITI3Qvby6umuyZtdXBKpBod4TPsrVTrhj5X1VVbEoLhy+tLqNmNXA==
   dependencies:
     morphdom ">=2.6.0 <3.0.0"
 
@@ -6827,6 +6839,13 @@ timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
+
+tippy.js@^6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-6.3.1.tgz#3788a007be7015eee0fd589a66b98fb3f8f10181"
+  integrity sha512-JnFncCq+rF1dTURupoJ4yPie5Cof978inW6/4S6kmWV7LL9YOSEVMifED3KdrVPEG+Z/TFH2CDNJcQEfaeuQww==
+  dependencies:
+    "@popperjs/core" "^2.8.3"
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"
