@@ -34,13 +34,12 @@ module Mole
       def inline(variable, line_limit:, depth:)
         inspection = variable.inspect
         inspection = inspection[0..line_limit - 2] + '…' if inspection.length >= line_limit
-        puts "fart"
-        # SimpleRow.new(
-        #   RubyJard::Span.new(
-        #     content: inspection,
-        #     styles: PRIMITIVE_TYPES[@reflection.call_class(variable).name]
-        #   )
-        # )
+        SimpleRow.new(
+          Mole::Span.new(
+            content: inspection,
+            styles: PRIMITIVE_TYPES[@reflection.call_class(variable).name]
+          )
+        )
       end
 
       def multiline(variable, lines:, line_limit:, depth: 0)

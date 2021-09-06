@@ -2,6 +2,7 @@ require "benchmark"
 require "byebug/core"
 require "byebug/attacher"
 
+require "mole/column"
 require "mole/config"
 require "mole/control_flow"
 require "mole/frame"
@@ -9,10 +10,12 @@ require "mole/path_classifier"
 require "mole/path_filter"
 require "mole/reflection"
 require "mole/repl_processor"
+require "mole/row"
 require "mole/screen_manager"
 require "mole/screen"
 require "mole/screens"
 require "mole/session"
+require "mole/span"
 require "mole/thread_info"
 # require "mole/version"
 
@@ -64,7 +67,6 @@ end
 
 module Kernel
   def mole
-    puts "IT'S MOLE TIME"
     Mole::Session.attach(caller_locations[0])
   end
 end

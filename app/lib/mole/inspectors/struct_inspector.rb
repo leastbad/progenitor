@@ -7,6 +7,7 @@ module Mole
     # TODO: This one should handle Open Struct too
     class StructInspector
       include NestedHelper
+      include ::Mole::Span::DSL
 
       def initialize(base)
         @base = base

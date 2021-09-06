@@ -6,6 +6,7 @@ module Mole
     # Decorate Hash data structure, supports inline and multiline form.
     class HashInspector
       include NestedHelper
+      include ::Mole::Span::DSL
 
       def initialize(base)
         @base = base
@@ -13,14 +14,14 @@ module Mole
       end
 
       def inline(variable, line_limit:, depth: 0)
-        # SimpleRow.new(
-        #   text_primary('{'),
-        #   inline_pairs(
-        #     variable.each_with_index,
-        #     total: variable.length, line_limit: line_limit - 2, process_key: true, depth: depth + 1
-        #   ),
-        #   text_primary('}')
-        # )
+        SimpleRow.new(
+          text_primary('{'),
+          inline_pairs(
+            variable.each_with_index,
+            total: variable.length, line_limit: line_limit - 2, process_key: true, depth: depth + 1
+          ),
+          text_primary('}')
+        )
       end
 
       def multiline(variable, lines:, line_limit:, depth: 0)

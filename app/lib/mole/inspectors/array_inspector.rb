@@ -4,8 +4,9 @@ module Mole
   module Inspectors
     ##
     # Decorate Array data structure, supports inline and multiline form.
-    class ArrayInpsector
+    class ArrayInspector
       include NestedHelper
+      include ::Mole::Span::DSL
 
       def initialize(base)
         @base = base

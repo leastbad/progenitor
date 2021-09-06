@@ -25,16 +25,12 @@ module Mole
 
     def draw_screens
       start unless started?
-      puts "let's draw"
-      @screens = Mole.benchmark(:build_screens) { build_screens }
 
-      puts "hrmmmm"
+      @screens = Mole.benchmark(:build_screens) { build_screens }
 
       @screens.each do |screen|
         Mole.benchmark("draw_screen #{screen.class}") do
-          puts "I said BIIIIIIIIIIIIIIIIIIIICH"
-          puts screen.inspect
-          # Mole::ScreenDrawer.new(screen: screen).draw
+          puts screen
         end
       end
 
@@ -45,15 +41,12 @@ module Mole
     private
 
     def build_screens
-      puts "let's build"
       screens = Mole::Screens.names.map do |name|
-        puts "it's #{name} time"
         screen_class = fetch_screen(name)
         screen = screen_class.new
         Mole.benchmark("build_screen #{screen.class}") do
           screen.build
           # render_screen(screen)
-          puts "Mr. Bean"
         end
         screen
       end

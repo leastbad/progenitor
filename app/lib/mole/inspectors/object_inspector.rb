@@ -9,6 +9,7 @@ module Mole
     # Otherwise, it use `Kernel#to_s`, and try to push instance variables into the result.
     class ObjectInspector
       include NestedHelper
+      include ::Mole::Span::DSL
 
       DEFAULT_INSPECTION_PATTERN = /#<(.*:0x[0-9a-z]+)(.*)>/i.freeze
 

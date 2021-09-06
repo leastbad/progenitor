@@ -80,14 +80,12 @@ module Mole
     def process_commands(redraw = true)
       @session.sync(@context)
       Mole.benchmark(:redraw_screens) do
-        puts "redraw: #{redraw}"
         @screen_manager.draw_screens if redraw
       end
 
       return_value = nil
 
       flow = Mole::ControlFlow.listen do
-        puts "OMFG!!!!!!!"
         return_value = 0 # @repl_manager.repl(frame._binding)
       end
 
@@ -102,7 +100,6 @@ module Mole
     end
 
     def handle_flow(flow)
-      puts "flow: #{flow.nil?}"
       return if flow.nil?
 
       @previous_flow = flow

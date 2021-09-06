@@ -5,6 +5,8 @@ module Mole
     ##
     # Display the relevant variables and constants of current context, scopes
     class VariablesScreen < Mole::Screen
+      include ::Mole::Span::DSL
+
       KINDS = [
         KIND_SELF = :self,
         KIND_LOC  = :local_variable,
@@ -40,7 +42,7 @@ module Mole
 
       def initialize(**args)
         super(**args)
-        puts "woah"
+
         @frame_file = @session.current_frame&.frame_file
         @frame_line = @session.current_frame&.frame_line
         @frame_self = @session.current_frame&.frame_self
@@ -49,11 +51,10 @@ module Mole
 
         @inline_tokens = generate_inline_tokens(@frame_file, @frame_line)
         @file_tokens = generate_file_tokens(@frame_file)
-        puts "double woah"
+
         @inspector = Mole::Inspectors::Base.new
-        puts "intermission"
         @reflection = Mole::Reflection.instance
-        puts "triple woah"
+
         @selected = 0
       end
 
@@ -63,28 +64,27 @@ module Mole
 
       def build
         variables = fetch_relevant_variables
+        # puts variables
         @rows = variables.map do |variable|
           inspections = @inspector.multiline(
-            variable[2], line_limit: @layout.width - 3, lines: 7
+            variable[2], line_limit: 2, lines: 7
           )
           inspections = [inspections.first] if variable[0] == KIND_SELF
           inspections.map.with_index do |inspection, index|
             spans = inspection.spans
             if index == 0
               spans = [span_name(variable), span_size(variable), text_primary(' = ')] + spans
-              puts "Pee-Wee Herman"
-              # Row.new(
-              #   Column.new(span_mark(inspections)),
-              #   Column.new(*spans, word_wrap: RubyJard::Column::WORD_WRAP_BREAK_WORD),
-              #   line_limit: 3
-              # )
+              Row.new(
+                Column.new(span_mark(inspections)),
+                Column.new(*spans, word_wrap: Mole::Column::WORD_WRAP_BREAK_WORD),
+                line_limit: 3
+              )
             else
-              puts "Rob Zombie"
-              # Row.new(
-              #   Column.new,
-              #   Column.new(*spans, word_wrap: RubyJard::Column::WORD_WRAP_BREAK_WORD),
-              #   line_limit: 3
-              # )
+              Row.new(
+                Column.new,
+                Column.new(*spans, word_wrap: Mole::Column::WORD_WRAP_BREAK_WORD),
+                line_limit: 3
+              )
             end
           end
         end.flatten
@@ -109,10 +109,10 @@ module Mole
       end
 
       def span_name(variable)
-        # RubyJard::Span.new(
-        #   content: variable[1].to_s,
-        #   styles: [KIND_STYLES[variable[0].to_sym], inline?(variable[1]) ? :underline : nil]
-        # )
+        Mole::Span.new(
+          content: variable[1].to_s,
+          styles: [KIND_STYLES[variable[0].to_sym], inline?(variable[1]) ? :underline : nil]
+        )
       end
 
       def span_size(variable)
