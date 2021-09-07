@@ -10,7 +10,7 @@ module Mole
       def attach(location)
         instance.start unless instance.started?
         return if instance.check_skip(location)
-        
+
         Byebug.attach
         Byebug.current_context.step_out(3, true)
       end
@@ -20,7 +20,6 @@ module Mole
 
     def initialize
       @screen_manager = Mole::ScreenManager.new
-      # @repl_manager = RubyJard::ReplManager.new(console: @screen_manager.console)
       @path_filter = Mole::PathFilter.new
       @started = false
       @session_lock = Mutex.new
@@ -36,7 +35,6 @@ module Mole
       Byebug::Setting[:autopry] = false
 
       Byebug::Context.processor = Mole::ReplProcessor
-      # Exclude all files in Ruby Jard source code from the stacktrace.
       Byebug::Context.ignored_files = Byebug::Context.all_files + Mole.all_files
 
       @screen_manager.start

@@ -2,7 +2,6 @@
 
 module Mole
   module Inspectors
-    # Inpsect Ruby primitive types
     class PrimitiveInspector
       PRIMITIVE_TYPES = {
         # Intertal classes for those values may differ between Ruby versions
@@ -31,9 +30,8 @@ module Mole
       end
 
       # rubocop:disable Lint/UnusedMethodArgument
-      def inline(variable, line_limit:, depth:)
+      def inline(variable)
         inspection = variable.inspect
-        inspection = inspection[0..line_limit - 2] + '…' if inspection.length >= line_limit
         SimpleRow.new(
           Mole::Span.new(
             content: inspection,
@@ -42,8 +40,8 @@ module Mole
         )
       end
 
-      def multiline(variable, lines:, line_limit:, depth: 0)
-        [inline(variable, line_limit: line_limit * 2, depth: depth)]
+      def value(variable)
+        [inline(variable)]
       end
       # rubocop:enable Lint/UnusedMethodArgument
     end

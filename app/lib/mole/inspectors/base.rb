@@ -12,13 +12,6 @@ require 'mole/inspectors/active_record_relation_inspector'
 
 module Mole
   module Inspectors
-    ##
-    # Generate beauty inspection of a particular variable.
-    # This class is a specialized decorator.
-    # The inspection doesn't aim to become a better version of PP. Instead,
-    # it's scope is to generate an overview of a variable within a limited
-    # space. So, it only keeps useful information, and tries to reach the
-    # very shallow layers of a nested data structure.
     # This class is inspired by Ruby's PP:
     # https://github.com/ruby/ruby/blob/master/lib/pp.rb
     class Base
@@ -36,27 +29,21 @@ module Mole
         ]
       end
 
-      def inline(variable, line_limit:, depth: 0)
+      def inline(variable)
         @inspectors.each do |inspector|
           next unless inspector.match?(variable)
-
-          row = inspector.inline(variable, line_limit: line_limit, depth: depth)
+puts variable
+          row = inspector.inline(variable)
           return row unless row.nil?
         end
         SimpleRow.new(text_primary('???'))
       end
 
-      def multiline(variable, lines:, line_limit:, depth: 0)
+      def value(variable)
         @inspectors.each do |inspector|
           next unless inspector.match?(variable)
-
-          rows = inspector.multiline(
-            variable,
-            lines: lines,
-            line_limit: line_limit,
-            depth: depth
-          )
-          return rows unless rows.nil?
+          result = inspector.value(variable)
+          return result unless result.nil?
         end
         [SimpleRow.new(text_primary('???'))]
       end

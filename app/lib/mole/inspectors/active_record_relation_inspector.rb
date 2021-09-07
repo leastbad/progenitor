@@ -32,57 +32,32 @@ module Mole
         false
       end
 
-      def inline(variable, line_limit:, depth: 0)
+      def inline(variable)
         if loaded?(variable)
           row = SimpleRow.new(text_primary(@reflection.call_to_s(variable).chomp('>')))
           row << text_primary(' ') if variable.length >= 1
-          row << inline_values(
-            variable.each_with_index,
-            total: variable.length, line_limit: line_limit - row.content_length - 2,
-            depth: depth + 1
-          )
+          row << inline_values(variable.each_with_index, total: variable.length)
           row << text_primary('>')
           row << text_primary(' (empty)') if variable.length <= 0
           row
         else
-          relation_summary(variable, line_limit: line_limit)
+          relation_summary(variable)
         end
       end
 
-      def multiline(variable, lines:, line_limit:, depth: 0)
-        inline = inline(variable, line_limit: line_limit * 2)
-        if inline.content_length < line_limit
-          [inline]
-        elsif !loaded?(variable)
-          [relation_summary(variable, line_limit: line_limit * 2)]
-        else
-          rows = [SimpleRow.new(text_primary(@reflection.call_to_s(variable)))]
-
-          item_count = 0
-          variable.each_with_index do |value, index|
-            rows << multiline_value(value, line_limit: line_limit, depth: depth + 1)
-
-            item_count += 1
-            break if index >= lines - 2
-          end
-          if variable.length > item_count
-            rows << SimpleRow.new(text_dim("  ▸ #{variable.length - item_count} more..."))
-          end
-          rows
-        end
+      def value(variable)
+        [inline(variable)]
       end
 
       private
 
-      def relation_summary(variable, line_limit:)
+      def relation_summary(variable)
         overview = @reflection.call_to_s(variable).chomp('>')
         width = overview.length + 1 + 12
         row = SimpleRow.new(text_primary(overview))
-        if @reflection.call_respond_to?(variable, :to_sql) && width < line_limit
-          detail = variable_sql(variable)
-          detail = detail[0..line_limit - width - 2] + '…' if width + detail.length < line_limit
+        if @reflection.call_respond_to?(variable, :to_sql)
           row << text_dim(' ')
-          row << text_dim(detail)
+          row << text_dim(variable_sql(variable))
         end
         row << text_primary('>')
         row << text_dim(' (not loaded)')

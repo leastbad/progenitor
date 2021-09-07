@@ -4,7 +4,6 @@ require "byebug/attacher"
 
 require "mole/column"
 require "mole/config"
-require "mole/control_flow"
 require "mole/frame"
 require "mole/path_classifier"
 require "mole/path_filter"

@@ -30,7 +30,7 @@ module Mole
       end
 
       # rubocop:disable Style/ConditionalAssignment
-      def inline(variable, line_limit:, depth: 0)
+      def inline(variable)
         row = SimpleRow.new(
           text_primary(@reflection.call_to_s(variable).chomp!('>')),
           text_primary(' ')
@@ -42,40 +42,16 @@ module Mole
         else
           row << inline_pairs(
             attributes.each_with_index,
-            total: attributes.length, line_limit: line_limit - row.content_length - 2,
-            process_key: false, depth: depth + 1
+            total: attributes.length,
+            process_key: false
           )
         end
         row << text_primary('>')
       end
       # rubocop:enable Style/ConditionalAssignment
 
-      def multiline(variable, lines:, line_limit:, depth: 0)
-        inline = inline(variable, line_limit: line_limit * 2)
-        return [inline] if inline.content_length < line_limit
-
-        rows = [SimpleRow.new(
-          text_primary(@reflection.call_to_s(variable))
-        )]
-
-        item_count = 0
-        attributes = variable_attributes(variable)
-
-        if attributes.nil?
-          rows << SimpleRow.new(text_dim('  ▸ ??? failed to inspect attributes'))
-        else
-          attributes.each_with_index do |(key, value), index|
-            rows << multiline_pair(
-              key, value, line_limit: line_limit, process_key: false, depth: depth + 1
-            )
-            item_count += 1
-            break if index >= lines - 2
-          end
-          if attributes.length > item_count
-            rows << SimpleRow.new(text_dim("  ▸ #{attributes.length - item_count} more..."))
-          end
-        end
-        rows
+      def value(variable)
+        [inline(variable)]
       end
 
       def variable_attributes(variable)

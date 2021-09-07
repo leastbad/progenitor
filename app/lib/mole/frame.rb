@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 module Mole
-  ##
-  # This class is a wrapper for Byebug::Frame. This class prevents direct
-  # access to Byebug's internal data structure, provides some more helpers
-  # and make Jard easier to test.
   class Frame
     attr_reader :real_pos
     attr_writer :visible

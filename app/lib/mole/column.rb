@@ -27,7 +27,7 @@ module Mole
       if span.is_a?(Array)
         span.each { |s| self << s }
       else
-        raise RubyJard::Error, 'RubyJard::Span object expected' unless span.is_a?(Mole::Span)
+        raise Mole::Error, 'Mole::Span object expected' unless span.is_a?(Mole::Span)
 
         @spans << span
         @content_length += span.content_length

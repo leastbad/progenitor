@@ -66,9 +66,7 @@ module Mole
         variables = fetch_relevant_variables
         # puts variables
         @rows = variables.map do |variable|
-          inspections = @inspector.multiline(
-            variable[2], line_limit: 2, lines: 7
-          )
+          inspections = @inspector.value(variable[2])
           inspections = [inspections.first] if variable[0] == KIND_SELF
           inspections.map.with_index do |inspection, index|
             spans = inspection.spans
@@ -76,14 +74,12 @@ module Mole
               spans = [span_name(variable), span_size(variable), text_primary(' = ')] + spans
               Row.new(
                 Column.new(span_mark(inspections)),
-                Column.new(*spans, word_wrap: Mole::Column::WORD_WRAP_BREAK_WORD),
-                line_limit: 3
+                Column.new(*spans, word_wrap: Mole::Column::WORD_WRAP_BREAK_WORD)
               )
             else
               Row.new(
                 Column.new,
-                Column.new(*spans, word_wrap: Mole::Column::WORD_WRAP_BREAK_WORD),
-                line_limit: 3
+                Column.new(*spans, word_wrap: Mole::Column::WORD_WRAP_BREAK_WORD)
               )
             end
           end

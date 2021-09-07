@@ -29,8 +29,9 @@ module Mole
       @screens = Mole.benchmark(:build_screens) { build_screens }
 
       @screens.each do |screen|
-        Mole.benchmark("draw_screen #{screen.class}") do
-          puts screen
+        Mole.benchmark("broadcast_screen #{screen.class}") do
+        #TODO CableReady  
+        puts screen
         end
       end
 
@@ -46,7 +47,6 @@ module Mole
         screen = screen_class.new
         Mole.benchmark("build_screen #{screen.class}") do
           screen.build
-          # render_screen(screen)
         end
         screen
       end

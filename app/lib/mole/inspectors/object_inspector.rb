@@ -22,37 +22,12 @@ module Mole
         true
       end
 
-      def inline(variable, line_limit:, depth: 0)
-        if native_inspect?(variable)
-          decorate_native_inspection(variable, line_limit: line_limit, depth: depth)
-        else
-          decorate_custom_inspection(variable, line_limit: line_limit)
-        end
+      def inline(variable)
+        native_inspect?(variable) ? decorate_native_inspection(variable) : decorate_custom_inspection(variable)
       end
 
-      def multiline(variable, lines:, line_limit:, depth: 0)
-        inline = inline(variable, line_limit: line_limit * 2)
-        return [inline] if inline.content_length < line_limit
-
-        rows = [decorate_native_inspection(variable, line_limit: line_limit * 2, with_children: false)]
-
-        item_count = 0
-        instance_variables = @reflection.call_instance_variables(variable)
-        instance_variables.each do |key|
-          rows << multiline_pair(
-            key, @reflection.call_instance_variable_get(variable, key),
-            line_limit: line_limit, process_key: false, depth: depth + 1
-          )
-
-          item_count += 1
-          break if item_count >= lines - 2
-        end
-
-        if instance_variables.length > item_count
-          rows << SimpleRow.new(text_dim("  ▸ #{instance_variables.length - item_count} more..."))
-        end
-
-        rows
+      def value(variable)
+        [inline(variable)]
       end
 
       private
@@ -69,7 +44,7 @@ module Mole
         @reflection.call_to_s(variable)
       end
 
-      def decorate_native_inspection(variable, line_limit:, depth: 0, with_children: true)
+      def decorate_native_inspection(variable)
         raw_inspection = @reflection.call_to_s(variable)
         match = raw_inspection.match(DEFAULT_INSPECTION_PATTERN)
 
@@ -79,43 +54,33 @@ module Mole
             text_primary('#<'),
             text_primary(match[1])
           )
-          if with_children && !instance_variables.empty?
+          unless instance_variables.empty?
             row << text_primary(' ')
             row << inline_pairs(
               instance_variables.each_with_index, total: instance_variables.length,
-              line_limit: line_limit - row.content_length - 1,
-              depth: depth + 1, process_key: false,
+              process_key: false,
               value_proc: ->(key) { @reflection.call_instance_variable_get(variable, key) }
             )
           end
           row << text_primary('>')
-        elsif raw_inspection.length <= line_limit
-          SimpleRow.new(text_primary(raw_inspection[0..line_limit]))
         else
-          SimpleRow.new(text_primary(raw_inspection[0..line_limit - 3] + '…>'))
+          SimpleRow.new(text_primary(raw_inspection))
         end
       end
 
-      def decorate_custom_inspection(variable, line_limit:)
+      def decorate_custom_inspection(variable)
         raw_inspection = call_inspect(variable)
         match = raw_inspection.match(DEFAULT_INSPECTION_PATTERN)
         if match
-          detail =
-            if match[2].length < line_limit - match[1].length - 3
-              match[2]
-            else
-              match[2][0..line_limit - match[1].length - 4] + '…'
-            end
+          detail = match[2]
           SimpleRow.new(
             text_primary('#<'),
             text_primary(match[1]),
             text_dim(detail),
             text_primary('>')
           )
-        elsif raw_inspection.length <= line_limit
-          SimpleRow.new(text_primary(raw_inspection[0..line_limit]))
         else
-          SimpleRow.new(text_primary(raw_inspection[0..line_limit - 3] + '…>'))
+          SimpleRow.new(text_primary(raw_inspection))
         end
       end
     end
