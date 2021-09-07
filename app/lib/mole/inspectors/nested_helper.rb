@@ -20,7 +20,7 @@ module Mole
         item_limit = total == 0 ? 0 : line_limit_for_pair(depth, line_limit / total)
 
         enum.each do |(key, value), index|
-          row << text_primary(', ') if index > 0
+          row << text_primary(", ") if index > 0
 
           key_inspection = inspect_nested_key(
             key,
@@ -65,7 +65,7 @@ module Mole
         item_limit = total == 0 ? 0 : line_limit_for_value(line_limit / total)
 
         enum.each do |value, index|
-          row << text_primary(', ') if index > 0
+          row << text_primary(", ") if index > 0
 
           value_inspection = @base.inline(
             value, line_limit: line_limit_for_value(item_limit), depth: depth

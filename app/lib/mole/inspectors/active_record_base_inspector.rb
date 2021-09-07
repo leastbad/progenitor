@@ -32,13 +32,13 @@ module Mole
       # rubocop:disable Style/ConditionalAssignment
       def inline(variable, line_limit:, depth: 0)
         row = SimpleRow.new(
-          text_primary(@reflection.call_to_s(variable).chomp!('>')),
-          text_primary(' ')
+          text_primary(@reflection.call_to_s(variable).chomp!(">")),
+          text_primary(" ")
         )
         attributes = variable_attributes(variable)
 
         if attributes.nil?
-          row << text_dim('??? failed to inspect attributes')
+          row << text_dim("??? failed to inspect attributes")
         else
           row << inline_pairs(
             attributes.each_with_index,
@@ -46,7 +46,7 @@ module Mole
             process_key: false, depth: depth + 1
           )
         end
-        row << text_primary('>')
+        row << text_primary(">")
       end
       # rubocop:enable Style/ConditionalAssignment
 
@@ -62,7 +62,7 @@ module Mole
         attributes = variable_attributes(variable)
 
         if attributes.nil?
-          rows << SimpleRow.new(text_dim('  ▸ ??? failed to inspect attributes'))
+          rows << SimpleRow.new(text_dim("  ▸ ??? failed to inspect attributes"))
         else
           attributes.each_with_index do |(key, value), index|
             rows << multiline_pair(
@@ -80,7 +80,7 @@ module Mole
 
       def variable_attributes(variable)
         variable.attributes
-      rescue StandardError
+      rescue
         nil
       end
     end

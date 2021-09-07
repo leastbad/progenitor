@@ -17,11 +17,11 @@ module Mole
 
       def inline(variable, line_limit:, depth: 0)
         SimpleRow.new(
-          text_primary('['),
+          text_primary("["),
           inline_values(
             variable.each_with_index, total: variable.length, line_limit: line_limit - 2, depth: depth + 1
           ),
-          text_primary(']')
+          text_primary("]")
         )
       end
 
@@ -47,7 +47,7 @@ module Mole
       end
 
       def do_multiline(variable, lines:, line_limit:, depth: 0)
-        rows = [SimpleRow.new(text_primary('['))]
+        rows = [SimpleRow.new(text_primary("["))]
 
         item_count = 0
         variable.each_with_index do |value, index|
@@ -64,10 +64,10 @@ module Mole
         if total > item_count
           SimpleRow.new(
             text_dim("  ▸ #{total - item_count} more..."),
-            text_primary(']')
+            text_primary("]")
           )
         else
-          SimpleRow.new(text_primary(']'))
+          SimpleRow.new(text_primary("]"))
         end
       end
     end

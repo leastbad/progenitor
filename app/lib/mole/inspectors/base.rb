@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require 'mole/inspectors/nested_helper'
-require 'mole/inspectors/primitive_inspector'
-require 'mole/inspectors/array_inspector'
-require 'mole/inspectors/string_inspector'
-require 'mole/inspectors/hash_inspector'
-require 'mole/inspectors/struct_inspector'
-require 'mole/inspectors/object_inspector'
-require 'mole/inspectors/active_record_base_inspector'
-require 'mole/inspectors/active_record_relation_inspector'
+require "mole/inspectors/nested_helper"
+require "mole/inspectors/primitive_inspector"
+require "mole/inspectors/array_inspector"
+require "mole/inspectors/string_inspector"
+require "mole/inspectors/hash_inspector"
+require "mole/inspectors/struct_inspector"
+require "mole/inspectors/object_inspector"
+require "mole/inspectors/active_record_base_inspector"
+require "mole/inspectors/active_record_relation_inspector"
 
 module Mole
   module Inspectors
@@ -36,7 +36,7 @@ module Mole
           row = inspector.inline(variable, line_limit: line_limit, depth: depth)
           return row unless row.nil?
         end
-        SimpleRow.new(text_primary('???'))
+        SimpleRow.new(text_primary("???"))
       end
 
       def multiline(variable, lines:, line_limit:, depth: 0)
@@ -51,7 +51,7 @@ module Mole
           )
           return rows unless rows.nil?
         end
-        [SimpleRow.new(text_primary('???'))]
+        [SimpleRow.new(text_primary("???"))]
       end
     end
   end

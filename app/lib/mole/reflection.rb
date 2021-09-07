@@ -31,63 +31,63 @@ module Mole
     end
 
     def call_is_a?(object, comparing_class)
-      @method_cache[:is_a?].bind(object).call(comparing_class)
+      @method_cache[:is_a?].bind_call(object, comparing_class)
     end
 
     def call_method(object, method_name)
-      @method_cache[:method].bind(object).call(method_name)
+      @method_cache[:method].bind_call(object, method_name)
     end
 
     def call_class(object)
       if call_is_a?(object, Module)
-        @method_cache[:class].bind(object).call
+        @method_cache[:class].bind_call(object)
       else
-        @instance_method_cache[:class].bind(object).call
+        @instance_method_cache[:class].bind_call(object)
       end
     end
 
     def call_respond_to?(object, method_name)
       if call_is_a?(object, Module)
-        @method_cache[:respond_to?].bind(object).call(method_name)
+        @method_cache[:respond_to?].bind_call(object, method_name)
       else
-        @instance_method_cache[:respond_to?].bind(object).call(method_name)
+        @instance_method_cache[:respond_to?].bind_call(object, method_name)
       end
     end
 
     def call_instance_variables(object)
-      @method_cache[:instance_variables].bind(object).call
+      @method_cache[:instance_variables].bind_call(object)
     end
 
     def call_instance_variable_get(object, variable)
-      @method_cache[:instance_variable_get].bind(object).call(variable)
+      @method_cache[:instance_variable_get].bind_call(object, variable)
     end
 
     def call_instance_variable_set(object, variable, value)
-      @method_cache[:instance_variable_set].bind(object).call(variable, value)
+      @method_cache[:instance_variable_set].bind_call(object, variable, value)
     end
 
     def call_inspect(object)
       if call_is_a?(object, Module)
-        @method_cache[:inspect].bind(object).call
+        @method_cache[:inspect].bind_call(object)
       else
-        @instance_method_cache[:inspect].bind(object).call
+        @instance_method_cache[:inspect].bind_call(object)
       end
     end
 
     def call_to_s(object)
       if call_is_a?(object, Module)
-        @method_cache[:to_s].bind(object).call
+        @method_cache[:to_s].bind_call(object)
       else
-        @instance_method_cache[:to_s].bind(object).call
+        @instance_method_cache[:to_s].bind_call(object)
       end
     end
 
     def call_const_get(object, const_name)
-      @method_cache[:const_get].bind(object).call(const_name)
+      @method_cache[:const_get].bind_call(object, const_name)
     end
 
     def call_const_defined?(object, const_name)
-      @method_cache[:const_defined?].bind(object).call(const_name)
+      @method_cache[:const_defined?].bind_call(object, const_name)
     end
   end
 end

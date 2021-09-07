@@ -65,7 +65,7 @@ module Mole
 
       def call_inspect(variable)
         variable.inspect
-      rescue StandardError
+      rescue
         @reflection.call_to_s(variable)
       end
 
@@ -76,23 +76,23 @@ module Mole
         if match
           instance_variables = @reflection.call_instance_variables(variable)
           row = SimpleRow.new(
-            text_primary('#<'),
+            text_primary("#<"),
             text_primary(match[1])
           )
           if with_children && !instance_variables.empty?
-            row << text_primary(' ')
+            row << text_primary(" ")
             row << inline_pairs(
               instance_variables.each_with_index, total: instance_variables.length,
-              line_limit: line_limit - row.content_length - 1,
-              depth: depth + 1, process_key: false,
-              value_proc: ->(key) { @reflection.call_instance_variable_get(variable, key) }
+                                                  line_limit: line_limit - row.content_length - 1,
+                                                  depth: depth + 1, process_key: false,
+                                                  value_proc: ->(key) { @reflection.call_instance_variable_get(variable, key) }
             )
           end
-          row << text_primary('>')
+          row << text_primary(">")
         elsif raw_inspection.length <= line_limit
           SimpleRow.new(text_primary(raw_inspection[0..line_limit]))
         else
-          SimpleRow.new(text_primary(raw_inspection[0..line_limit - 3] + '…>'))
+          SimpleRow.new(text_primary(raw_inspection[0..line_limit - 3] + "…>"))
         end
       end
 
@@ -104,18 +104,18 @@ module Mole
             if match[2].length < line_limit - match[1].length - 3
               match[2]
             else
-              match[2][0..line_limit - match[1].length - 4] + '…'
+              match[2][0..line_limit - match[1].length - 4] + "…"
             end
           SimpleRow.new(
-            text_primary('#<'),
+            text_primary("#<"),
             text_primary(match[1]),
             text_dim(detail),
-            text_primary('>')
+            text_primary(">")
           )
         elsif raw_inspection.length <= line_limit
           SimpleRow.new(text_primary(raw_inspection[0..line_limit]))
         else
-          SimpleRow.new(text_primary(raw_inspection[0..line_limit - 3] + '…>'))
+          SimpleRow.new(text_primary(raw_inspection[0..line_limit - 3] + "…>"))
         end
       end
     end

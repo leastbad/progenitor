@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'pathname'
-require 'rbconfig'
+require "pathname"
+require "rbconfig"
 
 module Mole
   ##
@@ -12,8 +12,8 @@ module Mole
     GEM_PATTERN = /(.*)-(\d+\.\d+[.\d]*[.\d]*[-.\w]*)/i.freeze
     STDLIB_PATTERN = /(.*)\.rb$/.freeze
     INTERNAL_PATTERN = /<internal:[^>]+>/.freeze
-    EVALUATION_SIGNATURE = '(eval)'
-    RUBY_SCRIPT_SIGNATURE = '-e'
+    EVALUATION_SIGNATURE = "(eval)"
+    RUBY_SCRIPT_SIGNATURE = "-e"
 
     TYPES = [
       TYPE_SOURCE_TREE = :source_tree,
@@ -56,9 +56,9 @@ module Mole
         next unless path.start_with?(gem_path)
 
         splitted_path =
-          path[gem_path.length..-1]
-          .split('/')
-          .reject(&:empty?)
+          path[gem_path.length..]
+            .split("/")
+            .reject(&:empty?)
         gem_name = splitted_path.shift
         gem_version = nil
 
@@ -68,7 +68,7 @@ module Mole
           gem_version = match[2]
         end
 
-        return true, gem_name, gem_version, splitted_path.join('/')
+        return true, gem_name, gem_version, splitted_path.join("/")
       end
 
       false
@@ -80,20 +80,20 @@ module Mole
     end
 
     def try_classify_stdlib(path)
-      lib_dir = RbConfig::CONFIG['rubylibdir'].to_s.strip
+      lib_dir = RbConfig::CONFIG["rubylibdir"].to_s.strip
 
       return false if lib_dir.empty?
       return false unless path.start_with?(lib_dir)
 
       splitted_path =
-        path[lib_dir.length..-1]
-        .split('/')
-        .reject(&:empty?)
+        path[lib_dir.length..]
+          .split("/")
+          .reject(&:empty?)
       lib_name = splitted_path.first
       match = STDLIB_PATTERN.match(lib_name)
       lib_name = match[1] if match
 
-      [true, lib_name, splitted_path.join('/')]
+      [true, lib_name, splitted_path.join("/")]
     rescue NameError
       # RbConfig is not available
       false
@@ -116,14 +116,14 @@ module Mole
 
       if defined?(Gem)
         Gem.path.each do |gem_path|
-          paths << File.join(gem_path, 'gems')
+          paths << File.join(gem_path, "gems")
           paths << gem_path
         end
       end
 
       if defined?(Bundler)
         bundle_path = Bundler.bundle_path.to_s
-        paths << File.join(bundle_path, 'gems')
+        paths << File.join(bundle_path, "gems")
         paths << bundle_path
       end
 

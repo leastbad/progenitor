@@ -6,18 +6,18 @@ module Mole
       def smart_load
         config = Mole::Config.new
 
-        unless ENV['MOLE_CONFIG_FILE'].nil?
-          unless File.exist?(ENV['MOLE_CONFIG_FILE'])
-            raise "Config file '#{ENV['MOLE_CONFIG_FILE']}' does not exist"
+        unless ENV["MOLE_CONFIG_FILE"].nil?
+          unless File.exist?(ENV["MOLE_CONFIG_FILE"])
+            raise "Config file '#{ENV["MOLE_CONFIG_FILE"]}' does not exist"
           end
 
-          return load_config(config, ENV['MOLE_CONFIG_FILE'])
+          return load_config(config, ENV["MOLE_CONFIG_FILE"])
         end
 
         path = File.expand_path(File.join(Dir.pwd, CONFIG_FILE_NAME))
         load_config(config, path) if File.exist?(path)
 
-        path = File.expand_path(File.join('~/', CONFIG_FILE_NAME))
+        path = File.expand_path(File.join("~/", CONFIG_FILE_NAME))
         load_config(config, path) if File.exist?(path)
 
         config
@@ -35,10 +35,12 @@ module Mole
       end
     end
 
+    attr_accessor :color_scheme
     attr_reader :filter_version, :filter, :filter_included, :filter_excluded
 
-    CONFIG_FILE_NAME = '.molerc'
+    CONFIG_FILE_NAME = ".molerc"
     DEFAULTS = [
+      DEFAULT_COLOR_SCHEME = "deep-space",
       DEFAULT_FILTER = Mole::PathFilter::FILTER_APPLICATION,
       DEFAULT_FILTER_INCLUDED = [].freeze,
       DEFAULT_FILTER_EXCLUDED = [].freeze

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'coderay'
+require "coderay"
 
 module Mole
   module Decorators
@@ -27,9 +27,9 @@ module Mole
 
       def extension(file)
         # TODO: A map constant is better
-        if file =~ /.*\.erb$/
+        if /.*\.erb$/.match?(file)
           :erb
-        elsif file =~ /.*\.haml$/
+        elsif /.*\.haml$/.match?(file)
           :haml
         else
           :ruby
@@ -140,7 +140,7 @@ module Mole
 
         def text_token(text, kind)
           color = @color_scopes.last[kind]
-          text.gsub!("\n", '')
+          text.delete!("\n")
           style =
             if !color
               DEFAULT_STYLE

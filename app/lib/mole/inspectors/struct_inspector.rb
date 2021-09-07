@@ -17,10 +17,10 @@ module Mole
       end
 
       def inline(variable, line_limit:, depth: 0)
-        row = SimpleRow.new(text_dim('#<struct '))
+        row = SimpleRow.new(text_dim("#<struct "))
         unless variable.class.name.nil?
           row << text_primary(variable.class.name.to_s)
-          row << text_primary(' ')
+          row << text_primary(" ")
         end
         row << inline_pairs(
           variable.members.each_with_index,
@@ -28,7 +28,7 @@ module Mole
           process_key: false, depth: depth + 1,
           value_proc: ->(key) { variable[key] }
         )
-        row << text_dim('>')
+        row << text_dim(">")
       end
 
       def multiline(variable, lines:, line_limit:, depth: 0)
@@ -49,12 +49,12 @@ module Mole
 
       def do_multiline(variable, lines:, line_limit:, depth: 0)
         rows = []
-        start = SimpleRow.new(text_dim('#<struct'))
+        start = SimpleRow.new(text_dim("#<struct"))
         unless variable.class.name.nil?
-          start << text_primary(' ')
+          start << text_primary(" ")
           start << text_primary(variable.class.name.to_s)
         end
-        start << text_dim('>')
+        start << text_dim(">")
         rows << start
 
         item_count = 0

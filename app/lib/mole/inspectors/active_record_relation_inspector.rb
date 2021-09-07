@@ -28,21 +28,21 @@ module Mole
         return false unless defined?(ActiveRecord::Relation)
 
         @reflection.call_class(variable) < ActiveRecord::Relation
-      rescue StandardError
+      rescue
         false
       end
 
       def inline(variable, line_limit:, depth: 0)
         if loaded?(variable)
-          row = SimpleRow.new(text_primary(@reflection.call_to_s(variable).chomp('>')))
-          row << text_primary(' ') if variable.length >= 1
+          row = SimpleRow.new(text_primary(@reflection.call_to_s(variable).chomp(">")))
+          row << text_primary(" ") if variable.length >= 1
           row << inline_values(
             variable.each_with_index,
             total: variable.length, line_limit: line_limit - row.content_length - 2,
             depth: depth + 1
           )
-          row << text_primary('>')
-          row << text_primary(' (empty)') if variable.length <= 0
+          row << text_primary(">")
+          row << text_primary(" (empty)") if variable.length <= 0
           row
         else
           relation_summary(variable, line_limit: line_limit)
@@ -75,30 +75,30 @@ module Mole
       private
 
       def relation_summary(variable, line_limit:)
-        overview = @reflection.call_to_s(variable).chomp('>')
+        overview = @reflection.call_to_s(variable).chomp(">")
         width = overview.length + 1 + 12
         row = SimpleRow.new(text_primary(overview))
         if @reflection.call_respond_to?(variable, :to_sql) && width < line_limit
           detail = variable_sql(variable)
-          detail = detail[0..line_limit - width - 2] + '…' if width + detail.length < line_limit
-          row << text_dim(' ')
+          detail = detail[0..line_limit - width - 2] + "…" if width + detail.length < line_limit
+          row << text_dim(" ")
           row << text_dim(detail)
         end
-        row << text_primary('>')
-        row << text_dim(' (not loaded)')
+        row << text_primary(">")
+        row << text_dim(" (not loaded)")
         row
       end
 
       def loaded?(variable)
         variable.respond_to?(:loaded?) && variable.loaded?
-      rescue StandardError
+      rescue
         false
       end
 
       def variable_sql(variable)
         variable.to_sql.inspect
-      rescue StandardError
-        'failed to inspect active relation\'s SQL'
+      rescue
+        "failed to inspect active relation's SQL"
       end
     end
   end

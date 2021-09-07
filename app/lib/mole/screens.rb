@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'mole/screen'
+require "mole/screen"
 
 module Mole
   class Screens
@@ -39,4 +39,4 @@ end
 # require 'mole/screens/source_screen'
 # require 'mole/screens/backtrace_screen'
 # require 'mole/screens/threads_screen'
-require 'mole/screens/variables_screen'
+require "mole/screens/variables_screen"

@@ -18,7 +18,7 @@ module Mole
         @screen_manager.draw_screens
       end
       @session.stop
-    rescue StandardError => e
+    rescue => e
       Mole.error(e)
       raise
     end

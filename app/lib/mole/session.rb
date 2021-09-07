@@ -88,10 +88,10 @@ module Mole
     def threads
       @threads ||=
         Thread
-        .list
-        .select(&:alive?)
-        .reject { |t| t.name.to_s =~ /<<Mole:.*>>/ }
-        .map { |t| Mole::ThreadInfo.new(t) }
+          .list
+          .select(&:alive?)
+          .reject { |t| t.name.to_s =~ /<<Mole:.*>>/ }
+          .map { |t| Mole::ThreadInfo.new(t) }
     end
 
     def frame=(real_pos)
@@ -108,7 +108,7 @@ module Mole
     end
 
     def lock
-      raise Mole::Error, 'This method requires a block' unless block_given?
+      raise Mole::Error, "This method requires a block" unless block_given?
 
       # TODO: This doesn't solve anything. However, debugging a multi-threaded process is hard.
       # Let's deal with that later.

@@ -40,15 +40,15 @@ module Mole
       end
 
       def sym_arrow(styles: :text_highlighted)
-        Span.new(content: ' → ', styles: styles)
+        Span.new(content: " → ", styles: styles)
       end
 
       def sym_ellipsis(styles: :text_dim)
-        Span.new(content: '…', styles: styles)
+        Span.new(content: "…", styles: styles)
       end
 
       def sym_bullet(styles: :text_dim)
-        Span.new(content: '  ▸ ', styles: styles)
+        Span.new(content: "  ▸ ", styles: styles)
       end
     end
 
@@ -56,7 +56,7 @@ module Mole
 
     attr_accessor :content, :content_length, :styles
 
-    def initialize(content: '', content_length: nil, styles: [])
+    def initialize(content: "", content_length: nil, styles: [])
       @content = content
       @content = content.to_s.gsub(/\r\n/, '\n').gsub(/\n/, '\n') if content.include?("\n")
       @content_length = content_length || @content.length

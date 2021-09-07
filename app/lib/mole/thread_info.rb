@@ -20,7 +20,7 @@ module Mole
       end
 
       def generate_label_for(id)
-        return '' if id.nil?
+        return "" if id.nil?
         return labels[id] if labels[id]
 
         labels[id] = next_label.to_s
@@ -30,7 +30,7 @@ module Mole
     attr_reader :id, :label
 
     def initialize(thread)
-      raise Mole::Error, 'Expected Thread object or nil' if !thread.is_a?(::Thread) && !thread.nil?
+      raise Mole::Error, "Expected Thread object or nil" if !thread.is_a?(::Thread) && !thread.nil?
 
       @thread = thread
       @id = thread&.object_id
@@ -43,7 +43,7 @@ module Mole
 
     def status
       s = @thread&.status
-      s == false ? 'exited' : s
+      s == false ? "exited" : s
     end
 
     def alive?
@@ -61,7 +61,7 @@ module Mole
       elsif other.is_a?(ThreadInfo)
         @id == other.id
       else
-        raise Mole::Error, 'Invalid comparation'
+        raise Mole::Error, "Invalid comparation"
       end
     end
     # rubocop:enable Style/CaseLikeIf

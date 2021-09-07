@@ -9,25 +9,25 @@ module Mole
 
       KINDS = [
         KIND_SELF = :self,
-        KIND_LOC  = :local_variable,
-        KIND_INS  = :instance_variable,
-        KIND_CON  = :constant,
+        KIND_LOC = :local_variable,
+        KIND_INS = :instance_variable,
+        KIND_CON = :constant,
         KIND_GLOB = :global_variable
       ].freeze
 
       KIND_STYLES = {
         KIND_SELF => :constant,
-        KIND_LOC  => :local_variable,
-        KIND_INS  => :instance_variable,
-        KIND_CON  => :constant,
+        KIND_LOC => :local_variable,
+        KIND_INS => :instance_variable,
+        KIND_CON => :constant,
         KIND_GLOB => :instance_variable
       }.freeze
 
       KIND_PRIORITIES = {
         KIND_SELF => 0,
-        KIND_LOC  => 1,
-        KIND_INS  => 2,
-        KIND_CON  => 3,
+        KIND_LOC => 1,
+        KIND_INS => 2,
+        KIND_CON => 3,
         KIND_GLOB => 4
       }.freeze
 
@@ -59,7 +59,7 @@ module Mole
       end
 
       def title
-        'Variables'
+        "Variables"
       end
 
       def build
@@ -71,7 +71,7 @@ module Mole
           inspections.map.with_index do |inspection, index|
             spans = inspection.spans
             if index == 0
-              spans = [span_name(variable), span_size(variable), text_primary(' = ')] + spans
+              spans = [span_name(variable), span_size(variable), text_primary(" = ")] + spans
               Row.new(
                 Column.new(span_mark(inspections)),
                 Column.new(*spans, word_wrap: Mole::Column::WORD_WRAP_BREAK_WORD)
@@ -98,9 +98,9 @@ module Mole
 
       def span_mark(inspections)
         if inspections.length <= 1
-          text_dim(' ')
+          text_dim(" ")
         else
-          text_dim('▾')
+          text_dim("▾")
         end
       end
 
@@ -120,14 +120,14 @@ module Mole
         elsif @reflection.call_is_a?(value, Hash) && !value.empty?
           text_primary(" (size:#{value.length})")
         else
-          text_primary('')
+          text_primary("")
         end
       end
 
       private
 
       def fetch_local_variables
-        return [] if @frame_binding == nil
+        return [] if @frame_binding.nil?
         return [] unless @reflection.call_is_a?(@frame_binding, ::Binding)
 
         variables = @frame_binding.local_variables
@@ -147,12 +147,12 @@ module Mole
       end
 
       def fetch_instance_variables
-        return [] if @frame_self == nil
+        return [] if @frame_self.nil?
 
         instance_variables =
           @reflection
-          .call_instance_variables(@frame_self)
-          .select { |v| relevant?(KIND_INS, v) }
+            .call_instance_variables(@frame_self)
+            .select { |v| relevant?(KIND_INS, v) }
 
         instance_variables.map do |variable|
           [KIND_INS, variable, @reflection.call_instance_variable_get(@frame_self, variable)]
@@ -162,7 +162,7 @@ module Mole
       end
 
       def fetch_constants
-        return [] if @frame_class == nil
+        return [] if @frame_class.nil?
 
         # Filter out truly constants (CONSTANT convention) only
         constant_source =
@@ -190,12 +190,12 @@ module Mole
       end
 
       def fetch_global_variables
-        return [] if @frame_self == nil
+        return [] if @frame_self.nil?
 
         variables =
           ::Kernel
-          .global_variables
-          .select { |v| relevant?(KIND_GLOB, v) }
+            .global_variables
+            .select { |v| relevant?(KIND_GLOB, v) }
         variables.map do |variable|
           [KIND_GLOB, variable, ::Kernel.instance_eval(variable.to_s)]
         rescue NameError
@@ -205,7 +205,7 @@ module Mole
 
       def self_variable
         [[KIND_SELF, :self, @frame_self]]
-      rescue StandardError
+      rescue
         []
       end
 
@@ -217,13 +217,13 @@ module Mole
           if KIND_PRIORITIES[a[0]] != KIND_PRIORITIES[b[0]]
             KIND_PRIORITIES[a[0]] <=> KIND_PRIORITIES[b[0]]
           else
-            a_name = a[1].to_s.gsub(/^@/, '')
-            b_name = b[1].to_s.gsub(/^@/, '')
-            if a_name[0] == '_' && b_name[0] == '_'
+            a_name = a[1].to_s.gsub(/^@/, "")
+            b_name = b[1].to_s.gsub(/^@/, "")
+            if a_name[0] == "_" && b_name[0] == "_"
               a_name.to_s <=> b_name.to_s
-            elsif a_name[0] == '_'
+            elsif a_name[0] == "_"
               1
-            elsif b_name[0] == '_'
+            elsif b_name[0] == "_"
               -1
             else
               a_name.to_s <=> b_name.to_s
@@ -237,11 +237,11 @@ module Mole
       end
 
       def relevant?(kind, name)
-        @file_tokens[kind] != nil && @file_tokens[kind][name]
+        !@file_tokens[kind].nil? && @file_tokens[kind][name]
       end
 
       def generate_inline_tokens(file, line)
-        return [] if file == nil || line == nil
+        return [] if file.nil? || line.nil?
 
         loc_decorator = Mole::Decorators::LocDecorator.new
         source_decorator = Mole::Decorators::SourceDecorator.new(file, line, 1)
@@ -252,7 +252,7 @@ module Mole
 
         inline_tokens = {}
         tokens.each_slice(2) do |token, kind|
-          next if TOKEN_KIND_MAPS[kind] == nil
+          next if TOKEN_KIND_MAPS[kind].nil?
 
           inline_tokens[token.to_s.to_sym] = true
         end
@@ -260,7 +260,7 @@ module Mole
       end
 
       def generate_file_tokens(file)
-        return [] if file == nil
+        return [] if file.nil?
 
         loc_decorator = Mole::Decorators::LocDecorator.new
         # TODO: This is a mess
@@ -269,7 +269,7 @@ module Mole
 
         file_tokens = {}
         tokens.each_slice(2) do |token, kind|
-          next if TOKEN_KIND_MAPS[kind] == nil
+          next if TOKEN_KIND_MAPS[kind].nil?
 
           file_tokens[TOKEN_KIND_MAPS[kind]] ||= {}
           file_tokens[TOKEN_KIND_MAPS[kind]][token.to_s.to_sym] = true
@@ -280,4 +280,4 @@ module Mole
   end
 end
 
-Mole::Screens.add_screen('variables', Mole::Screens::VariablesScreen)
+Mole::Screens.add_screen("variables", Mole::Screens::VariablesScreen)
