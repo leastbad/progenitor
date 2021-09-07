@@ -17,8 +17,7 @@ module Mole
       Mole.benchmark(:redraw_screens) do
         @screen_manager.draw_screens
       end
-
-      return 0
+      @session.stop
     rescue StandardError => e
       Mole.error(e)
       raise

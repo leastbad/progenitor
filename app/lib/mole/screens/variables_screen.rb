@@ -64,9 +64,9 @@ module Mole
 
       def build
         variables = fetch_relevant_variables
-        # puts variables
+        puts variables
         @rows = variables.map do |variable|
-          inspections = @inspector.value(variable[2])
+          inspections = @inspector.multiline(variable[2], line_limit: 80, lines: 7)
           inspections = [inspections.first] if variable[0] == KIND_SELF
           inspections.map.with_index do |inspection, index|
             spans = inspection.spans

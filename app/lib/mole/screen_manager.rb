@@ -30,8 +30,8 @@ module Mole
 
       @screens.each do |screen|
         Mole.benchmark("broadcast_screen #{screen.class}") do
-        #TODO CableReady  
-        puts screen
+          #TODO CableReady  
+          puts screen
         end
       end
 

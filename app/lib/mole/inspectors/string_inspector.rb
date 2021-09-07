@@ -17,14 +17,23 @@ module Mole
       end
 
       # rubocop:disable Lint/UnusedMethodArgument
-      def value(variable)
-        [inline(variable)]
+      def multiline(variable, line_limit:, lines:, depth: 0)
+        [
+          inline(variable, line_limit: line_limit * 2)
+        ]
       end
 
-      def inline(variable)
+      def inline(variable, line_limit:, depth: 0)
+        inspection = variable.inspect[1..-1].chomp!('"')
+        str =
+          if inspection.length < line_limit - 2
+            inspection
+          else
+            inspection[0..line_limit - 4] + '…'
+          end
         SimpleRow.new(
           text_string('"'),
-          text_string(variable.inspect[1..-1].chomp!('"')),
+          text_string(str),
           text_string('"')
         )
       end

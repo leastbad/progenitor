@@ -29,21 +29,27 @@ module Mole
         ]
       end
 
-      def inline(variable)
+      def inline(variable, line_limit:, depth: 0)
         @inspectors.each do |inspector|
           next unless inspector.match?(variable)
-puts variable
-          row = inspector.inline(variable)
+
+          row = inspector.inline(variable, line_limit: line_limit, depth: depth)
           return row unless row.nil?
         end
         SimpleRow.new(text_primary('???'))
       end
 
-      def value(variable)
+      def multiline(variable, lines:, line_limit:, depth: 0)
         @inspectors.each do |inspector|
           next unless inspector.match?(variable)
-          result = inspector.value(variable)
-          return result unless result.nil?
+
+          rows = inspector.multiline(
+            variable,
+            lines: lines,
+            line_limit: line_limit,
+            depth: depth
+          )
+          return rows unless rows.nil?
         end
         [SimpleRow.new(text_primary('???'))]
       end

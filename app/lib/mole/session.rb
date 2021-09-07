@@ -16,7 +16,7 @@ module Mole
       end
     end
 
-    attr_accessor :path_filter, :screen_manager #, :repl_manager
+    attr_accessor :path_filter, :screen_manager
 
     def initialize
       @screen_manager = Mole::ScreenManager.new

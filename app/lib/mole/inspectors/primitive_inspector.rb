@@ -30,8 +30,9 @@ module Mole
       end
 
       # rubocop:disable Lint/UnusedMethodArgument
-      def inline(variable)
+      def inline(variable, line_limit:, depth:)
         inspection = variable.inspect
+        inspection = inspection[0..line_limit - 2] + '…' if inspection.length >= line_limit
         SimpleRow.new(
           Mole::Span.new(
             content: inspection,
@@ -40,8 +41,8 @@ module Mole
         )
       end
 
-      def value(variable)
-        [inline(variable)]
+      def multiline(variable, lines:, line_limit:, depth: 0)
+        [inline(variable, line_limit: line_limit * 2, depth: depth)]
       end
       # rubocop:enable Lint/UnusedMethodArgument
     end

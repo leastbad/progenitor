@@ -6,11 +6,12 @@ module Mole
   class Row
     extend Forwardable
 
-    attr_accessor :columns, :content, :rendered
+    attr_accessor :columns, :line_limit, :content, :rendered
 
-    def initialize(*columns)
+    def initialize(*columns, line_limit: 1)
       @content = []
       @columns = columns
+      @line_limit = line_limit
       @rendered = false
     end
 
@@ -34,7 +35,7 @@ module Mole
   # A row having only one column
   class SimpleRow < Row
     def initialize(*spans)
-      super(Mole::Column.new)
+      super(Mole::Column.new, line_limit: 999)
 
       spans.each { |s| self << s }
     end
