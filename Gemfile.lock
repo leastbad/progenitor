@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/stimulusreflex/cable_ready.git
-  revision: a42981d28b9724c687dc31aeecbac7dfc2b6ddf1
+  revision: d454100a38be9cd7d8b29a055d894361a72459ca
   branch: stream_updates
   specs:
     cable_ready (5.0.0.pre3)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/stimulusreflex/stimulus_reflex.git
-  revision: 2f55c7e0c3096d5182bfa1d45f74f395963977d9
+  revision: 1f0f0af18a2f7c8c1ef5ed2505a2e08c9b153884
   branch: master
   specs:
     stimulus_reflex (3.5.0.pre2)
@@ -182,17 +182,15 @@ GEM
       rack (~> 2.0)
       rails (>= 5.2)
     orm_adapter (0.5.0)
-    pagy (3.10.0)
+    pagy (4.11.0)
     parallel (1.20.1)
     parser (3.0.1.1)
       ast (~> 2.4.1)
-    pastel (0.8.0)
-      tty-color (~> 0.5)
     pg (1.2.3)
     pg_search (2.3.5)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
-    pry (0.14.1)
+    pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-rails (0.3.9)
@@ -268,10 +266,10 @@ GEM
     ruby-progressbar (1.11.0)
     ruby-vips (2.1.2)
       ffi (~> 1.12)
-    ruby_jard (0.2.0)
-      byebug (>= 11.1.0)
-      pastel (>= 0.7.4)
-      pry (>= 0.13.0)
+    ruby_jard (0.3.1)
+      byebug (>= 9.1, < 12.0)
+      pry (~> 0.13.0)
+      tty-screen (~> 0.8.1)
     rubyzip (2.3.0)
     rufus-scheduler (3.7.0)
       fugit (~> 1.1, >= 1.1.6)
@@ -305,7 +303,7 @@ GEM
     thwait (0.2.0)
       e2mmap
     tilt (2.0.10)
-    tty-color (0.6.0)
+    tty-screen (0.8.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
@@ -355,7 +353,7 @@ DEPENDENCIES
   listen (~> 3.3)
   ngrok-tunnel (~> 2.1)
   optimism (~> 0.4.2)
-  pagy (~> 3.10.0)
+  pagy (~> 4.11)
   pg (~> 1.1)
   pg_search (~> 2.3)
   pry-rails

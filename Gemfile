@@ -10,7 +10,7 @@ gem "webpacker", "~> 5.4.0"
 gem "redis", ">= 4.2.5", require: ["redis/connection/hiredis", "redis"]
 gem "hiredis"
 gem "redis-session-store", "~> 0.11.3"
-gem 'image_processing', '~> 1.2'
+gem "image_processing", "~> 1.2"
 
 gem "bootsnap", ">= 1.4.4", require: false
 
@@ -20,7 +20,8 @@ end
 
 group :development do
   gem "web-console", ">= 4.1.0"
-  # gem 'rack-mini-profiler', '~> 2.0'
+  # gem 'rails_mini_profiler', git: 'https://github.com/hschne/rails-mini-profiler', branch: 'main'
+  # gem "stackprof"
   gem "listen", "~> 3.3"
   gem "pry-rails"
   gem "ngrok-tunnel", "~> 2.1"
@@ -44,7 +45,7 @@ gem "optimism", "~> 0.4.2"
 gem "sidekiq", "~> 6.2.1"
 gem "sidekiq-scheduler", "~> 3.0"
 gem "rqrcode", "~> 2.0"
-gem "pagy", "~> 3.10.0"
+gem "pagy", "~> 4.11"
 gem "faker", "~> 2.16"
 gem "devise_masquerade", "~> 1.3"
 gem "kredis", "~> 0.2.3"
