@@ -6,7 +6,7 @@ ruby "2.7.3"
 gem "rails", "~> 6.1.4"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.2.1"
-gem "webpacker", "~> 5.4.0"
+gem "webpacker", "~> 5.4.3"
 gem "redis", ">= 4.2.5", require: ["redis/connection/hiredis", "redis"]
 gem "hiredis"
 gem "redis-session-store", "~> 0.11.3"
@@ -28,6 +28,8 @@ group :development do
   gem "letter_opener", "~> 1.7"
   gem "standard", "~> 1.0"
   gem "ruby_jard"
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
@@ -40,7 +42,7 @@ end
 
 gem "devise", "~> 4.8"
 gem "cable_ready", github: "stimulusreflex/cable_ready", branch: "stream_updates"
-gem "stimulus_reflex", github: "stimulusreflex/stimulus_reflex", branch: "master"
+gem "stimulus_reflex", github: "stimulusreflex/stimulus_reflex", branch: "rails_logger"
 gem "optimism", "~> 0.4.2"
 gem "sidekiq", "~> 6.2.1"
 gem "sidekiq-scheduler", "~> 3.0"
