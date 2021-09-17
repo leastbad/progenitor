@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
+require "mole"
+
 class ExampleReflex < ApplicationReflex
   include ChronoTrigger::Timeline
+  MYCONST = "good times"
 
   def send_toast
     ToastJob.perform_later(current_user, "secondary", "Hi, #{current_user.name}!")
@@ -31,9 +34,15 @@ class ExampleReflex < ApplicationReflex
     puts Thread.list
     morph :nothing
   end
-  
+
   def meta
-    # jard
+    # rubocop:disable Lint/UselessAssignment
+    @leastbad = current_user
+    buffalo = 69
+    location = [__FILE__, __LINE__]
+    mole
+    render plain: "Hello, #{current_user.name}!"
     morph :nothing
+    # rubocop:enable Lint/UselessAssignment
   end
 end
