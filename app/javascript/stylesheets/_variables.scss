@@ -449,6 +449,12 @@ $border-width: 0.0625rem !default;
 $border-width-md: 0.125rem !default;
 $border-width-lg: 0.25rem !default;
 $border-width-xl: 0.375rem !default;
+
+// $border-width: 1 !default;
+// $border-width-md: 2 !default;
+// $border-width-lg: 4 !default;
+// $border-width-xl: 6 !default;
+
 $border-color-white: $white !default;
 $border-color: $gray-300 !default;
 
@@ -457,7 +463,15 @@ $border-radius-sm: 0.6rem !default;
 $border-radius-lg: 2.25rem !default;
 $border-radius-xl: 3rem !default;
 $border-radius-pill: 50rem !default;
+
+// $border-radius: 16 !default;
+// $border-radius-sm: 9.6 !default;
+// $border-radius-lg: 36 !default;
+// $border-radius-xl: 48 !default;
+// $border-radius-pill: 800 !default;
+
 $circle-radius: 50% !default;
+// $circle-radius: 10000 !default;
 
 $component-active-color: $white !default;
 $component-active-bg: $primary !default;
@@ -921,7 +935,9 @@ $form-check-input-active-filter: brightness(90%) !default;
 $form-check-input-bg: $body-bg !default;
 $form-check-input-border: 1px solid $input-border-color !default;
 $form-check-input-border-radius: 0.25em !default;
+// $form-check-input-border-radius: 4 !default;
 $form-check-radio-border-radius: 50% !default;
+// $form-check-radio-border-radius: 10000 !default;
 $form-check-input-focus-border: $input-focus-border-color !default;
 $form-check-input-focus-box-shadow: $input-btn-focus-box-shadow !default;
 
@@ -938,6 +954,7 @@ $form-check-input-indeterminate-bg-image: url("data:image/svg+xml,<svg xmlns='ht
 
 $form-switch-color: $gray-600 !default;
 $form-switch-width: 2.25em !default;
+// $form-switch-width: 16 !default;
 $form-switch-padding-left: $form-switch-width + 0.5em !default;
 $form-switch-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color}'/></svg>") !default;
 $form-switch-border-radius: $form-switch-width !default;
@@ -1017,6 +1034,7 @@ $form-range-track-height: 0.5rem !default;
 $form-range-track-cursor: pointer !default;
 $form-range-track-bg: $gray-300 !default;
 $form-range-track-border-radius: 1rem !default;
+// $form-range-track-border-radius: 16 !default;
 $form-range-track-box-shadow: $box-shadow-inset !default;
 
 $form-range-thumb-width: 1rem !default;
@@ -1024,6 +1042,7 @@ $form-range-thumb-height: $form-range-thumb-width !default;
 $form-range-thumb-bg: $component-active-bg !default;
 $form-range-thumb-border: 0 !default;
 $form-range-thumb-border-radius: 1rem !default;
+// $form-range-thumb-border-radius: 16 !default;
 $form-range-thumb-box-shadow: 0 0.1rem 0.25rem rgba($black, 0.1) !default;
 $form-range-thumb-focus-box-shadow: 0 0 0 1px $body-bg, $input-focus-box-shadow !default;
 $form-range-thumb-focus-box-shadow-width: $input-focus-width !default; // For focus box shadow issue in Edge
