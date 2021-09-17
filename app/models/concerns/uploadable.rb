@@ -1,6 +1,6 @@
 module Uploadable
   extend ActiveSupport::Concern
-  
+
   included do
     kredis_set :_file_slots
     has_many :uploaded_files, as: :uploadable
@@ -10,13 +10,13 @@ module Uploadable
         UploadedFile.new.from_json(slot)
       end
     end
-  
+
     def add_file_slot(**args)
       uploaded_file = UploadedFile.new(uuid: "U#{SecureRandom.urlsafe_base64}", **args)
       _file_slots << uploaded_file.as_json
       uploaded_file
     end
-  
+
     def remove_file_slot(uuid:)
       slot = _file_slots.members.find { |temp| JSON.parse(temp)["uuid"] == uuid }
       _file_slots.remove(slot)
