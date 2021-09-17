@@ -34,7 +34,7 @@
 #             @subscribers.delete channel
 #             remove_channel channel
 #           end
-          
+
 #           @redis.set channel_count_key(channel), @subscribers[channel].size, ex: 1.minute
 #         end
 #       end

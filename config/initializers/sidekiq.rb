@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 Sidekiq.configure_server do |config|
-  config.redis = { url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/0" } }
+  config.redis = {url: ENV.fetch("REDIS_URL", "redis://localhost:6379/0")}
 end
 
 Sidekiq.configure_client do |config|
-  config.redis = { url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/0" } }
+  config.redis = {url: ENV.fetch("REDIS_URL", "redis://localhost:6379/0")}
 end
 
 module Sidekiq
@@ -62,17 +62,17 @@ module CoreExtensions
         @subscriber = ::Sidekiq::Subscriber.new
         super(options)
       end
-  
+
       def run
         super
         subscriber.start
       end
-  
+
       def quiet
         subscriber.terminate
         super
       end
-  
+
       def stop
         subscriber.terminate
         super
