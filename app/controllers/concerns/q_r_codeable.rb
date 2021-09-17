@@ -3,7 +3,6 @@
 module QRCodeable
   extend ActiveSupport::Concern
   included do
-    
     before_action :qrcode, if: :user_signed_in?
 
     private
@@ -19,7 +18,7 @@ module QRCodeable
         @qr = false
       end
     end
-  
+
     def generate_qr(url)
       Rails.cache.fetch("progenitor:qr:#{url}") do
         RQRCode::QRCode.new(url).as_svg(

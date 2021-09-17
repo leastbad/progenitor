@@ -2,7 +2,7 @@
 
 module Toastable
   extend ActiveSupport::Concern
-  
+
   included do
     add_flash_types :primary, :secondary, :success, :danger, :warning, :info, :light, :dark
 

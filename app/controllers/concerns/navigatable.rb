@@ -3,7 +3,7 @@
 module Navigatable
   extend ActiveSupport::Concern
   include Surge::Sidenav
-  
+
   included do
     before_action :build_navigation, if: :user_signed_in?
 
