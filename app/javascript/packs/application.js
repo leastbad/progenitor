@@ -1,7 +1,8 @@
 import 'stylesheets/application.scss'
 
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle'
-import Rails, { CableCar } from 'mrujs'
+import Rails from 'mrujs'
+import { CableCar } from 'mrujs/plugins'
 import * as Turbo from '@hotwired/turbo'
 import * as ActiveStorage from '@rails/activestorage'
 import CableReady from 'cable_ready'
