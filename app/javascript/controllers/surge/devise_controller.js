@@ -12,8 +12,8 @@ export default class extends Controller {
   }
 
   loginFailed = async event => {
+    event.preventDefault()
     this.errorsTarget.classList.replace('d-none', 'd-flex')
-    this.messageTarget.textContent = await event.detail.fetchResponse
-      .responseText
+    this.messageTarget.textContent = await event.detail.fetchResponse.text()
   }
 }
