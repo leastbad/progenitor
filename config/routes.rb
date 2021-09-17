@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # mount RailsMiniProfiler::Engine => '/rails_mini_profiler'
   patch "home/cc", to: "home#cc"
 
   devise_for :users, controllers: {
@@ -9,11 +10,11 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root 'home#index', as: :root
+      root "home#index", as: :root
     end
-  
+
     unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
+      root "devise/sessions#new", as: :unauthenticated_root
     end
   end
 

@@ -1,0 +1,11 @@
+// import "@rails-mini-profiler/assets"
+// import "@rails-mini-profiler/assets/dist/rails-mini-profiler.css";
+// import "@rails-mini-profiler/assets/dist/images/logo.svg";
+// import "@rails-mini-profiler/assets/dist/images/show.svg";
+// import "@rails-mini-profiler/assets/dist/images/setting.svg";
+// import "@rails-mini-profiler/assets/dist/images/delete.svg";
+// import "@rails-mini-profiler/assets/dist/images/graph.svg";
+// import "@rails-mini-profiler/assets/dist/images/logo_variant.svg";
+// import "@rails-mini-profiler/assets/dist/images/bookmark.svg";
+// import "@rails-mini-profiler/assets/dist/images/chart.svg";
+// import "@rails-mini-profiler/assets/dist/images/search.svg";

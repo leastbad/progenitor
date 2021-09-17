@@ -1,0 +1,29 @@
+# Rails Mini Profiler Initializer (0.4.0)
+
+# Customize to your hearts content. If you remove this file, Rails Mini Profiler will use sensible defaults.
+# For more information see https://github.com/hschne/rails-mini-profiler#configuration
+# RailsMiniProfiler.configure do |config|
+#   # Customize when Rails Mini Profiler should run
+#   config.enabled = proc { |env| Rails.env.development? || env['HTTP_RMP_ENABLED'].present? }
+
+#   # Configure Flamegraph generation
+#   config.flamegraph_enabled = true
+#   # config.flamegraph_sample_rate = 0.5
+
+#   # Configure endpoints to profile
+#   config.skip_paths = []
+
+#   # Configure how Rails Mini Profiler stores profiling information
+#   # config.storage.database = :rmp_database
+#   # config.storage.profiled_requests_table = :rmp_profiled_requests
+#   # config.storage.traces_table = :rmp_traces
+#   # config.storage.flamegraphs_table = :rmp_flamegraphs
+
+#   # Configure the Rails Mini Profiler User Interface
+#   # config.ui.badge_enabled = true
+#   # config.ui.badge_position = 'top-left'
+#   # config.ui.page_size = 25
+
+#   # Customize how users are detected
+#   config.user_provider = proc { |env| Rack::Request.new(env).ip }
+# end

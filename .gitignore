@@ -40,3 +40,4 @@ yarn-debug.log*
 
 .ngrok
 ktgask.shutdown
+mole_errors.txt
