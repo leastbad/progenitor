@@ -324,8 +324,8 @@ $gradient: linear-gradient(
 $spacer: 1rem !default;
 $spacers: (
   0: 0,
-  1: div($spacer, 4),
-  2: div($spacer, 2),
+  1: math.div($spacer, 4),
+  2: math.div($spacer, 2),
   3: $spacer,
   4: $spacer * 1.5,
   5: $spacer * 3,
@@ -562,7 +562,7 @@ $h4-font-size: $font-size-base * 1.5 !default;
 $h5-font-size: $font-size-base * 1.25 !default;
 $h6-font-size: $font-size-base !default;
 
-$headings-margin-bottom: div($spacer, 2) !default;
+$headings-margin-bottom: math.div($spacer, 2) !default;
 $headings-font-family: null !default;
 $headings-font-style: null !default;
 $headings-font-weight: $font-weight-bold !default;
@@ -849,7 +849,7 @@ $input-height-inner-half: add(
 ) !default;
 $input-height-inner-quarter: add(
   $input-line-height * 0.25em,
-  div($input-padding-y, 2)
+  math.div($input-padding-y, 2)
 ) !default;
 
 $input-height: add(
@@ -1240,7 +1240,7 @@ $dropdown-inner-border-radius: subtract(
   $dropdown-border-width
 ) !default;
 $dropdown-divider-bg: $gray-200 !default;
-$dropdown-divider-margin-y: div($spacer, 2) !default;
+$dropdown-divider-margin-y: math.div($spacer, 2) !default;
 $dropdown-box-shadow: $box-shadow !default;
 
 $dropdown-link-color: $gray-900 !default;
@@ -1252,7 +1252,7 @@ $dropdown-link-active-bg: $gray-400 !default;
 
 $dropdown-link-disabled-color: $gray-600 !default;
 
-$dropdown-item-padding-y: div($spacer, 4) !default;
+$dropdown-item-padding-y: math.div($spacer, 4) !default;
 $dropdown-item-padding-x: $spacer !default;
 
 $dropdown-header-color: $gray-900 !default;
@@ -1313,7 +1313,7 @@ $card-bg: $white !default;
 
 $card-img-overlay-padding: $spacer !default;
 
-$card-group-margin: div($grid-gutter-width, 2) !default;
+$card-group-margin: math.div($grid-gutter-width, 2) !default;
 $transition-bezier-card: cubic-bezier(0.34, 1.45, 0.7, 1) !default;
 
 //Timelines
@@ -1505,7 +1505,7 @@ $list-group-border-radius: $border-radius !default;
 $list-group-sm-item-padding-y: 0.625rem !default;
 $list-group-sm-item-padding-x: 0.875rem !default;
 
-$list-group-item-padding-y: div($spacer, 2) !default;
+$list-group-item-padding-y: math.div($spacer, 2) !default;
 $list-group-item-padding-x: $spacer !default;
 $list-group-item-bg-level: -9 !default;
 $list-group-item-color-level: 6 !default;
@@ -1542,7 +1542,7 @@ $figure-caption-color: $gray-600 !default;
 // Breadcrumbs
 
 $breadcrumb-font-size: null !default;
-$breadcrumb-padding-y: div($spacer, 2) !default;
+$breadcrumb-padding-y: math.div($spacer, 2) !default;
 $breadcrumb-padding-x: $spacer !default;
 $breadcrumb-item-padding-x: 0.5rem !default;
 $breadcrumb-margin-bottom: 1rem !default;

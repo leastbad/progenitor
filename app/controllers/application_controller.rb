@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
   include Toastable
   include Navigatable
   include Masqueradable
+  include Devisable
 end

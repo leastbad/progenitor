@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_18_132740) do
+ActiveRecord::Schema.define(version: 2021_09_18_071826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "fuzzystrmatch"
@@ -80,6 +80,11 @@ ActiveRecord::Schema.define(version: 2021_04_18_132740) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "encrypted_otp_secret"
+    t.string "encrypted_otp_secret_iv"
+    t.string "encrypted_otp_secret_salt"
+    t.integer "consumed_timestep"
+    t.boolean "otp_required_for_login", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

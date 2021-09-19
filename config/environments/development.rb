@@ -17,7 +17,7 @@ Rails.application.configure do
 
   config.hosts << /[a-z0-9]+\.ngrok\.io/
 
-  config.log_level = :info
+  config.log_level = :debug
 
   config.action_mailer.default_url_options = {host: "localhost", port: 3000}
   config.action_mailer.delivery_method = :letter_opener_web
