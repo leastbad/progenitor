@@ -11,13 +11,19 @@ export default class extends ApplicationController {
   }
 
   proceed (e) {
+    if (this.formChecked === true) return
+
     if (this.form.checkValidity()) {
       e.preventDefault()
       this.stimulate('Profile#otp_enabled', this.email.value).then(
         ({ payload }) => {
-          payload.otp_enabled === true
-            ? this.modal.show()
-            : this.element.click()
+          if (payload) {
+            this.modal.show()
+          } else {
+            this.formChecked = true
+            this.element.click()
+            this.formChecked = false
+          }
         }
       )
     }

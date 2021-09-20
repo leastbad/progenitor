@@ -15,7 +15,7 @@ class ProfileReflex < ApplicationReflex
   end
 
   def otp_enabled(email)
-    self.payload = true if User.where(email: email, otp_required_for_login: true).any?
+    self.payload = User.where(email: email, otp_required_for_login: true).any?
     morph :nothing
   end
 end
