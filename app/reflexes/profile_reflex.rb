@@ -1,14 +1,21 @@
 class ProfileReflex < ApplicationReflex
   def toggle_2fa
-    if element.checked && !current_user.otp_required_for_login?
-      current_user.otp_required_for_login = true
-      current_user.otp_secret = User.generate_otp_secret
-      current_user.save!
+    current_user.tap do |u|
+      if !u.demo? && !u.otp_required_for_login? && element.checked
+        u.otp_required_for_login = true
+        u.otp_secret = User.generate_otp_secret
+        u.save!
+      end
+      if u.otp_required_for_login? && !element.checked
+        u.otp_required_for_login = false
+        u.otp_secret = nil
+        u.save!
+      end
     end
-    if !element.checked && current_user.otp_required_for_login?
-      current_user.otp_required_for_login = false
-      current_user.otp_secret = nil
-      current_user.save!
-    end
+  end
+
+  def otp_enabled(email)
+    self.payload = true if User.where(email: email, otp_required_for_login: true).any?
+    morph :nothing
   end
 end

@@ -4,7 +4,7 @@
       <div class="col-12 d-flex align-items-center justify-content-center">
         <div class="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
           <div class="text-center text-md-center mb-4 mt-md-0">
-            <h1 class="mb-0 h3">Log in to your account</h1>
+            <h1 class="mb-0 h3">Sign in to your account</h1>
           </div>
           <%= form_with(model: resource, scope: resource_name, url: session_path(resource_name), method: :post, class: "mt-4", data: {controller: "devise"}) do |f| %>
             <div class="form-group mb-4">
@@ -20,6 +20,42 @@
                 <div class="input-group">
                   <span class="input-group-text"><span class="fas fa-unlock-alt"></span></span>
                   <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control", required: true %>
+                </div>
+              </div>
+              <div class="modal fade" id="modal-otp" tabindex="-1" role="dialog" aria-labelledby="modal-otp" aria-hidden="true">
+                <div class="modal-dialog modal-tertiary modal-dialog-centered modal-lg" role="document">
+                  <div class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                      <button type="button" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center py-3">
+                      <span class="modal-icon display-1"><span class="fas fa-envelope-open-text"></span></span>
+                      <h3 class="modal-title mb-3">
+                        Join our 1,360,462 subscribers
+                      </h3>
+                      <p class="mb-4 lead">
+                        Get exclusive access to freebies, premium products and news.
+                      </p>
+                      <div class="form-group px-lg-5">
+                        <div class="d-flex mb-3 justify-content-center">
+                          <span class="form-group-text"><span class="fas fa-user-clock"></span></span>
+                          <%= f.text_field :otp_attempt, class: "me-sm-1 mb-sm-0 form-control form-control-lg", data: {controller: "cleave", "cleave-options-value": "{\"numericOnly\":\"true\",\"blocks\":[6]}"} %>
+                          <div>
+                            <button type="button" class="ms-2 btn large-form-btn btn-tertiary">
+                              Subscribe
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer z-2 mx-auto text-center">
+                      <p class="text-white font-small">
+                        We’ll never share your details with third parties.
+                        <br class="visible-md" />
+                        View our <a href="#">Privacy Policy</a> for more info.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="d-flex justify-content-between align-items-top mb-4">
@@ -38,7 +74,7 @@
               </div>
             </div>
             <div class="d-grid">
-              <button type="submit" class="btn btn-primary">Sign in</button>
+              <button type="submit" class="btn btn-primary" data-controller="signin-otp" data-action="signin-otp#proceed">Sign in</button>
             </div>
           <% end %>
           <div class="my-4 text-center">

@@ -11,5 +11,10 @@ module Devisable
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_in, keys: [:otp_attempt])
     end
+
+    def real_users_only!
+      flash[:info] = "That feature is not available to demo users."
+      redirect_to root_path if current_user.demo?
+    end
   end
 end
