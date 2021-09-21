@@ -140,9 +140,9 @@
             <% unless user_masquerade? %>
             <a class="dropdown-item rounded-top fw-bold" href="#" data-bs-toggle="modal" data-bs-target="#modal-masquerade"><span class="fas fa-mask fa-fw"></span>Pretend to be someone</a>
             <% end %>
-            <a class="dropdown-item rounded-top fw-bold" href="#"><span class="far fa-user-circle fa-fw"></span>My Profile</a>
+            <a class="dropdown-item rounded-top fw-bold" href="#"><span class="far fa-user-circle fa-fw"></span>My profile</a>
             <% unless user_masquerade? || current_user.demo? %>
-            <a class="dropdown-item fw-bold" href="<%= profile_2fa_path %>"><span class="fas fa-user-clock fa-fw"></span>2FA</a>
+            <a class="dropdown-item fw-bold" href="<%= profile_tfa_path %>"><span class="fas fa-user-clock fa-fw"></span>Two-step verification</a>
             <% end %>
             <a class="dropdown-item fw-bold" href="#"><span class="fas fa-envelope-open-text fa-fw"></span>Messages</a>
             <a class="dropdown-item fw-bold" href="#"><span class="fas fa-user-shield fa-fw"></span>Support</a>

@@ -1,4 +1,6 @@
 class ProfileReflex < ApplicationReflex
+  include ActionView::Helpers::NumberHelper
+
   def toggle_2fa
     current_user.tap do |u|
       if !u.demo? && !u.otp_required_for_login? && element.checked
@@ -15,7 +17,15 @@ class ProfileReflex < ApplicationReflex
   end
 
   def otp_enabled(email)
-    self.payload = User.where(email: email, otp_required_for_login: true).any?
+    user = User.where(email: email, otp_required_for_login: true).first
+    sms = user&.otp_via_sms?
+    number = sms && user.otp_sms_number.tap { |p| p[1...-2] = "**-***-**" }
+    self.payload = {
+      tfa: user.present?,
+      sms: sms,
+      number: number
+    }
+    OtpSmsJob.perform_later(user) if sms
     morph :nothing
   end
 end

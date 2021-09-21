@@ -11,7 +11,7 @@
               <%= f.label :email, "Your Email" %>
               <div class="input-group">
                 <span class="input-group-text"><span class="fas fa-envelope"></span></span>
-                <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "example@company.com", autofocus: true, required: true %>
+                <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "example@company.com", autofocus: true, required: true, data: {devise_target: "email"} %>
               </div>
             </div>
             <div class="form-group">
@@ -22,37 +22,30 @@
                   <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control", required: true %>
                 </div>
               </div>
-              <div class="modal fade" id="modal-otp" tabindex="-1" role="dialog" aria-labelledby="modal-otp" aria-hidden="true">
+              <div class="modal fade" data-devise-target="modal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-tertiary modal-dialog-centered modal-lg" role="document">
                   <div class="modal-content bg-dark text-white">
                     <div class="modal-header">
                       <button type="button" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-center py-3">
-                      <span class="modal-icon display-1"><span class="fas fa-envelope-open-text"></span></span>
+                      <span class="modal-icon display-1"><span class="fas fa-user-clock"></span></span>
                       <h3 class="modal-title mb-3">
-                        Join our 1,360,462 subscribers
+                        Two-step verification
                       </h3>
                       <p class="mb-4 lead">
-                        Get exclusive access to freebies, premium products and news.
+                        Thanks for keeping your account secure.
                       </p>
                       <div class="form-group px-lg-5">
                         <div class="d-flex mb-3 justify-content-center">
-                          <span class="form-group-text"><span class="fas fa-user-clock"></span></span>
-                          <%= f.text_field :otp_attempt, class: "me-sm-1 mb-sm-0 form-control form-control-lg", data: {controller: "cleave", "cleave-options-value": "{\"numericOnly\":\"true\",\"blocks\":[6]}"} %>
-                          <div>
-                            <button type="button" class="ms-2 btn large-form-btn btn-tertiary">
-                              Subscribe
-                            </button>
-                          </div>
+                          <%= f.text_field :otp_attempt, class: "me-sm-1 mb-sm-0 form-control display-2-lg text-center", autocomplete: "off", data: {controller: "cleave", devise_target: "otp", cleave_options_value: "{\"numericOnly\":\"true\",\"blocks\":[6]}"} %>
+                          <button type="button" data-action="devise#submit" class="ms-2 btn large-form-btn btn-tertiary text-nowrap">Sign in securely</button>
                         </div>
                       </div>
                     </div>
-                    <div class="modal-footer z-2 mx-auto text-center">
+                    <div class="z-2 mx-auto text-center d-none" data-devise-target="sms">
                       <p class="text-white font-small">
-                        We’ll never share your details with third parties.
-                        <br class="visible-md" />
-                        View our <a href="#">Privacy Policy</a> for more info.
+                        A text message with a code has been sent to <span class="fw-bold" data-devise-target="number"></span>.
                       </p>
                     </div>
                   </div>
@@ -74,7 +67,7 @@
               </div>
             </div>
             <div class="d-grid">
-              <button type="submit" class="btn btn-primary" data-controller="signin-otp" data-action="signin-otp#proceed">Sign in</button>
+              <button type="submit" class="btn btn-primary" data-devise-target="submit" data-action="devise#proceed">Sign in</button>
             </div>
           <% end %>
           <div class="my-4 text-center">
