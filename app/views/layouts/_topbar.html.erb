@@ -142,7 +142,7 @@
             <% end %>
             <a class="dropdown-item rounded-top fw-bold" href="#"><span class="far fa-user-circle fa-fw"></span>My profile</a>
             <% unless user_masquerade? || current_user.demo? %>
-            <a class="dropdown-item fw-bold" href="<%= profile_tfa_path %>"><span class="fas fa-user-clock fa-fw"></span>Two-step verification</a>
+            <a class="dropdown-item fw-bold" href="<%= profile_2fa_path %>"><span class="fas fa-user-clock fa-fw"></span>Two-step verification</a>
             <% end %>
             <a class="dropdown-item fw-bold" href="#"><span class="fas fa-envelope-open-text fa-fw"></span>Messages</a>
             <a class="dropdown-item fw-bold" href="#"><span class="fas fa-user-shield fa-fw"></span>Support</a>

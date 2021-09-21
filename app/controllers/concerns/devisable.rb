@@ -13,8 +13,10 @@ module Devisable
     end
 
     def real_users_only!
-      flash[:info] = "That feature is not available to demo users."
-      redirect_to root_path if current_user.demo?
+      if current_user.demo?
+        flash[:info] = "That feature is not available to demo users."
+        redirect_to root_path
+      end
     end
   end
 end

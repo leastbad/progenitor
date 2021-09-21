@@ -3,14 +3,14 @@
     <div class="card card-body shadow-sm mb-4 mb-lg-0 border-0">
       <h2 class="h5 mb-4">Two-Factor Authentication</h2>
       <ul class="list-group list-group-flush" id="tfa">
-        <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
+        <li class="list-group-item d-flex align-items-center justify-content-between px-0">
           <div>
             <h3 class="h6 mb-1">Company News</h3>
             <p class="small pe-4">Get news, announcements, and product updates</p>
           </div>
           <div>
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="toggle_2fa" data-reflex-root="#tfa" data-reflex="change->Profile#toggle_2fa" <%= "checked" if current_user.otp_required_for_login? %>/>
+              <input class="form-check-input" type="checkbox" id="toggle_2fa" data-reflex-root="#tfa" data-reflex="change->TwoFactorAuth#toggle_2fa" <%= "checked" if current_user.otp_required_for_login? %>/>
               <label class="form-check-label" for="toggle_2fa"></label>
             </div>
           </div>

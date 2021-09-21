@@ -1,5 +1,5 @@
-class ProfileController < ApplicationController
-  include Irreproachable
+class TwoFactorAuthController < ApplicationController
+  include Recognizable
   before_action :authenticate_user!
   before_action :real_users_only!
 

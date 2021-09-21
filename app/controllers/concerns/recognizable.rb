@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Irreproachable
+module Recognizable
   extend ActiveSupport::Concern
 
   included do

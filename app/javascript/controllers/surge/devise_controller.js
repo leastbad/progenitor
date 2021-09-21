@@ -48,7 +48,7 @@ export default class extends ApplicationController {
       this.otpTarget.value.length === 6
         ? this.submitForm(true)
         : this.stimulate(
-            'Profile#otp_enabled',
+            'TwoFactorAuth#otp_enabled',
             { serializeForm: false },
             this.emailTarget.value
           ).then(({ payload }) => {

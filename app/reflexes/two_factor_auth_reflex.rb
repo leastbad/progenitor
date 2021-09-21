@@ -1,6 +1,4 @@
-class ProfileReflex < ApplicationReflex
-  include ActionView::Helpers::NumberHelper
-
+class TwoFactorAuthReflex < ApplicationReflex
   def toggle_2fa
     current_user.tap do |u|
       if !u.demo? && !u.otp_required_for_login? && element.checked
