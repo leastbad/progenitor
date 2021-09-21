@@ -34,12 +34,11 @@
                         Two-step verification
                       </h3>
                       <p class="mb-4 lead">
-                        Thanks for keeping your account secure.
+                        Please enter your 6-digit code:
                       </p>
                       <div class="form-group px-lg-5">
                         <div class="d-flex mb-3 justify-content-center">
-                          <%= f.text_field :otp_attempt, class: "me-sm-1 mb-sm-0 form-control display-2-lg text-center", autocomplete: "off", data: {controller: "cleave", devise_target: "otp", cleave_options_value: "{\"numericOnly\":\"true\",\"blocks\":[6]}"} %>
-                          <button type="button" data-action="devise#submit" class="ms-2 btn large-form-btn btn-tertiary text-nowrap">Sign in securely</button>
+                          <%= f.text_field :otp_attempt, class: "me-sm-1 mb-sm-0 form-control display-2-lg text-center", autocomplete: "off", data: {devise_target: "otp", action: "change->devise#count input->devise#count", controller: "cleave", cleave_options_value: "{\"numericOnly\":\"true\",\"blocks\":[6]}"} %>
                         </div>
                       </div>
                     </div>
