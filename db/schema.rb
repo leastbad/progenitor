@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2021_09_18_071826) do
     t.integer "consumed_timestep"
     t.boolean "otp_required_for_login", default: false
     t.string "otp_backup_codes", array: true
+    t.boolean "otp_via_app", default: false
     t.boolean "otp_via_sms", default: false
     t.string "otp_sms_number"
     t.index ["email"], name: "index_users_on_email", unique: true

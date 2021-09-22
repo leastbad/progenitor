@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     authenticated :user do
       root "home#index", as: :root
-      get "profile/2fa", to: "two_factor_auth#tfa", as: :profile_2fa
+      get "2-factor-authentication", to: "two_factor_auth#tfa", as: :two_factor_auth
     end
 
     unauthenticated do

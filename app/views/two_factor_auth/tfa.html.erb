@@ -1,8 +1,40 @@
 <div class="row">
   <div class="col-12 col-md-6">
-    <div class="card card-body shadow-sm mb-4 mb-lg-0 border-0">
-      <h2 class="h5 mb-4">Two-Factor Authentication</h2>
-      <ul class="list-group list-group-flush" id="tfa">
+    <div class="card card-body shadow-sm mb-4 mb-lg-0 border-0" id="two_factor" data-controller="two-factor-auth">
+      <h2 class="h5 mb-4">2-Factor Authentication</h2>
+      <% if current_user.otp_required_for_login? %>
+        <button type="button" class="btn btn-block btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#modal-disable-2fa">
+          Disable 2-Factor Authentication
+        </button>
+        <div class="modal fade" id="modal-disable-2fa" tabindex="-1" role="dialog" aria-labelledby="modal-disable-2fa" aria-hidden="true" data-two-factor-auth-target="modal">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="h6 modal-title">
+                  Disable 2-Factor Authentication
+                </h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Your account is more secure if you use 2-Factor Authentication.</p>
+                <p>Your phone number will be removed and your backup codes will be deactivated.</p>
+                <p>If you disable 2FA and re-enable it later, you will need to reconnect your Authenticator app.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-reflex="click->TwoFactorAuth#disable" data-reflex-root="#two_factor">
+                  Proceed - I don't value my security
+                </button>
+                <button type="button" class="btn btn-link text-gray ms-auto" data-bs-dismiss="modal">
+                  Just kidding
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% else %>
+
+      <% end %>
+      <ul class="list-group list-group-flush">
         <li class="list-group-item d-flex align-items-center justify-content-between px-0">
           <div>
             <h3 class="h6 mb-1">Company News</h3>
@@ -10,7 +42,7 @@
           </div>
           <div>
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="toggle_2fa" data-reflex-root="#tfa" data-reflex="change->TwoFactorAuth#toggle_2fa" <%= "checked" if current_user.otp_required_for_login? %>/>
+              <input class="form-check-input" type="checkbox" id="toggle_2fa" data-reflex="change->TwoFactorAuth#toggle_2fa" <%= "checked" if current_user.otp_required_for_login? %>/>
               <label class="form-check-label" for="toggle_2fa"></label>
             </div>
           </div>

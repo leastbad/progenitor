@@ -26,4 +26,12 @@ class TwoFactorAuthReflex < ApplicationReflex
     OtpSmsJob.perform_later(user) if sms
     morph :nothing
   end
+
+  def disable
+    current_user.update otp_required_for_login: false,
+      otp_backup_codes: nil,
+      otp_via_sms: false,
+      otp_via_app: false,
+      otp_sms_number: nil
+  end
 end
