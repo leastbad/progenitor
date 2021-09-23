@@ -27,6 +27,10 @@ class TwoFactorAuthReflex < ApplicationReflex
     morph :nothing
   end
 
+  def generate_codes
+    morph "#otp_codes", current_user.generate_otp_backup_codes!.join("\n")
+  end
+
   def disable
     current_user.update otp_required_for_login: false,
       otp_backup_codes: nil,

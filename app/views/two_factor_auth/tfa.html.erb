@@ -2,11 +2,66 @@
   <div class="col-12 col-md-6">
     <div class="card card-body shadow-sm mb-4 mb-lg-0 border-0" id="two_factor" data-controller="two-factor-auth">
       <h2 class="h5 mb-4">2-Factor Authentication</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
+          <div>
+            <h3 class="h6 mb-1">Google Authenticator</h3>
+            <p class="small pe-4">Get news, announcements, and product updates</p>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="toggle_app" data-reflex="change->TwoFactorAuth#toggle_app" <%= "checked" if current_user.otp_via_app? %>/>
+          </div>
+        </li>
+        <li class="list-group-item d-flex align-items-center justify-content-between px-0 <%= "border-bottom" if current_user.otp_required_for_login? %>">
+          <div>
+            <h3 class="h6 mb-1">SMS</h3>
+            <p class="small pe-4">Get news, announcements, and product updates</p>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="toggle_sms" data-reflex="change->TwoFactorAuth#toggle_sms" <%= "checked" if current_user.otp_via_sms? %>/>
+          </div>
+        </li>
+        <% if current_user.otp_required_for_login? %>
+        <li class="list-group-item d-flex align-items-center justify-content-between px-0">
+          <div>
+            <h3 class="h6 mb-1">Recovery codes</h3>
+            <p class="small pe-4">Get news, announcements, and product updates</p>
+          </div>
+          <button class="btn btn-block btn-info" data-bs-toggle="modal" data-bs-target="#modal-generate-codes" data-reflex="click->TwoFactorAuth#generate_codes">
+            <%= current_user.otp_backup_codes.present? ? "Regenerate" : "Generate" %> Codes
+          </button>
+          <div class="modal fade" id="modal-generate-codes" tabindex="-1" role="dialog" aria-labelledby="modal-generate-codes" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="h6 modal-title">One-Time Password Recovery Codes</h2>
+                </div>
+                <div class="modal-body">
+                  <p>Each code can be used <b>once</b>.</p>
+                  <pre id="otp_codes" class="text-center"></pre>
+                  <p>Once you close this window, there's no way to see them again.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger ms-auto" data-bs-dismiss="modal">Dismiss forever</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <% end %>
+        <% if current_user.otp_required_for_login? %>
+        <li class="list-group-item d-flex align-items-center justify-content-between px-0">
+          <div style="width: 214px;">
+            <%= RQRCode::QRCode.new(@tfa_qr_code).as_svg(offset: 0, color: "000", shape_rendering: "crispEdges", module_size: 6).html_safe %>
+          </div>
+        </li>
+        <% end %>
+      </ul>
       <% if current_user.otp_required_for_login? %>
         <button type="button" class="btn btn-block btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#modal-disable-2fa">
           Disable 2-Factor Authentication
         </button>
-        <div class="modal fade" id="modal-disable-2fa" tabindex="-1" role="dialog" aria-labelledby="modal-disable-2fa" aria-hidden="true" data-two-factor-auth-target="modal">
+        <div class="modal fade" id="modal-disable-2fa" tabindex="-1" role="dialog" aria-labelledby="modal-disable-2fa" aria-hidden="true" data-two-factor-auth-target="disableModal">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -31,30 +86,7 @@
             </div>
           </div>
         </div>
-      <% else %>
-
       <% end %>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item d-flex align-items-center justify-content-between px-0">
-          <div>
-            <h3 class="h6 mb-1">Company News</h3>
-            <p class="small pe-4">Get news, announcements, and product updates</p>
-          </div>
-          <div>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="toggle_2fa" data-reflex="change->TwoFactorAuth#toggle_2fa" <%= "checked" if current_user.otp_required_for_login? %>/>
-              <label class="form-check-label" for="toggle_2fa"></label>
-            </div>
-          </div>
-        </li>
-        <% if current_user.otp_required_for_login? %>
-        <li class="list-group-item d-flex align-items-center justify-content-between px-0">
-          <div style="width: 214px;">
-            <%= RQRCode::QRCode.new(@tfa_qr_code).as_svg(offset: 0, color: "000", shape_rendering: "crispEdges", module_size: 6).html_safe %>
-          </div>
-        </li>
-        <% end %>
-      </ul>
     </div>
   </div>
 </div>
