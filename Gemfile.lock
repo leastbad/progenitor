@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/stimulusreflex/stimulus_reflex.git
-  revision: a802b53d70b0ad01447e5a434c1d7f33c9c9046c
+  revision: 1aa42461ea97659dc602545575e5353158f9cf75
   branch: master
   specs:
     stimulus_reflex (3.5.0.pre2)

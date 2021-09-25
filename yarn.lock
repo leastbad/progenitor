@@ -936,6 +936,11 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.2.tgz#30aa825f11d438671d585bd44e7fd564535fc210"
   integrity sha512-82cpyJyKRoQoRi+14ibCeGPu0CwypgtBAdBhq1WfvagpCZNKqwXbKwXllYSMG91DhmG4jt9gN8eP6lGOtozuaw==
 
+"@hotwired/stimulus-webpack-helpers@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@hotwired/stimulus-webpack-helpers/-/stimulus-webpack-helpers-1.0.1.tgz#4cd74487adeca576c9865ac2b9fe5cb20cef16dd"
+  integrity sha512-wa/zupVG0eWxRYJjC1IiPBdt3Lruv0RqGN+/DTMmUWUyMAEB27KXmVY6a8YpUVTM7QwVuaLNGW4EqDgrS2upXQ==
+
 "@hotwired/turbo@7.0.0-beta.8":
   version "7.0.0-beta.8"
   resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.0.0-beta.8.tgz#133630eabbd3c26183efcfb6dea2db5dd172e8da"
@@ -4527,10 +4532,10 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
-mrujs@^0.5.0-beta.3:
-  version "0.5.0-beta.3"
-  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.5.0-beta.3.tgz#75f6d8b618aba392cee38e8c77fa701adda0563e"
-  integrity sha512-sR9DIvTDmpxf4a96HucxHFGzYUKyigpzB60xvDCSBWpL7shxA7rf3CqprnhqJZuioCGG9HLOl21BU81jTt09Ng==
+mrujs@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.5.1.tgz#80e9d562a4dd2ec6d3b9900b53ca8588bd67ae98"
+  integrity sha512-KEfce1edpGxGNDK5SlvSartNM/qL53AQhvDaNuC8t2ag4T7f/UM9Ok1mBaKj0P998DKuj9mr0GSRkhYZ7KAe8g==
   dependencies:
     morphdom ">=2.6.0 <3.0.0"
 
@@ -6657,6 +6662,11 @@ stimulus@^2.0.0:
   dependencies:
     "@stimulus/core" "^2.0.0"
     "@stimulus/webpack-helpers" "^2.0.0"
+
+"stimulus@npm:@hotwired/stimulus":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.0.0.tgz#45171e61417af60f0e546665c52fae5b67295cee"
+  integrity sha512-UFIuuf7GjKJoIYromuTmqfzT8gZ8eu5zIB5m2QoEsopymGeN7rfDSTRPyRfwHIqP0x+0vWo4O1LFozw+/sWXxg==
 
 stream-browserify@^2.0.1:
   version "2.0.2"

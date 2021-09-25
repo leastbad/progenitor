@@ -7,7 +7,7 @@ module Uploadable
 
     def file_slots
       _file_slots.members.map do |slot|
-        UploadedFile.new.from_json(slot)
+        UploadedFile.new(slot)
       end
     end
 
