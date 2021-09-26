@@ -12,6 +12,5 @@ class TwoFactorAuthController < ApplicationController
     # current_user.save!
 
     # current_user.validate_and_consume_otp!("")
-
   end
 end
