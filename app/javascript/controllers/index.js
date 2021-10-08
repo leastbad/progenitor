@@ -1,5 +1,5 @@
 import { Application } from 'stimulus'
-import { definitionsFromContext } from '@hotwired/stimulus-webpack-helpers'
+import { definitionsFromContext } from 'stimulus/webpack-helpers'
 import StimulusReflex from 'stimulus_reflex'
 import consumer from '../channels/consumer'
 import controller from './application_controller'
