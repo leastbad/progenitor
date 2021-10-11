@@ -1,8 +1,9 @@
 <% if uploaded_file.persisted? %>
   <div class="col-6 col-lg-4 col-xxl-3" id="file-<%= uploaded_file.id %>">
     <div class="card shadow-sm mb-4">
-      <div class="card-header border-bottom border-gray-300 overflow-hidden">
-        <h3 class="h5 mb-0 text-nowrap"><%= uploaded_file.blob.filename %></h3>
+      <div class="card-header border-bottom border-gray-300 d-flex justify-content-between">
+        <h3 class="h5 mb-0 text-nowrap overflow-hidden"><%= uploaded_file.blob.filename %></h3>
+        <input type="checkbox" data-checkbox-select-all-target="checkbox" data-id="<%= uploaded_file.id %>" class="ms-4 ps-3 form-check-input">
       </div>
       <div class="card-body d-flex justify-content-center">
         <%= 

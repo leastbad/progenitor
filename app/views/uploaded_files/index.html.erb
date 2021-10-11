@@ -1,14 +1,16 @@
-<%= render "controls" %>
-<div class="row" id="uploads" data-controller="upload">
-  <div class="col-12 col-lg-4 col-xxl-3">
-    <div class="dropzone rounded shadow-sm mb-4 d-flex justify-content-center"
-      style="height: 320px;"
-      data-controller="dropzone"
-      data-dropzone-url-value="<%= rails_direct_uploads_url %>"
-      data-dropzone-clickable-value="true"
-      data-dropzone-multiple-value="true">
+<div data-controller="checkbox-select-all" data-checkbox-select-all-reflex-value="Upload#remove_list">
+  <%= render "controls" %>
+  <div class="row" id="uploads" data-controller="upload">
+    <div class="col-12 col-lg-4 col-xxl-3">
+      <div class="dropzone rounded shadow-sm mb-4 d-flex justify-content-center"
+        style="height: 320px;"
+        data-controller="dropzone"
+        data-dropzone-url-value="<%= rails_direct_uploads_url %>"
+        data-dropzone-clickable-value="true"
+        data-dropzone-multiple-value="true">
+      </div>
     </div>
+    <%= render partial: "uploaded_file", collection: @uploaded_files, locals: { user: current_user }, cached: true %>
+    <%= render partial: "uploaded_file", collection: @file_slots %>
   </div>
-  <%= render partial: "uploaded_file", collection: @uploaded_files, locals: { user: current_user }, cached: true %>
-  <%= render partial: "uploaded_file", collection: @file_slots %>
 </div>

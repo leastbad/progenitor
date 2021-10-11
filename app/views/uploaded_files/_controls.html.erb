@@ -1,13 +1,10 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
   <div>
-    <button class="btn btn-secondary text-dark me-2 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-plus me-2"></span>New</button>
-    <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-0">
-      <a class="dropdown-item fw-normal rounded-top" href="#"><span class="far fa-file-alt me-2"></span>Document</a>
-      <a class="dropdown-item fw-normal" href="#"><span class="far fa-comment-dots me-2"></span>Message</a>
-      <a class="dropdown-item fw-normal" href="#"><span class="fas fa-box-open me-2"></span>Product</a>
-      <div role="separator" class="dropdown-divider my-0"></div>
-      <a class="dropdown-item fw-normal rounded-bottom" href="#"><span class="fas fa-rocket text-danger me-2"></span>My Plan</a>
-    </div>
+    <button class="btn btn-secondary text-dark me-2" data-checkbox-select-all-target="buttonAll">
+      <input type="checkbox" data-checkbox-select-all-target="checkboxAll" class="form-check-input me-1">
+      Select All
+    </button>
+    <button class="btn btn-danger me-2" disabled data-checkbox-select-all-target="delete"><span class="fas fa-times me-2"></span>Delete Selected</button>
   </div>
   <div>
     <button type="button" class="btn btn-dark me-2">

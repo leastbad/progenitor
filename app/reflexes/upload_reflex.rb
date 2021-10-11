@@ -16,10 +16,6 @@ class UploadReflex < ApplicationReflex
   end
 
   def submit
-    # ActiveStorage::Blob.create_and_upload!(io: file, filename: filename).tap do |blob|
-    #   ActiveStorage::Attachment.create!(record: record, name: name, blob: blob)
-    # end
-
     uploaded_file = nil
     until uploaded_file do
       begin
@@ -28,17 +24,14 @@ class UploadReflex < ApplicationReflex
       end
     end
 
-    uuid = uploaded_file.uuid
-
-    cable_ready[UsersChannel].morph(selector: "#file-#{uuid}", html: render(
+    cable_ready[UsersChannel].morph(selector: "#file-#{uploaded_file.uuid}", html: render(
       partial: "uploaded_files/uploaded_file",
       locals: {
         uploaded_file: uploaded_file
       }
     )).broadcast_to(current_user)
 
-    current_user.remove_file_slot(uuid: uuid)
-
+    current_user.remove_file_slot(uuid: uploaded_file.uuid)
     morph :nothing
   end
 
@@ -46,6 +39,15 @@ class UploadReflex < ApplicationReflex
     file = current_user.uploaded_files.find(element.dataset["id"])
     file&.destroy
     cable_ready[UsersChannel].remove(selector: "#file-#{file.id}").broadcast_to(current_user)
+    morph :nothing
+  end
+
+  def remove_list(ids)
+    current_user.uploaded_files.find(ids).each do |file|
+      file&.destroy
+      cable_ready[UsersChannel].remove(selector: "#file-#{file.id}")
+    end
+    cable_ready[UsersChannel].broadcast_to(current_user)
     morph :nothing
   end
 
