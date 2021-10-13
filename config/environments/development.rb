@@ -15,6 +15,8 @@ Rails.application.configure do
     }
   }
 
+  config.cache_store = :redis_cache_store, {driver: :hiredis, url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/0" }}
+  
   config.hosts << /[a-z0-9]+\.ngrok\.io/
 
   config.log_level = :debug
@@ -37,7 +39,6 @@ Rails.application.configure do
   config.action_controller.enable_fragment_cache_logging = true
   config.action_controller.default_url_options = {host: "localhost", port: 3000}
 
-  config.cache_store = :redis_cache_store, {driver: :hiredis, url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/0" }}
   config.public_file_server.headers = {
     "Cache-Control" => "public, max-age=#{2.days.to_i}"
   }

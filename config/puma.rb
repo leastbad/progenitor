@@ -72,4 +72,4 @@ if Rails.env.development?
   end
 end
 
-ChronoTrigger::Clock.start
+# ChronoTrigger::Clock.start
