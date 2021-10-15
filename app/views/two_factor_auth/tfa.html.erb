@@ -1,92 +1,147 @@
-<div class="row">
-  <div class="col-12 col-md-6">
-    <div class="card card-body shadow-sm mb-4 mb-lg-0 border-0" id="two_factor" data-controller="two-factor-auth">
-      <h2 class="h5 mb-4">2-Factor Authentication</h2>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
-          <div>
-            <h3 class="h6 mb-1">Google Authenticator</h3>
-            <p class="small pe-4">Get news, announcements, and product updates</p>
-          </div>
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="toggle_app" data-reflex="change->TwoFactorAuth#toggle_app" <%= "checked" if current_user.otp_via_app? %>/>
-          </div>
-        </li>
-        <li class="list-group-item d-flex align-items-center justify-content-between px-0 <%= "border-bottom" if current_user.otp_required_for_login? %>">
-          <div>
-            <h3 class="h6 mb-1">SMS</h3>
-            <p class="small pe-4">Get news, announcements, and product updates</p>
-          </div>
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="toggle_sms" data-reflex="change->TwoFactorAuth#toggle_sms" <%= "checked" if current_user.otp_via_sms? %>/>
-          </div>
-        </li>
-        <% if current_user.otp_required_for_login? %>
-        <li class="list-group-item d-flex align-items-center justify-content-between px-0">
-          <div>
-            <h3 class="h6 mb-1">Recovery codes</h3>
-            <p class="small pe-4">Get news, announcements, and product updates</p>
-          </div>
-          <button class="btn btn-block btn-info" data-bs-toggle="modal" data-bs-target="#modal-generate-codes" data-reflex="click->TwoFactorAuth#generate_codes">
-            <%= current_user.otp_backup_codes.present? ? "Regenerate" : "Generate" %> Codes
-          </button>
-          <div class="modal fade" id="modal-generate-codes" tabindex="-1" role="dialog" aria-labelledby="modal-generate-codes" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h2 class="h6 modal-title">One-Time Password Recovery Codes</h2>
-                </div>
-                <div class="modal-body">
-                  <p>Each code can be used <b>once</b>.</p>
-                  <pre id="otp_codes" class="text-center"></pre>
-                  <p>Once you close this window, there's no way to see them again.</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger ms-auto" data-bs-dismiss="modal">Dismiss forever</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <% end %>
-        <% if current_user.otp_required_for_login? %>
-        <li class="list-group-item d-flex align-items-center justify-content-between px-0">
-          <div style="width: 214px;">
-            <%= RQRCode::QRCode.new(@tfa_qr_code).as_svg(offset: 0, color: "000", shape_rendering: "crispEdges", module_size: 6).html_safe %>
-          </div>
-        </li>
-        <% end %>
-      </ul>
-      <% if current_user.otp_required_for_login? %>
-        <button type="button" class="btn btn-block btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#modal-disable-2fa">
-          Disable 2-Factor Authentication
+<h2 class="display-3 mt-3">2-Factor Authentication</h2>
+
+<div class="d-flex flex-column align-items-center">
+  <i class="fas fa-user-lock fa-5x m-3 text-success"></i>
+  <p class="lead my-3 text-info">An extra layer of security</p>
+</div>
+
+<p>Add an authentication mechanism to enable 2FA protection for your account. You must always have at least one authentication mechanism active, or 2FA will be disabled and any phone numbers and/or backup codes will be erased.</p>
+
+<div class="row my-4">
+  <div class="col-12 col-lg-6">
+    <div class="card shadow-sm py-4">
+      <span class="badge bg-success badge-card fw-bolder">RECOMMENDED</span>
+      <div class="card-body">
+        <h5 class="card-title">Google Authenticator</h5>
+        <p class="card-text text-center">Use the popular mobile app to provide single-use, time-limited codes.</p>
+      </div>
+      <div class="card-footer d-grid">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-enable-app">
+          <%= current_user.otp_via_app? ? "Disable" : "Enable" %>
         </button>
-        <div class="modal fade" id="modal-disable-2fa" tabindex="-1" role="dialog" aria-labelledby="modal-disable-2fa" aria-hidden="true" data-two-factor-auth-target="disableModal">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+        <div class="modal fade" id="modal-enable-app" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-tertiary modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content bg-dark text-white">
               <div class="modal-header">
-                <h2 class="h6 modal-title">
-                  Disable 2-Factor Authentication
-                </h2>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
-                <p>Your account is more secure if you use 2-Factor Authentication.</p>
-                <p>Your phone number will be removed and your backup codes will be deactivated.</p>
-                <p>If you disable 2FA and re-enable it later, you will need to reconnect your Authenticator app.</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-reflex="click->TwoFactorAuth#disable" data-reflex-root="#two_factor">
-                  Proceed - I don't value my security
-                </button>
-                <button type="button" class="btn btn-link text-gray ms-auto" data-bs-dismiss="modal">
-                  Just kidding
-                </button>
+              <div class="modal-body text-center py-3">
+                <span class="modal-icon display-1"><span class="fas fa-user-clock"></span></span>
+                <h3 class="modal-title mb-3">
+                  Google Authenticator
+                </h3>
+                <%= RQRCode::QRCode.new(@tfa_qr_code).as_svg(offset: 0, color: "fff", shape_rendering: "crispEdges", module_size: 4).html_safe %>
+                <p class="mb-4 lead">
+                  Please enter your 6-digit code:
+                </p>
+                <div class="form-group px-lg-5">
+                  <div class="d-flex mb-3 justify-content-center">
+                    <%= text_field_tag :otp_attempt, {}, class: "me-sm-1 mb-sm-0 form-control display-2-lg text-center", autocomplete: "off", data: {controller: "cleave", cleave_options_value: "{\"numericOnly\":\"true\",\"blocks\":[6]}"} %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
+  <div class="col-12 col-lg-6">
+    <div class="card shadow-sm py-4">
+      <div class="card-body">
+        <h5 class="card-title">SMS</h5>
+        <p class="card-text text-center">Provide your phone number, and we'll text you a single-use code when you sign in.</p>
+      </div>
+      <div class="card-footer d-grid">
+        <a class="btn btn-primary" href="#">Enable</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card card-body shadow-sm mb-4 mb-lg-0 border-0" id="two_factor" data-controller="two-factor-auth">
+  <h2 class="h5 mb-4">2-Factor Authentication</h2>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
+      <div>
+        <h3 class="h6 mb-1">Google Authenticator</h3>
+        <p class="small pe-4">Get news, announcements, and product updates</p>
+      </div>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="toggle_app" data-reflex="change->TwoFactorAuth#toggle_app" <%= "checked" if current_user.otp_via_app? %>/>
+      </div>
+    </li>
+    <li class="list-group-item d-flex align-items-center justify-content-between px-0 <%= "border-bottom" if current_user.otp_required_for_login? %>">
+      <div>
+        <h3 class="h6 mb-1">SMS</h3>
+        <p class="small pe-4">Get news, announcements, and product updates</p>
+      </div>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="toggle_sms" data-reflex="change->TwoFactorAuth#toggle_sms" <%= "checked" if current_user.otp_via_sms? %>/>
+      </div>
+    </li>
+    <% if current_user.otp_required_for_login? %>
+    <li class="list-group-item d-flex align-items-center justify-content-between px-0">
+      <div>
+        <h3 class="h6 mb-1">Recovery codes</h3>
+        <p class="small pe-4">Get news, announcements, and product updates</p>
+      </div>
+      <button class="btn btn-block btn-info" data-bs-toggle="modal" data-bs-target="#modal-generate-codes" data-reflex="click->TwoFactorAuth#generate_codes">
+        <%= current_user.otp_backup_codes.present? ? "Regenerate" : "Generate" %> Codes
+      </button>
+      <div class="modal fade" id="modal-generate-codes" tabindex="-1" role="dialog" aria-labelledby="modal-generate-codes" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="h6 modal-title">One-Time Password Recovery Codes</h2>
+            </div>
+            <div class="modal-body">
+              <p>Each code can be used <b>once</b>.</p>
+              <pre id="otp_codes" class="text-center"></pre>
+              <p>Once you close this window, there's no way to see them again.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger ms-auto" data-bs-dismiss="modal">Dismiss forever</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <% end %>
+    <% if current_user.otp_required_for_login? %>
+    <li class="list-group-item d-flex align-items-center justify-content-between px-0">
+
+    </li>
+    <% end %>
+  </ul>
+  <% if current_user.otp_required_for_login? %>
+    <button type="button" class="btn btn-block btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#modal-disable-2fa">
+      Disable 2-Factor Authentication
+    </button>
+    <div class="modal fade" id="modal-disable-2fa" tabindex="-1" role="dialog" aria-labelledby="modal-disable-2fa" aria-hidden="true" data-two-factor-auth-target="disableModal">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="h6 modal-title">
+              Disable 2-Factor Authentication
+            </h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Your account is more secure if you use 2-Factor Authentication.</p>
+            <p>Your phone number will be removed and your backup codes will be deactivated.</p>
+            <p>If you disable 2FA and re-enable it later, you will need to reconnect your Authenticator app.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-reflex="click->TwoFactorAuth#disable" data-reflex-root="#two_factor">
+              Proceed - I don't value my security
+            </button>
+            <button type="button" class="btn btn-link text-gray ms-auto" data-bs-dismiss="modal">
+              Just kidding
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

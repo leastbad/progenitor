@@ -160,3 +160,13 @@ html {
 .start-48 {
   left: 48% !important;
 }
+
+.badge-card {
+  position: absolute;
+  right: -2px;
+  top: 20px;
+  border-radius: unset;
+  border-top-left-radius: 0.2rem;
+  border-bottom-left-radius: 0.2rem;
+  padding: 0.5rem;
+}
