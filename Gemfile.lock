@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/stimulusreflex/cable_ready.git
-  revision: 41f00ebacfcf17d4588ab929cb3603e5a3f763b2
+  revision: 67d7fd014b761a2298c2589445047396f6b5b22e
   branch: master
   specs:
     cable_ready (5.0.0.pre6)

@@ -1,4 +1,9 @@
 class TwoFactorAuthReflex < ApplicationReflex
+  def validate(code)
+    self.payload = true
+    morph :nothing
+  end
+
   def toggle_2fa
     current_user.tap do |u|
       if !u.demo? && !u.otp_required_for_login? && element.checked

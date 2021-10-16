@@ -7,7 +7,7 @@
 
 <p>Add an authentication mechanism to enable 2FA protection for your account. You must always have at least one authentication mechanism active, or 2FA will be disabled and any phone numbers and/or backup codes will be erased.</p>
 
-<div class="row my-4">
+<div class="row my-4" data-controller="two-factor-auth">
   <div class="col-12 col-lg-6">
     <div class="card shadow-sm py-4">
       <span class="badge bg-success badge-card fw-bolder">RECOMMENDED</span>
@@ -20,23 +20,20 @@
           <%= current_user.otp_via_app? ? "Disable" : "Enable" %>
         </button>
         <div class="modal fade" id="modal-enable-app" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog modal-tertiary modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content bg-dark text-white">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h2 class="h6 modal-title">Google Authenticator</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body text-center py-3">
-                <span class="modal-icon display-1"><span class="fas fa-user-clock"></span></span>
-                <h3 class="modal-title mb-3">
-                  Google Authenticator
-                </h3>
-                <%= RQRCode::QRCode.new(@tfa_qr_code).as_svg(offset: 0, color: "fff", shape_rendering: "crispEdges", module_size: 4).html_safe %>
-                <p class="mb-4 lead">
-                  Please enter your 6-digit code:
+              <div class="modal-body text-center py-3 d-flex flex-column align-items-center">
+                <%= RQRCode::QRCode.new(@tfa_qr_code).as_svg(offset: 0, color: "000", shape_rendering: "crispEdges", module_size: 3).html_safe %>
+                <p class="my-3 lead">
+                  Scan the QR code with your Authenticator app, and then enter the 6-digit code to activate 2FA.
                 </p>
                 <div class="form-group px-lg-5">
                   <div class="d-flex mb-3 justify-content-center">
-                    <%= text_field_tag :otp_attempt, {}, class: "me-sm-1 mb-sm-0 form-control display-2-lg text-center", autocomplete: "off", data: {controller: "cleave", cleave_options_value: "{\"numericOnly\":\"true\",\"blocks\":[6]}"} %>
+                    <%= tag.input type: "text", class: "me-sm-1 mb-sm-0 form-control display-2-lg text-center", autocomplete: "off", data: {controller: "cleave", action: "change->two-factor-auth#enableApp input->two-factor-auth#enableApp", cleave_options_value: "{\"numericOnly\":\"true\",\"blocks\":[6]}"} %>
                   </div>
                 </div>
               </div>
