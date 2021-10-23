@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/leastbad/all_futures.git
-  revision: a67fe05f502ba364657c4e3b69cde1d818186d5a
-  branch: master
+  revision: e52ea8617951e780e0ff1c489892d1d4129af005
+  branch: v2
   specs:
     all_futures (1.0.3)
       activeentity (~> 6.1)
@@ -9,20 +9,20 @@ GIT
 
 GIT
   remote: https://github.com/stimulusreflex/cable_ready.git
-  revision: 1531aea1e9a555e357386f247d86542d99761ff5
-  branch: master
+  revision: e2acc2729531b0fcc12db5e16c20369991715568
+  branch: client-side-sanity
   specs:
-    cable_ready (5.0.0.pre6)
+    cable_ready (5.0.0.pre7)
       rails (>= 5.2)
       thread-local (>= 1.1.0)
 
 GIT
   remote: https://github.com/stimulusreflex/stimulus_reflex.git
-  revision: c963153a64c0099d94c674c58397ebafb7065172
-  branch: master
+  revision: 9956579068fdacb7ea3477f6755698f09a0d92c5
+  branch: client-side-sanity
   specs:
-    stimulus_reflex (3.5.0.pre6)
-      cable_ready (= 5.0.0.pre6)
+    stimulus_reflex (3.5.0.pre7)
+      cable_ready (= 5.0.0.pre7)
       nokogiri
       rack
       rails (>= 5.2)
@@ -219,7 +219,7 @@ GEM
       rack (~> 2.0)
       rails (>= 5.2)
     orm_adapter (0.5.0)
-    pagy (4.11.0)
+    pagy (5.2.2)
     parallel (1.20.1)
     parser (3.0.1.1)
       ast (~> 2.4.1)
@@ -399,7 +399,7 @@ DEPENDENCIES
   listen (~> 3.3)
   ngrok-tunnel (~> 2.1)
   optimism (~> 0.4.2)
-  pagy (~> 4.11)
+  pagy (~> 5.2)
   pg (~> 1.1)
   pg_search (~> 2.3)
   pry-rails

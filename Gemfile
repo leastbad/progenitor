@@ -42,18 +42,18 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.8"
-gem "cable_ready", github: "stimulusreflex/cable_ready", branch: "master"
-gem "stimulus_reflex", github: "stimulusreflex/stimulus_reflex", branch: "master"
+gem "cable_ready", github: "stimulusreflex/cable_ready", branch: "client-side-sanity"
+gem "stimulus_reflex", github: "stimulusreflex/stimulus_reflex", branch: "client-side-sanity"
 gem "optimism", "~> 0.4.2"
 gem "sidekiq", "~> 6.2.1"
 gem "sidekiq-scheduler", "~> 3.0"
 gem "rqrcode", "~> 2.0"
-gem "pagy", "~> 4.11"
+gem "pagy", "~> 5.2"
 gem "faker", "~> 2.16"
 gem "devise_masquerade", "~> 1.3"
 gem "chrono_trigger", "~> 1.0"
 gem "pg_search", "~> 2.3"
-gem "all_futures", github: "leastbad/all_futures", branch: "master"
+gem "all_futures", github: "leastbad/all_futures", branch: "v2"
 # gem "rorvswild"
 gem "valid_email2", "~> 3.1.3" # https://github.com/lisinge/valid_email2
 gem "devise-two-factor", "~> 4.0"
