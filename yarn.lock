@@ -946,10 +946,10 @@
   resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.0.1.tgz#141f15645acaa3b133b7c247cad58ae252ffae85"
   integrity sha512-oHsJhgY2cip+K2ED7vKUNd2P+BEswVhrCYcJ802DSsblJFv7mPFVk3cQKvm2vHgHeDVdnj7oOKrBbzp1u8D+KA==
 
-"@hotwired/turbo@^7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.0.1.tgz#2a8c6ab2f24914d1d47f3a7a7779e2881e8c61a0"
-  integrity sha512-awqraytYXbHV2NT0WAOnDDDGJeHHnFtnztdXvRuIqgsStUtPKM8B9H7ISm77SwbHemEjxEOB8Ku4RfNbEEXsPQ==
+"@hotwired/turbo@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.1.0.tgz#27e44e0e3dc5bd1d4bda0766d579cf5a14091cd7"
+  integrity sha512-Q8kGjqwPqER+CtpQudbH+3Zgs2X4zb6pBAlr6NsKTXadg45pAOvxI9i4QpuHbwSzR2+x87HUm+rot9F/Pe8rxA==
 
 "@npmcli/fs@^1.0.0":
   version "1.0.0"
@@ -991,7 +991,7 @@
   dependencies:
     tippy.js "^6.3.1"
 
-"@rails/actioncable@^6.1.2-1":
+"@rails/actioncable@^6.1.3":
   version "6.1.4"
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.1.4.tgz#c3c5a9f8302c429af9722b6c50ab48049016d2a3"
   integrity sha512-0LmSKJTuo2dL6BQ+9xxLnS9lbkyfz2mBGeBnQ2J7o9Bn0l0q+ZC6VuoZMZZXPvABI4QT7Nfknv5WhfKYL+boew==
@@ -1909,9 +1909,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001254:
-  version "1.0.30001257"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001257.tgz#150aaf649a48bee531104cfeda57f92ce587f6e5"
-  integrity sha512-JN49KplOgHSXpIsVSF+LUyhD8PUp6xPpAXeRrrcBh4KBeP7W864jHn6RvzJgDlrReyeVjMFJL3PLpPvKIxlIHA==
+  version "1.0.30001283"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001283.tgz"
+  integrity sha512-9RoKo841j1GQFSJz/nCXOj0sD7tHBtlowjYlrqIUS812x9/emfBLBt6IyMz1zIaYc/eRL8Cs6HPUVi2Hzq4sIg==
 
 canvas-confetti@^1.4.0:
   version "1.4.0"
@@ -4542,10 +4542,10 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
-mrujs@^0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.5.3.tgz#b03b2ccaa9e38b91e58f1cdb0373da999df03b24"
-  integrity sha512-88YHa9YMipHoEK9vHOTQBA13+n0/fgjpLBuHiHkIryZL6V8UDBfFSkA8YOr+iapYwu0jW0FB3ELZifqmyi1OCA==
+mrujs@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.7.1.tgz#e369929e285e4de9c178c7bd162666d28aecf4df"
+  integrity sha512-/JZammeLr16JD03XjHco+tCTe15GLaXu5enRvkxTPfX6R1cmtxOhBaUrYa2YSdRLcHK3eXf9U2H+y7lyGPXFiA==
   dependencies:
     morphdom ">=2.6.0 <3.0.0"
 
