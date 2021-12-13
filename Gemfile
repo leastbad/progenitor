@@ -5,11 +5,10 @@ ruby "2.7.3"
 
 gem "rails", "~> 6.1.4"
 gem "pg", "~> 1.1"
-gem "puma", "~> 5.2.1"
+gem "puma", "~> 5.5"
 gem "webpacker", "~> 5.4.3"
 gem "redis", ">= 4.2.5", require: ["redis/connection/hiredis", "redis"]
 gem "hiredis"
-gem "kredis", "~> 0.4"
 gem "redis-session-store", "~> 0.11.3"
 gem "image_processing", "~> 1.2"
 
@@ -24,7 +23,6 @@ group :development do
   # gem 'rails_mini_profiler', git: 'https://github.com/hschne/rails-mini-profiler', branch: 'main'
   # gem "stackprof"
   gem "listen", "~> 3.3"
-  gem "pry-rails"
   gem "ngrok-tunnel", "~> 2.1"
   gem "letter_opener", "~> 1.7"
   gem "standard", "~> 1.0"
@@ -42,19 +40,20 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.8"
-gem "cable_ready", github: "stimulusreflex/cable_ready", branch: "client-side-sanity"
-gem "stimulus_reflex", github: "stimulusreflex/stimulus_reflex", branch: "client-side-sanity"
+gem "cable_ready", github: "stimulusreflex/cable_ready", branch: "master"
+gem "stimulus_reflex", github: "stimulusreflex/stimulus_reflex", branch: "master"
 gem "optimism", "~> 0.4.2"
-gem "sidekiq", "~> 6.2.1"
+gem "sidekiq", "~> 6.3"
 gem "sidekiq-scheduler", "~> 3.0"
 gem "rqrcode", "~> 2.0"
 gem "pagy", "~> 5.2"
 gem "faker", "~> 2.16"
 gem "devise_masquerade", "~> 1.3"
-gem "chrono_trigger", "~> 1.0"
+# gem "chrono_trigger", "~> 1.0"
 gem "pg_search", "~> 2.3"
-gem "all_futures", github: "leastbad/all_futures", branch: "v2"
+gem "all_futures", github: "leastbad/all_futures", branch: "master"
 # gem "rorvswild"
 gem "valid_email2", "~> 3.1.3" # https://github.com/lisinge/valid_email2
 gem "devise-two-factor", "~> 4.0"
 gem "twilio-ruby", "~> 5.58"
+gem "parity"
